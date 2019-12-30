@@ -35,13 +35,17 @@ const Register = () => {
 		setState({ ...state, validate: true });
 
 		axios
-			.post(`${baseURL}/api/auth/register`, {
-				forename: state.forename,
-				surname: state.surname,
-				email: state.email,
-				password: state.password,
-				password2: state.password2
-			})
+			.post(
+				`/api/auth/register`,
+				{
+					forename: state.forename,
+					surname: state.surname,
+					email: state.email,
+					password: state.password,
+					password2: state.password2
+				},
+				{ baseURL }
+			)
 			.then(() => {
 				setState({ ...state, success: true });
 			})

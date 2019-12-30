@@ -34,12 +34,13 @@ const Login = () => {
 
 		axios
 			.post(
-				`${baseURL}/api/auth/login`,
+				`/api/auth/login`,
 				{
 					email: state.email,
 					password: state.password
 				},
 				{
+					baseURL,
 					withCredentials: true
 				}
 			)

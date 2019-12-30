@@ -67,8 +67,7 @@ router.post("/login", (req, res) => {
 					(_, token) => {
 						res.cookie("jwt", token, {
 							httpOnly: true,
-							secure: process.env.NODE_ENV === "production",
-							domain: process.env.BASE_URL
+							secure: process.env.NODE_ENV === "production"
 						});
 						res.json({ success: true });
 					}
