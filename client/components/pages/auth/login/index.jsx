@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { pattern } from "../../../utils";
-import { Box, Container, Heading, Paragraph, Subheading } from "../../styles";
-import Input from "../../form/input";
-import Button from "../../form/button";
+import { pattern } from "utils";
+import { Box, Paragraph, Subheading } from "components/styles";
+import Layout from "../Layout";
+import Input from "components/form/input";
+import Button from "components/form/button";
 
 const Login = () => {
 	const history = useHistory();
@@ -45,7 +46,7 @@ const Login = () => {
 				}
 			)
 			.then(() => {
-				document.cookie = "authenticated=true";
+				document.cookie = "authenticated=true;path=/";
 				history.push("/home");
 			})
 			.catch(err => {
@@ -57,8 +58,7 @@ const Login = () => {
 	};
 
 	return (
-		<Container small>
-			<Heading>Webapp</Heading>
+		<Layout>
 			<Box blue>
 				<Subheading>
 					Welcome to the
@@ -102,25 +102,11 @@ const Login = () => {
 					/>
 					<Button type="submit">Submit</Button>
 				</form>
-				<Button as="a" href="/register" mt="s" type="text">
+				<Button as="a" href="/auth/register" mt="s" type="text">
 					Create an account
 				</Button>
 			</Box>
-			<Paragraph center light mt="l">
-				Developed by{" "}
-				<a
-					href="https://paddl.co.uk/"
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					Paddl
-				</a>
-				.
-				<br />
-				Please report to us any errors or issues you have by using the flag icon
-				that can be found at the bottom of every page.
-			</Paragraph>
-		</Container>
+		</Layout>
 	);
 };
 

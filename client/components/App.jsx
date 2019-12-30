@@ -9,9 +9,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 
 import GlobalStyle from "./styles/global";
 
-import Register from "./pages/auth/Register";
-import Login from "./pages/auth/Login";
-import Logout from "./pages/auth/Logout";
+import { Login, Logout, Register } from "./pages/auth";
 import Home from "./pages/home";
 
 const httpLink = createHttpLink({
@@ -30,9 +28,9 @@ const App = () => {
 		<ApolloProvider client={client}>
 			<Router>
 				<GlobalStyle />
-				<Route component={Register} exact path="/register" />
-				<Route component={Login} exact path="/login" />
-				<Route component={Logout} exact path="/logout" />
+				<Route component={Login} exact path="/auth/login" />
+				<Route component={Logout} exact path="/auth/logout" />
+				<Route component={Register} exact path="/auth/register" />
 				<ProtectedRoute component={Home} path="/(|home)/" />
 			</Router>
 		</ApolloProvider>

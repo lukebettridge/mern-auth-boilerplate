@@ -6,6 +6,18 @@
 	"plugins": [
 		"transform-runtime",
 		"babel-plugin-transform-object-rest-spread",
-		"babel-plugin-styled-components"
+		"babel-plugin-styled-components",
+		[
+			"module-resolver",
+			{
+				"root": [
+					"./client"
+				],
+				"alias": {
+					"components": "./client/components",
+					"utils": "./client/utils"
+				}
+			}
+		]
 	]
 }

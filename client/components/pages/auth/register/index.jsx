@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { pattern } from "../../../utils";
-import { Box, Container, Heading, Paragraph } from "../../styles";
-import Input from "../../form/input";
-import Button from "../../form/button";
+import { pattern } from "utils";
+import { Box, Paragraph } from "components/styles";
+import Layout from "../Layout";
+import Input from "components/form/input";
+import Button from "components/form/button";
 
 const Register = () => {
 	const [state, setState] = useState({
@@ -58,8 +59,7 @@ const Register = () => {
 	};
 
 	return (
-		<Container small>
-			<Heading>Webapp</Heading>
+		<Layout>
 			<Box>
 				<Paragraph mb="l">
 					Use the form below to register for an account. Once approved, you will
@@ -120,11 +120,11 @@ const Register = () => {
 					<Button type="submit">Register</Button>
 				</form>
 				{state.success && <p>Success!</p>}
-				<Button as="a" href="/login" mt="s" type="text">
+				<Button as="a" href="/auth/login" mt="s" type="text">
 					Go back to login
 				</Button>
 			</Box>
-		</Container>
+		</Layout>
 	);
 };
 
