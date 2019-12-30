@@ -35,7 +35,7 @@ const Register = () => {
 		setState({ ...state, validate: true });
 
 		axios
-			.post("http://localhost:5000/api/auth/register", {
+			.post(`${baseURL}/api/auth/register`, {
 				forename: state.forename,
 				surname: state.surname,
 				email: state.email,

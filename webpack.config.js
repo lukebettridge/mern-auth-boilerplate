@@ -31,6 +31,9 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			React: "react"
 		}),
+		new webpack.DefinePlugin({
+			baseURL: JSON.stringify("http://localhost:5000")
+		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
 			minChunks: Infinity

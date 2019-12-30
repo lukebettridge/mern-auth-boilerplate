@@ -15,7 +15,7 @@ import Logout from "./pages/auth/Logout";
 import Home from "./pages/home";
 
 const httpLink = createHttpLink({
-	uri: "http://localhost:5000/graphql",
+	uri: `${baseURL}/graphql`,
 	credentials: "include"
 });
 
@@ -32,7 +32,7 @@ const App = () => {
 				<Route component={Register} exact path="/register" />
 				<Route component={Login} exact path="/login" />
 				<Route component={Logout} exact path="/logout" />
-				<ProtectedRoute component={Home} exact path="/home" />
+				<ProtectedRoute component={Home} path="/(|home)/" />
 			</Router>
 		</ApolloProvider>
 	);

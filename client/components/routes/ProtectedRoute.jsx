@@ -4,11 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-	const isAuthenticated = () => {
-		const authenticated = Cookies.get("authenticated");
-		return authenticated && authenticated === "true";
-	};
-
+	const isAuthenticated = () => Cookies.get("authenticated") === "true";
 	return (
 		<Route
 			{...rest}
