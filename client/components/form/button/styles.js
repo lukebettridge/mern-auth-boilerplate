@@ -22,12 +22,25 @@ const Button = styled.button`
 			&:hover {
 				text-decoration: underline;
 			}
+
+			${props.secondary &&
+				css`
+					color: #aaaaaa;
+					font-size: 11pt;
+					font-weight: 300;
+				`}
 		`}
 
 	${props =>
 		props.mt === "s" &&
 		css`
 			margin-top: 16px;
+		`}
+
+	${props =>
+		props.mb === "s" &&
+		css`
+			margin-bottom: 16px;
 		`}
 `;
 

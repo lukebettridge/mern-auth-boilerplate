@@ -19,6 +19,18 @@ const Box = styled.div`
 			background-color: #354a5f;
 			color: #ffffff;
 		`}
+
+	${props =>
+		props.mb === "none" &&
+		css`
+			margin-bottom: 0;
+		`}
+
+	${props =>
+		props.padding === "none" &&
+		css`
+			padding: 0 !important;
+		`}
 `;
 
 const Container = styled.div`

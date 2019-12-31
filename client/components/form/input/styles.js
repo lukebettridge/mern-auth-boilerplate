@@ -26,6 +26,18 @@ const Error = styled.p`
 	&:first-letter {
 		text-transform: capitalize;
 	}
+
+	${props =>
+		props.mt === "none" &&
+		css`
+			margin-top: 0;
+		`}
+
+	${props =>
+		props.mt === "s" &&
+		css`
+			margin-top: 16px;
+		`}
 `;
 
 module.exports = { Input, Error };
