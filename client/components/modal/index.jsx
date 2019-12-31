@@ -12,7 +12,6 @@ const Modal = props => {
 			borderColor: "#eeeeee",
 			borderRadius: "3px",
 			bottom: "auto",
-			height: "fit-content",
 			left: "50%",
 			maxWidth: "650px",
 			paddingBottom: "62px",
