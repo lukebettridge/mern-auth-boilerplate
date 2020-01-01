@@ -42,7 +42,11 @@ const Input = props => {
 
 	return (
 		<React.Fragment>
-			<S.Input onBlur={props.onBlur || validate} {...props} />
+			<S.Input
+				onBlur={props.onBlur || validate}
+				{...props}
+				ref={props.forwardRef}
+			/>
 			{state.error && <S.Error>{state.error}</S.Error>}
 		</React.Fragment>
 	);
@@ -50,18 +54,19 @@ const Input = props => {
 
 Input.propTypes = {
 	error: PropType.string,
+	forwardRef: PropType.any,
 	friendlyName: PropType.string,
 	isRequired: PropType.bool,
 	max: PropType.number,
 	min: PropType.number,
 	name: PropType.string,
 	onBlur: PropType.func,
-	onChange: PropType.func.isRequired,
+	onChange: PropType.func,
 	pattern: PropType.any,
 	placeholder: PropType.string,
 	type: PropType.string,
 	validate: PropType.bool,
-	value: PropType.any.isRequired
+	value: PropType.any
 };
 
 Input.defaultProps = {

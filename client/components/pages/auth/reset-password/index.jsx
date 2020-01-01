@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import PropType from "prop-types";
 import axios from "axios";
 
-import { Box, Paragraph } from "components/styles";
 import Layout from "../Layout";
+import { Box, Paragraph } from "components/styles";
 import Input from "components/form/input";
 import { Error } from "components/form/input/styles";
 import Button from "components/form/button";

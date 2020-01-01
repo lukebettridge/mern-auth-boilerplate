@@ -2,9 +2,13 @@ import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
+import { Subheading, Table } from "components/styles";
+import Layout from "../layout";
+
 const Home = () => {
 	return (
-		<div>
+		<Layout>
+			<Subheading>Todos</Subheading>
 			<Query
 				query={gql`
 					{
@@ -21,15 +25,26 @@ const Home = () => {
 						return <p>error</p>;
 					}
 					return (
-						<ul>
-							{data.todos.map(item => (
-								<li key={item.id}>{item.text}</li>
-							))}
-						</ul>
+						<Table>
+							<thead>
+								<tr>
+									<th className="col-1">ID</th>
+									<th className="col-4">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								{data.todos.map(item => (
+									<tr key={item.id}>
+										<td className="col-1">{item.id}</td>
+										<td className="col-4">{item.text}</td>
+									</tr>
+								))}
+							</tbody>
+						</Table>
 					);
 				}}
 			</Query>
-		</div>
+		</Layout>
 	);
 };
 

@@ -2,13 +2,19 @@ import styled, { css } from "styled-components";
 
 const Input = styled.input`
 	border: 1px solid #eeeeee;
-	border-radius: 4px;
+	border-radius: 3px;
 	font-size: 12pt;
 	margin-bottom: 10px;
 	max-width: 350px;
 	outline-width: 2px;
 	padding: 10px;
 	width: 100%;
+
+	${props =>
+		props.mb === "none" &&
+		css`
+			margin-bottom: 0;
+		`}
 
 	${props =>
 		props.mb === "s" &&

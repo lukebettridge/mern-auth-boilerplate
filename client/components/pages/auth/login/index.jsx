@@ -6,6 +6,7 @@ import { pattern } from "utils";
 import { Box, Paragraph, Subheading } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
+import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
 import ResetPasswordModal from "./ResetPasswordModal";
 
@@ -104,6 +105,7 @@ const Login = () => {
 							value={state.password}
 						/>
 						<Button type="submit">Submit</Button>
+						{state.errors.error && <Error mt="s">{state.errors.error}</Error>}
 						<Button
 							as="a"
 							onClick={() => setState({ ...state, modalIsOpen: true })}

@@ -11,6 +11,7 @@ import GlobalStyle from "./styles/global";
 
 import { Login, Logout, Register, ResetPassword } from "./pages/auth";
 import Home from "./pages/home";
+import Accounts from "./pages/accounts";
 
 const httpLink = createHttpLink({
 	uri: `${baseURL}/graphql`,
@@ -37,6 +38,7 @@ const App = () => {
 					path="/auth/reset-password/:resetKey"
 				/>
 				<ProtectedRoute component={Home} path="/(|home)/" />
+				<ProtectedRoute component={Accounts} exact path="/admin/accounts" />
 			</Router>
 		</ApolloProvider>
 	);

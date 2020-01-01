@@ -56,6 +56,11 @@ router.post("/login", (req, res) => {
 
 		bcrypt.compare(password, user.password).then(isMatch => {
 			if (isMatch) {
+				if (!user.active)
+					return res.status(400).json({
+						error:
+							"This user account has not been activated by an administrator"
+					});
 				jwt.sign(
 					{
 						id: user.id,

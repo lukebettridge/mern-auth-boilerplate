@@ -17,6 +17,14 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	roles: {
+		type: Array,
+		required: false
+	},
+	active: {
+		type: Boolean,
+		required: false
+	},
 	resetKey: {
 		type: String,
 		required: false

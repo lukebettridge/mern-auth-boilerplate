@@ -6,11 +6,11 @@ const todoType = gql`
 		text: String
 	}
 
-	type Query {
+	extend type Query {
 		todos: [Todo]
 	}
 
-	type Mutation {
+	extend type Mutation {
 		addTodo(text: String!): Todo
 		removeTodo(id: ID!): Todo
 	}

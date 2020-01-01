@@ -1,15 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import Layout from "../Layout";
+import { Box, Paragraph } from "components/styles";
+import Button from "components/form/button";
 
 const Logout = () => {
 	Cookies.remove("authenticated");
 	return (
 		<Layout>
-			<Link to="/auth/login">Login</Link>
-			Successfully logged out.
+			<Box>
+				<Paragraph>You have been logged out successfully.</Paragraph>
+				<Button as="a" href="/auth/login" mt="s" type="text">
+					Go back to login
+				</Button>
+			</Box>
 		</Layout>
 	);
 };

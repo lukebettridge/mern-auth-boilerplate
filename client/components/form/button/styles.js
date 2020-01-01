@@ -3,9 +3,11 @@ import styled, { css } from "styled-components";
 const Button = styled.button`
 	background-color: #f8f8f8;
 	border: 1px solid #eeeeee;
+	border-radius: 3px;
 	cursor: pointer;
 	font-size: 13pt;
 	font-weight: 600;
+	height: 41px;
 	max-width: 350px;
 	padding: 8px 20px;
 	width: 100%;
@@ -29,6 +31,13 @@ const Button = styled.button`
 					font-size: 11pt;
 					font-weight: 300;
 				`}
+		`}
+
+	${props =>
+		props.inline &&
+		css`
+			margin-left: 10px;
+			width: auto;
 		`}
 
 	${props =>
