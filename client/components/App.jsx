@@ -5,6 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import ScrollToTop from "./routes/ScrollToTop";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 import GlobalStyle from "./styles/global";
@@ -28,6 +29,7 @@ const App = () => {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
+				<ScrollToTop />
 				<GlobalStyle />
 				<Switch>
 					<Route component={Login} path="/auth/login" />
