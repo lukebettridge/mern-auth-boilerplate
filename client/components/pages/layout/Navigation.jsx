@@ -13,7 +13,7 @@ import {
 
 import * as S from "./styles";
 
-const Navigation = () => {
+const Navigation = props => {
 	const [state, setState] = useState({
 		user: false
 	});
@@ -26,7 +26,7 @@ const Navigation = () => {
 	};
 
 	return (
-		<S.Navigation>
+		<S.Navigation {...props}>
 			<S.List>
 				<S.ListItem>
 					<S.Anchor active={state.user} onClick={() => updateState("user")}>

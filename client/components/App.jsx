@@ -3,7 +3,7 @@ import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -29,16 +29,17 @@ const App = () => {
 		<ApolloProvider client={client}>
 			<Router>
 				<GlobalStyle />
-				<Route component={Login} exact path="/auth/login" />
-				<Route component={Logout} exact path="/auth/logout" />
-				<Route component={Register} exact path="/auth/register" />
-				<Route
-					component={ResetPassword}
-					exact
-					path="/auth/reset-password/:resetKey"
-				/>
-				<ProtectedRoute component={Home} path="/(|home)/" />
-				<ProtectedRoute component={Accounts} exact path="/admin/accounts" />
+				<Switch>
+					<Route component={Login} path="/auth/login" />
+					<Route component={Logout} path="/auth/logout" />
+					<Route component={Register} path="/auth/register" />
+					<Route
+						component={ResetPassword}
+						path="/auth/reset-password/:resetKey"
+					/>
+					<ProtectedRoute component={Home} path="/(|home)/" />
+					<ProtectedRoute component={Accounts} path="/admin/accounts" />
+				</Switch>
 			</Router>
 		</ApolloProvider>
 	);

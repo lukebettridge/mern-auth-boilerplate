@@ -95,7 +95,7 @@ const Login = () => {
 						<Button type="submit" width="100%">
 							Submit
 						</Button>
-						{state.errors.error && <Error mt="s">{state.errors.error}</Error>}
+						{state.errors.error && <Error mb="s">{state.errors.error}</Error>}
 						<Link
 							onClick={() => setState({ ...state, modalIsOpen: true })}
 							secondary

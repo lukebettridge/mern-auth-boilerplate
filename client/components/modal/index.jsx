@@ -16,7 +16,7 @@ const Modal = props => {
 			maxWidth: "650px",
 			paddingBottom: "62px",
 			right: "auto",
-			top: "50%",
+			top: "43%",
 			transform: "translate(-50%, -50%)",
 			width: "calc(100% - 20px)"
 		}

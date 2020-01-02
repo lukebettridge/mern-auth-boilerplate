@@ -17,10 +17,8 @@ const Layout = props => {
 				>
 					Paddl
 				</a>
-				.
-				<br />
-				Please report to us any errors or issues you have by using the flag icon
-				that can be found at the bottom of every page.
+				<br />. A limited company registered in England and Wales. Registered
+				number: 11992253.
 			</Paragraph>
 		</Container>
 	);

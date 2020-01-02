@@ -9,7 +9,7 @@ const Box = styled.div`
 	border: 1px solid #e9ecef;
 	color: #666666;
 	margin-bottom: 20px;
-	padding: 40px;
+	padding: 40px 30px;
 	text-align: center;
 
 	@media (min-width: ${breakpoints.m}) {
@@ -71,6 +71,16 @@ const Container = styled.div`
 		css`
 			display: table-cell;
 		`}
+
+		${props =>
+			props.inactive &&
+			css`
+				opacity: 0.3;
+
+				@media (min-width: ${breakpoints.m}) {
+					opacity: 1;
+				}
+			`}
 `;
 
 const FilterWrap = styled.div`

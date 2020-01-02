@@ -3,7 +3,7 @@ import PropType from "prop-types";
 import axios from "axios";
 
 import Layout from "../Layout";
-import { Box, Paragraph } from "components/styles";
+import { Box, Paragraph, RouterLink } from "components/styles";
 import Input from "components/form/input";
 import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
@@ -77,15 +77,17 @@ const ResetPassword = props => {
 						validate={state.validate}
 						value={state.newPassword2}
 					/>
-					<Button type="submit">Submit</Button>
+					<Button type="submit" width="100%">
+						Submit
+					</Button>
 					{state.errors.resetKey && (
-						<Error mt="s">{state.errors.resetKey}</Error>
+						<Error mb="s">{state.errors.resetKey}</Error>
 					)}
 				</form>
 				{state.success && <p>Success!</p>}
-				<Button as="a" href="/auth/login" mt="s" type="text">
+				<RouterLink mt="l" to="/auth/login">
 					Go back to login
-				</Button>
+				</RouterLink>
 			</Box>
 		</Layout>
 	);

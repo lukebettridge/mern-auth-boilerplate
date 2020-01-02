@@ -55,6 +55,12 @@ const Error = styled.p`
 		css`
 			margin-top: 16px;
 		`}
+
+	${props =>
+		props.mb === "s" &&
+		css`
+			margin-bottom: 16px;
+		`}
 `;
 
 export { Input, InputContainer, Error };

@@ -26,7 +26,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 ProtectedRoute.propTypes = {
 	component: PropType.any,
-	location: PropType.string
+	location: PropType.any
 };
 
 export default ProtectedRoute;

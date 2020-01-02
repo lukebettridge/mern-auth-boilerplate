@@ -54,6 +54,24 @@ const ListItem = styled.li`
 	margin-bottom: 40px;
 `;
 
+const Slider = styled.div`
+	align-items: center;
+	background-color: #fbfbfc;
+	border-left: 1px solid #e9ecef;
+	border-bottom: 1px solid #e9ecef;
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	z-index: 1;
+	@media (min-width: ${breakpoints.m}) {
+		display: none;
+	}
+`;
+
 const SubAnchor = styled.a`
 	${subAnchorStyles}
 `;
@@ -85,15 +103,18 @@ const Navigation = styled.div`
 	border-right: 1px solid #e9ecef;
 	display: none;
 	height: 100vh;
+	left: -200px;
 	max-width: 200px;
 	min-width: 200px;
 	padding-left: 15px;
 	padding-right: 10px;
 	width: 200px;
 
-	&.active {
-		display: table-cell;
-	}
+	${props =>
+		props.active &&
+		css`
+			display: table-cell;
+		`}
 
 	@media (min-width: ${breakpoints.m}) {
 		display: table-cell;
@@ -106,6 +127,7 @@ module.exports = {
 	List,
 	ListItem,
 	Navigation,
+	Slider,
 	SubAnchor,
 	SubLink,
 	SubList,
