@@ -103,21 +103,25 @@ const Navigation = styled.div`
 	border-right: 1px solid #e9ecef;
 	display: none;
 	height: 100vh;
-	left: -200px;
 	max-width: 200px;
 	min-width: 200px;
 	padding-left: 15px;
 	padding-right: 10px;
 	width: 200px;
+	z-index: 1;
 
 	${props =>
 		props.active &&
 		css`
 			display: table-cell;
+			padding-top: 48px;
+			position: absolute;
 		`}
 
 	@media (min-width: ${breakpoints.m}) {
 		display: table-cell;
+		padding-top: 0;
+		position: unset;
 	}
 `;
 

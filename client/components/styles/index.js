@@ -76,9 +76,10 @@ const Container = styled.div`
 			props.inactive &&
 			css`
 				opacity: 0.3;
-
+				pointer-events: none;
 				@media (min-width: ${breakpoints.m}) {
 					opacity: 1;
+					pointer-events: auto;
 				}
 			`}
 `;
