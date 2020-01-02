@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropType from "prop-types";
-import { FiSidebar } from "react-icons/fi";
+import { FiX, FiMenu } from "react-icons/fi";
 
 import Navigation from "./Navigation";
 import { Container, Paragraph } from "components/styles";
@@ -13,7 +13,7 @@ const Layout = props => {
 	return (
 		<React.Fragment>
 			<S.Slider onClick={() => setShowSidebar(!showSidebar)}>
-				<FiSidebar />
+				{showSidebar ? <FiX /> : <FiMenu />}
 			</S.Slider>
 			<S.Container>
 				<Navigation active={showSidebar} />

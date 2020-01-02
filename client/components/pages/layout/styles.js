@@ -64,6 +64,7 @@ const Slider = styled.div`
 	background-color: #fbfbfc;
 	border-left: 1px solid #e9ecef;
 	border-bottom: 1px solid #e9ecef;
+	color: #294661;
 	display: flex;
 	height: 50px;
 	justify-content: center;
@@ -125,6 +126,7 @@ const Navigation = styled.div`
 
 	@media (min-width: ${breakpoints.m}) {
 		display: table-cell;
+		height: unset;
 		position: unset;
 	}
 `;

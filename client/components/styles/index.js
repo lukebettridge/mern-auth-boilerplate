@@ -49,6 +49,7 @@ const Box = styled.div`
 
 const Container = styled.div`
 	margin: 0 auto;
+	min-height: 100vh;
 	padding: 32px 15px;
 	width: 100vw;
 
