@@ -162,6 +162,7 @@ const Paragraph = styled.p`
 		css`
 			color: #cccccc;
 			font-size: 10pt;
+			line-height: 1.4;
 		`}
 
 	${props =>
@@ -211,7 +212,6 @@ const Table = styled.table`
 				font-size: 9pt;
 				letter-spacing: 1px;
 				line-height: 15px;
-				text-align: left;
 				text-transform: uppercase;
 			}
 		}
@@ -221,11 +221,13 @@ const Table = styled.table`
 		tr {
 			background-color: #ffffff;
 			border: 1px solid #e9ecef;
-			cursor: pointer;
 			transition: background-color 0.3s;
 
-			&:hover {
-				background-color: #f4f6f7;
+			@media (min-width: ${breakpoints.m}) {
+				cursor: pointer;
+				&:hover {
+					background-color: #f4f6f7;
+				}
 			}
 
 			th {
@@ -242,7 +244,7 @@ const Table = styled.table`
 
 	tr {
 		border-bottom: 0;
-		font-size: 13px;
+		font-size: 10pt;
 		line-height: 20px;
 	}
 
@@ -250,6 +252,7 @@ const Table = styled.table`
 	td {
 		border: 0;
 		padding: 20px;
+		text-align: left;
 		vertical-align: middle;
 
 		${() =>
@@ -266,7 +269,7 @@ const TableAction = styled.a`
 	border-top: 0;
 	display: block;
 	font-size: 11pt;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding: 15px;
 	text-align: center;
 `;

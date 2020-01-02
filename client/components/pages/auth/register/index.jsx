@@ -117,7 +117,7 @@ const Register = () => {
 						validate={state.validate}
 						value={state.password2}
 					/>
-					<Button type="submit" width="100%">
+					<Button type="submit" width="350px">
 						Register
 					</Button>
 				</form>

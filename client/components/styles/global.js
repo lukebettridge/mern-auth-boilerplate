@@ -27,6 +27,17 @@ const GlobalStyle = createGlobalStyle`
         border-top: 1px solid #ffffff;
         margin: 16px 0;
     }
+
+    .ReactModal__Overlay {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+        opacity: 0;
+        transition: opacity .5s;
+        z-index: 1;
+    } 
+    
+    .ReactModal__Overlay--after-open {
+        opacity: 1;
+    }
 `;
 
 module.exports = GlobalStyle;

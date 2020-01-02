@@ -1,4 +1,5 @@
 const { AuthorizationError } = require("../errors");
+const validation = require("../../validation/update-user");
 const User = require("../models/User");
 
 const userResolver = {
@@ -18,6 +19,38 @@ const userResolver = {
 								user.email.match(query)
 					  )
 					: users
+			);
+		}
+	},
+	Mutation: {
+		activateUser: (parent, args, context) => {
+			if (!context.user || !context.user.roles.includes("admin"))
+				throw new AuthorizationError();
+
+			return User.findById(args.id).then(user =>
+				user.update({ active: true }).then(() => true)
+			);
+		},
+		deactivateUser: (parent, args, context) => {
+			if (!context.user || !context.user.roles.includes("admin"))
+				throw new AuthorizationError();
+
+			if (context.user.id === args.id) throw new Error();
+
+			return User.findById(args.id).then(user =>
+				user.update({ active: false }).then(() => false)
+			);
+		},
+		updateUser: (parent, args, context) => {
+			if (!context.user || !context.user.roles.includes("admin"))
+				throw new AuthorizationError();
+
+			const { id, forename, surname, email } = args.input;
+			const { isValid } = validation({ forename, surname, email });
+			if (!isValid) throw new Error();
+
+			return User.findById(id).then(user =>
+				user.update({ forename, surname, email }).then(() => id)
 			);
 		}
 	}

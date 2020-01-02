@@ -1,4 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import breakpoints from "components/styles/breakpoints";
+
+import ReactModal from "react-modal";
+
+ReactModal.setAppElement("#app");
 
 const Close = styled.a`
 	height: 32px;
@@ -33,7 +38,56 @@ const Close = styled.a`
 const Header = styled.div`
 	display: flex;
 	flex-direction: row-reverse;
+	justify-content: space-between;
 	margin-bottom: 30px;
 `;
 
-module.exports = { Close, Header };
+const Heading = styled.h2`
+	font-weight: 700;
+	margin: 0;
+`;
+
+const Modal = styled(ReactModal)`
+	background-color: #ffffff;
+	border: 1px solid #e9ecef;
+	bottom: auto;
+	left: 50%;
+	max-width: 650px;
+	outline: none;
+	padding: 20px 20px 62px;
+	position: absolute;
+	right: auto;
+	top: 43%;
+	width: calc(100% - 20px);
+
+	${props =>
+		props.sideModal
+			? css`
+					border: 0;
+					border-left: 1px solid #e9ecef;
+					bottom: 0;
+					left: auto;
+					max-width: 720px;
+					padding: 40px 20px;
+					right: -100%;
+					top: 0;
+					transition: right 0.5s;
+					width: 100%;
+					z-index: 2;
+
+					&.ReactModal__Content--after-open {
+						right: 0;
+					}
+
+					@media (min-width: ${breakpoints.m}) {
+						padding: 60px;
+					}
+			  `
+			: css`
+					border-radius: 2px;
+					padding-bottom: 62px;
+					transform: translate(-50%, -50%);
+			  `}
+`;
+
+module.exports = { Close, Header, Heading, Modal };

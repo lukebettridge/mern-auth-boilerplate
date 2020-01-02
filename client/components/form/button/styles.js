@@ -8,10 +8,14 @@ const Button = styled.button`
 	cursor: pointer;
 	font-size: 10pt;
 	font-weight: 300;
-	max-width: 350px;
 	outline-width: 3px;
 	padding: 10px 20px;
 	transition: background-color .3s;
+
+	&:disabled {
+		cursor: unset;
+		opacity: .4;
+	}
 
 	${props =>
 		props.secondary &&
@@ -20,7 +24,7 @@ const Button = styled.button`
 			border: 1px solid #a3cdf3;
 			color: #1a82e2;
 
-			&:hover {
+			&:hover:not(:disabled) {
 				background-color: #e8f2fc;
 			}
 		`}

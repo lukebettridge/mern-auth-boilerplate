@@ -92,7 +92,7 @@ const Login = () => {
 							validate={state.validate}
 							value={state.password}
 						/>
-						<Button type="submit" width="100%">
+						<Button type="submit" width="350px">
 							Submit
 						</Button>
 						{state.errors.error && <Error mb="s">{state.errors.error}</Error>}

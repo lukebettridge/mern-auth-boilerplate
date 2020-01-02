@@ -1,44 +1,30 @@
 import React from "react";
 import PropType from "prop-types";
-import ReactModal from "react-modal";
 
 import * as S from "./styles";
 
 const Modal = props => {
-	ReactModal.setAppElement("#app");
-	const customStyles = {
-		content: {
-			backgroundColor: "#ffffff",
-			borderColor: "#eeeeee",
-			borderRadius: "3px",
-			bottom: "auto",
-			left: "50%",
-			maxWidth: "650px",
-			paddingBottom: "62px",
-			right: "auto",
-			top: "43%",
-			transform: "translate(-50%, -50%)",
-			width: "calc(100% - 20px)"
-		}
-	};
 	return (
-		<ReactModal
+		<S.Modal
 			isOpen={props.isOpen}
 			onRequestClose={props.close}
-			style={customStyles}
+			sideModal={props.sideModal}
 		>
 			<S.Header>
 				<S.Close onClick={props.close} />
+				{props.title && <S.Heading>{props.title}</S.Heading>}
 			</S.Header>
 			{props.children}
-		</ReactModal>
+		</S.Modal>
 	);
 };
 
 Modal.propTypes = {
 	children: PropType.any,
 	close: PropType.func,
-	isOpen: PropType.bool.isRequired
+	isOpen: PropType.bool.isRequired,
+	sideModal: PropType.bool,
+	title: PropType.string
 };
 
 export default Modal;

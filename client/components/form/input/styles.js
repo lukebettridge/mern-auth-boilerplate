@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 const Input = styled.input`
+	background-color: transparent;
 	border: 0;
 	border-bottom: 1px solid #e9ecef;
 	font-size: 11pt;
@@ -14,6 +15,12 @@ const Input = styled.input`
 		props.inError &&
 		css`
 			border-color: #db1802;
+		`}
+
+	${props =>
+		props.small &&
+		css`
+			font-size: 10pt;
 		`}
 `;
 

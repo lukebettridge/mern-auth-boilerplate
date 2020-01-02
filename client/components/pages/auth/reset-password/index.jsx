@@ -77,7 +77,7 @@ const ResetPassword = props => {
 						validate={state.validate}
 						value={state.newPassword2}
 					/>
-					<Button type="submit" width="100%">
+					<Button type="submit" width="350px">
 						Submit
 					</Button>
 					{state.errors.resetKey && (
