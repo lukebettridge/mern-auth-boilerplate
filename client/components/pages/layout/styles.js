@@ -51,7 +51,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 `;
 
 const SubAnchor = styled.a`

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { pattern } from "utils";
-import { Box, Paragraph } from "components/styles";
+import { Box, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -109,7 +109,7 @@ const Register = () => {
 						error={state.errors.password2}
 						friendlyName={"Confirm password"}
 						isRequired={true}
-						mb="s"
+						mb="m"
 						name="password2"
 						onChange={onChange}
 						placeholder={"Confirm Password"}
@@ -117,12 +117,14 @@ const Register = () => {
 						validate={state.validate}
 						value={state.password2}
 					/>
-					<Button type="submit">Register</Button>
+					<Button type="submit" width="100%">
+						Register
+					</Button>
 				</form>
 				{state.success && <p>Success!</p>}
-				<Button as="a" href="/auth/login" mt="s" type="text">
+				<RouterLink mt="l" to="/auth/login">
 					Go back to login
-				</Button>
+				</RouterLink>
 			</Box>
 		</Layout>
 	);

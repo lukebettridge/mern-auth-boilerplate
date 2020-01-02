@@ -1,44 +1,41 @@
 import styled, { css } from "styled-components";
 
 const Button = styled.button`
-	background-color: #f8f8f8;
-	border: 1px solid #eeeeee;
-	border-radius: 3px;
+	background-color: #1188e6;
+	border: 1px solid #1288e5;
+	border-radius: 2px;
+	color: #ffffff;
 	cursor: pointer;
-	font-size: 13pt;
-	font-weight: 600;
-	height: 41px;
+	font-size: 10pt;
+	font-weight: 300;
 	max-width: 350px;
-	padding: 8px 20px;
-	width: 100%;
+	outline-width: 3px;
+	padding: 10px 20px;
+	transition: background-color .3s;
 
 	${props =>
-		props.as === "a" &&
+		props.secondary &&
 		css`
 			background-color: transparent;
-			color: #596f86;
-			display: block;
-			font-weight: 400;
-			max-width: none;
-			text-decoration: none;
-			&:hover {
-				text-decoration: underline;
-			}
+			border: 1px solid #a3cdf3;
+			color: #1a82e2;
 
-			${props.secondary &&
-				css`
-					color: #aaaaaa;
-					font-size: 11pt;
-					font-weight: 300;
-				`}
+			&:hover {
+				background-color: #e8f2fc;
+			}
 		`}
 
 	${props =>
 		props.inline &&
 		css`
-			margin-left: 10px;
-			width: auto;
+			margin-left: 15px;
 		`}
+
+		${props =>
+			props.width &&
+			css`
+				width: ${props.width};
+			`}
 
 	${props =>
 		props.mt === "s" &&

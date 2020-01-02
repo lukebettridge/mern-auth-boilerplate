@@ -54,7 +54,7 @@ const ResetPasswordModal = props => {
 
 	return (
 		<Modal close={props.close} isOpen={props.isOpen}>
-			<Box mb="none" padding="none">
+			<Box border="none" mb="none" padding="none">
 				<Paragraph mb="l">
 					Enter the email address associated with your account and click submit.
 					An email will be sent to you with a link to reset your password.
@@ -63,7 +63,7 @@ const ResetPasswordModal = props => {
 					<Input
 						error={state.errors.email}
 						isRequired={true}
-						mb="s"
+						mb="m"
 						name="email"
 						onChange={onChange}
 						pattern={pattern.email}
@@ -72,7 +72,9 @@ const ResetPasswordModal = props => {
 						validate={state.validate}
 						value={state.email}
 					/>
-					<Button type="submit">Submit</Button>
+					<Button type="submit" width="100%">
+						Submit
+					</Button>
 				</form>
 			</Box>
 		</Modal>

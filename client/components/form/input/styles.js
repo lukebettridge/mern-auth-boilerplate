@@ -1,13 +1,24 @@
 import styled, { css } from "styled-components";
 
 const Input = styled.input`
-	border: 1px solid #eeeeee;
-	border-radius: 3px;
-	font-size: 12pt;
-	margin-bottom: 10px;
+	border: 0;
+	border-bottom: 1px solid #e9ecef;
+	font-size: 11pt;
+	font-weight: 300;
 	max-width: 350px;
-	outline-width: 2px;
-	padding: 10px;
+	outline: none;
+	padding: 12px 10px;
+	width: 100%;
+
+	${props =>
+		props.inError &&
+		css`
+			border-color: #db1802;
+		`}
+`;
+
+const InputContainer = styled.div`
+	margin-bottom: 10px;
 	width: 100%;
 
 	${props =>
@@ -17,9 +28,9 @@ const Input = styled.input`
 		`}
 
 	${props =>
-		props.mb === "s" &&
+		props.mb === "m" &&
 		css`
-			margin-bottom: 16px;
+			margin-bottom: 24px;
 		`}
 `;
 
@@ -27,7 +38,7 @@ const Error = styled.p`
 	color: #db1802;
 	font-size: 10pt;
 	font-weight: 300;
-	margin: -4px auto 16px;
+	margin: 10px auto;
 	max-width: 350px;
 	&:first-letter {
 		text-transform: capitalize;
@@ -46,4 +57,4 @@ const Error = styled.p`
 		`}
 `;
 
-module.exports = { Input, Error };
+export { Input, InputContainer, Error };

@@ -69,7 +69,7 @@ const ResetPassword = props => {
 						error={state.errors.newPassword2}
 						friendlyName={"Confirm new password"}
 						isRequired={true}
-						mb="s"
+						mb="m"
 						name="newPassword2"
 						onChange={onChange}
 						placeholder={"Confirm New Password"}

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import { pattern } from "utils";
-import { Box, Paragraph, Subheading } from "components/styles";
+import { Box, Link, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
 import { Error } from "components/form/input/styles";
@@ -63,18 +63,6 @@ const Login = () => {
 	return (
 		<React.Fragment>
 			<Layout>
-				<Box blue>
-					<Subheading>
-						Welcome to the
-						<br />
-						base Webapp
-					</Subheading>
-					<hr />
-					<Paragraph>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</Paragraph>
-				</Box>
 				<Box>
 					<Paragraph mb="l">
 						Fill out the form below and click submit to login to the portal. If
@@ -96,7 +84,7 @@ const Login = () => {
 						<Input
 							error={state.errors.password}
 							isRequired={true}
-							mb="s"
+							mb="m"
 							name="password"
 							onChange={onChange}
 							placeholder={"Password"}
@@ -104,19 +92,20 @@ const Login = () => {
 							validate={state.validate}
 							value={state.password}
 						/>
-						<Button type="submit">Submit</Button>
+						<Button type="submit" width="100%">
+							Submit
+						</Button>
 						{state.errors.error && <Error mt="s">{state.errors.error}</Error>}
-						<Button
-							as="a"
+						<Link
 							onClick={() => setState({ ...state, modalIsOpen: true })}
 							secondary
 						>
 							Forgotten your password?
-						</Button>
+						</Link>
 					</form>
-					<Button as="a" href="/auth/register" mt="s">
+					<RouterLink mt="l" to="/auth/register">
 						Create an account
-					</Button>
+					</RouterLink>
 				</Box>
 			</Layout>
 			<ResetPasswordModal

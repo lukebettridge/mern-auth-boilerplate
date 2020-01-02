@@ -2,9 +2,11 @@
 import styled, { css } from "styled-components";
 import breakpoints from "./breakpoints";
 
+import { Link as ReactRouterLink } from "react-router-dom";
+
 const Box = styled.div`
-	background-color: #eeeeee;
-	border-radius: 4px;
+	background-color: #ffffff;
+	border: 1px solid #e9ecef;
 	color: #666666;
 	margin-bottom: 20px;
 	padding: 40px;
@@ -12,14 +14,25 @@ const Box = styled.div`
 
 	@media (min-width: ${breakpoints.m}) {
 		padding: 54px;
+		padding-bottom: 50px;
 	}
 
 	${props =>
-		props.blue &&
+		props.grey &&
 		css`
-			background-color: #354a5f;
-			color: #ffffff;
+			background-color: #e8e8e8;
+			border-color: #c3c3c3;
+
+			hr {
+				border-color: #e0e0e0;
+			}
 		`}
+
+		${props =>
+			props.border &&
+			css`
+				border: ${props.border};
+			`}
 
 	${props =>
 		props.mb === "none" &&
@@ -49,7 +62,7 @@ const Container = styled.div`
 		css`
 			max-width: 540px;
 			@media (min-width: ${breakpoints.m}) {
-				max-width: 650px;
+				max-width: 700px;
 			}
 		`}
 
@@ -71,12 +84,13 @@ const FilterHeader = styled.div`
 	border-bottom: 1px solid #e9ecef;
 	display: flex;
 	justify-content: space-between;
-	padding: 6px 12px;
+	padding: 10px 20px;
 `;
 
 const FilterBody = styled.div`
 	background-color: #ffffff;
-	padding: 20px 30px 30px;
+	display: flex;
+	padding: 20px;
 `;
 
 const Heading = styled.h1`
@@ -88,8 +102,46 @@ const Heading = styled.h1`
 	margin-bottom: 32px;
 `;
 
+const linkStyles = props => `
+	color: #489be8;
+	cursor: pointer;
+	display: block;
+	font-size: 11pt;
+	font-weight: 300;
+	margin: 10px;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	${
+		props.secondary
+			? css`
+					color: #888888;
+					opacity: 0.6;
+
+					&:hover {
+						opacity: 1;
+					}
+			  `
+			: ""
+	}
+
+	${
+		props.mt === "l"
+			? css`
+					margin-top: 35px;
+			  `
+			: ""
+	}
+	
+`;
+
+const Link = styled.a`
+	${props => linkStyles(props)}
+`;
+
 const Paragraph = styled.p`
-	font-weight: 200;
+	font-weight: 300;
+	line-height: 1.9;
 	margin-top: 0;
 	margin-bottom: 16px;
 
@@ -127,9 +179,14 @@ const Paragraph = styled.p`
 	}
 `;
 
+const RouterLink = styled(ReactRouterLink)`
+	${props => linkStyles(props)}
+`;
+
 const Table = styled.table`
 	border-collapse: collapse;
 	border-spacing: 0;
+	color: #444444;
 	width: 100%;
 
 	thead {
@@ -159,6 +216,12 @@ const Table = styled.table`
 				background-color: #f4f6f7;
 			}
 
+			th {
+				color: #546b81;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
 			td {
 				background-color: inherit;
 			}
@@ -182,6 +245,18 @@ const Table = styled.table`
 				.map((_, i) => `&.col-${i + 1} { grid-column: span ${i + 1}; }`)
 				.join(" ")}
 	}
+`;
+
+const TableAction = styled.a`
+	background-color: #fbfbfc;
+	border: 1px solid #e9ecef;
+	color: #489be8;
+	border-top: 0;
+	display: block;
+	font-size: 11pt;
+	margin-bottom: 10px;
+	padding: 15px;
+	text-align: center;
 `;
 
 const Status = styled.span`
@@ -215,15 +290,18 @@ const Subheading = styled.h2`
 	margin-bottom: 30px;
 `;
 
-module.exports = {
+export {
 	Box,
 	Container,
 	FilterBody,
 	FilterHeader,
 	FilterWrap,
 	Heading,
+	Link,
 	Paragraph,
+	RouterLink,
 	Table,
+	TableAction,
 	Status,
 	Subheading
 };

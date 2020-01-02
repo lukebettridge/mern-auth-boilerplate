@@ -3,6 +3,8 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import {
 	FiChevronDown,
+	FiMail,
+	FiPackage,
 	FiSettings,
 	FiSidebar,
 	FiUser,
@@ -66,9 +68,19 @@ const Navigation = () => {
 				<S.ListItem>
 					<S.Link to="/">
 						<span>
-							<FiSettings />
-							Settings
+							<FiPackage />
+							Orders
 						</span>
+						<FiChevronDown />
+					</S.Link>
+				</S.ListItem>
+				<S.ListItem>
+					<S.Link to="/">
+						<span>
+							<FiMail />
+							Messages
+						</span>
+						<FiChevronDown />
 					</S.Link>
 				</S.ListItem>
 				<Query
@@ -95,6 +107,15 @@ const Navigation = () => {
 						)
 					}
 				</Query>
+				<S.ListItem>
+					<S.Link to="/">
+						<span>
+							<FiSettings />
+							Settings
+						</span>
+						<FiChevronDown />
+					</S.Link>
+				</S.ListItem>
 			</S.List>
 		</S.Navigation>
 	);

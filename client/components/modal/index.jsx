@@ -8,7 +8,7 @@ const Modal = props => {
 	ReactModal.setAppElement("#app");
 	const customStyles = {
 		content: {
-			backgroundColor: "#eeeeee",
+			backgroundColor: "#ffffff",
 			borderColor: "#eeeeee",
 			borderRadius: "3px",
 			bottom: "auto",

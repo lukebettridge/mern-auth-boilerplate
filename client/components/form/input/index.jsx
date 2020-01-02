@@ -37,18 +37,20 @@ const Input = props => {
 		} else if (typeof min === "number" && value < min) {
 			error = `${prefix} must be larger than ${min}.`;
 		}
-		setState({ ...state, error });
+
+		if (!props.error) setState({ ...state, error });
 	};
 
 	return (
-		<React.Fragment>
+		<S.InputContainer {...props}>
 			<S.Input
+				inError={!!state.error}
 				onBlur={props.onBlur || validate}
 				{...props}
 				ref={props.forwardRef}
 			/>
-			{state.error && <S.Error>{state.error}</S.Error>}
-		</React.Fragment>
+			{!!state.error && <S.Error>{state.error}</S.Error>}
+		</S.InputContainer>
 	);
 };
 
