@@ -5,17 +5,17 @@ import { FiSidebar } from "react-icons/fi";
 import Navigation from "./Navigation";
 import { Container, Paragraph } from "components/styles";
 
-import { Slider } from "./styles";
+import * as S from "./styles";
 
 const Layout = props => {
 	const [showSidebar, setShowSidebar] = useState(false);
 
 	return (
 		<React.Fragment>
-			<Slider onClick={() => setShowSidebar(!showSidebar)}>
+			<S.Slider onClick={() => setShowSidebar(!showSidebar)}>
 				<FiSidebar />
-			</Slider>
-			<div>
+			</S.Slider>
+			<S.Container>
 				<Navigation active={showSidebar} />
 				<Container inactive={showSidebar} tableCell>
 					{props.children}
@@ -31,7 +31,7 @@ const Layout = props => {
 						.
 					</Paragraph>
 				</Container>
-			</div>
+			</S.Container>
 		</React.Fragment>
 	);
 };

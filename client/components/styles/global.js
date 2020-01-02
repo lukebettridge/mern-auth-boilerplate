@@ -6,9 +6,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        background-color: #fcfcfc;
+        display: flex;
         font-family: 'Lato', sans-serif;
         margin: 0;
-        background-color: #fcfcfc;
+        min-height: 100vh;
 
         &.ReactModal__Body--open {
             overflow: hidden;

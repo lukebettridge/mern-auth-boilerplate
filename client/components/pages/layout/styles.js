@@ -42,6 +42,11 @@ const Anchor = styled.a`
 		`}
 `;
 
+const Container = styled.div`
+	display: flex;
+	height: 100%;
+`;
+
 const Link = styled(RouterLink)`
 	${anchorStyles}
 `;
@@ -102,11 +107,12 @@ const Navigation = styled.div`
 	background-color: #fbfbfc;
 	border-right: 1px solid #e9ecef;
 	display: none;
-	height: 100vh;
+	height: 100%;
 	max-width: 200px;
 	min-width: 200px;
 	padding-left: 15px;
 	padding-right: 10px;
+	padding-top: 48px;
 	width: 200px;
 	z-index: 1;
 
@@ -114,19 +120,18 @@ const Navigation = styled.div`
 		props.active &&
 		css`
 			display: table-cell;
-			padding-top: 48px;
 			position: absolute;
 		`}
 
 	@media (min-width: ${breakpoints.m}) {
 		display: table-cell;
-		padding-top: 0;
 		position: unset;
 	}
 `;
 
 module.exports = {
 	Anchor,
+	Container,
 	Link,
 	List,
 	ListItem,
