@@ -196,7 +196,6 @@ const AccountModal = props => {
 												: () => activateUser(mutation)
 										}
 										secondary={active}
-										width="100%"
 									>
 										{active ? "Deactivate" : "Activate"} Account
 									</Button>

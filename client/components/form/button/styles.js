@@ -30,15 +30,18 @@ const Button = styled.button`
 		`}
 
 	${props =>
-		props.inline &&
-		css`
-			margin-left: 15px;
-		`}
+		props.inline
+			? css`
+					margin-left: 15px;
+			  `
+			: css`
+					width: 100%;
+			  `}
 
 		${props =>
-			props.width &&
+			props.maxWidth &&
 			css`
-				width: ${props.width};
+				max-width: ${props.maxWidth};
 			`}
 
 	${props =>

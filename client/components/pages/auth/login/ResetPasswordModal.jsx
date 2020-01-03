@@ -72,7 +72,7 @@ const ResetPasswordModal = props => {
 						validate={state.validate}
 						value={state.email}
 					/>
-					<Button type="submit" width="350px">
+					<Button maxWidth="350px" type="submit">
 						Submit
 					</Button>
 				</form>
