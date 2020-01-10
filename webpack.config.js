@@ -6,10 +6,12 @@ module.exports = {
 	entry: {
 		app: "./client/app.js"
 	},
+	mode: process.env.NODE_ENV,
 	output: {
-		path: path.resolve(__dirname, "./build"),
-		publicPath: "/",
-		filename: "[name].[hash:8].js"
+		path: path.join(__dirname, "./build"),
+		filename: "[name].[hash:8].bundle.js",
+		chunkFilename: "[name].[hash:8].bundle.js",
+		publicPath: "/"
 	},
 	module: {
 		rules: [
@@ -25,6 +27,19 @@ module.exports = {
 	},
 	resolve: {
 		extensions: [".js", ".jsx"]
+	},
+	optimization: {
+		splitChunks: {
+			chunks: "all",
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: "vendors",
+					priority: 1,
+					enforce: true
+				}
+			}
+		}
 	},
 	plugins: [
 		new webpack.ProvidePlugin({
