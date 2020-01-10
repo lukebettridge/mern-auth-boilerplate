@@ -4,8 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	entry: {
-		app: "./client/app.js",
-		vendor: ["react", "react-apollo"]
+		app: "./client/app.js"
 	},
 	output: {
 		path: path.resolve(__dirname, "./build"),
@@ -33,10 +32,6 @@ module.exports = {
 		}),
 		new webpack.DefinePlugin({
 			baseURL: JSON.stringify("http://localhost:5000")
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendor",
-			minChunks: Infinity
 		}),
 		new HtmlWebpackPlugin({
 			template: "client/index.html",
