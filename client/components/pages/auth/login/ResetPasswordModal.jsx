@@ -25,11 +25,13 @@ const ResetPasswordModal = props => {
 		if (state.validate) setState({ ...state, validate: false });
 	}, [state.validate]);
 
-	const onChange = e =>
-		setState({
-			...state,
-			[e.target.name]: e.target.value
-		});
+	const onChange = e => {
+		const { name, value } = e.target;
+		setState(prev => ({
+			...prev,
+			[name]: value
+		}));
+	};
 
 	const onSubmit = e => {
 		e.preventDefault();

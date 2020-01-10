@@ -3,7 +3,7 @@ import MediaQuery from "react-responsive";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
-import Layout from "../layout";
+import Layout from "components/pages/layout";
 import {
 	FilterBody,
 	FilterHeader,

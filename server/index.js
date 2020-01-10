@@ -42,6 +42,11 @@ app.use(cookieParser());
 const server = new ApolloServer({
 	context,
 	cors: false,
+	formatError: err => {
+		if (err.message.includes("Invalid entry"))
+			return err.extensions.exception.errors;
+		return err;
+	},
 	resolvers,
 	typeDefs
 });

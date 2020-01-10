@@ -11,8 +11,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import GlobalStyle from "./styles/global";
 
 import { Login, Logout, Register, ResetPassword } from "./pages/auth";
+import { Accounts } from "./pages/admin";
 import Home from "./pages/home";
-import Accounts from "./pages/accounts";
 
 const httpLink = createHttpLink({
 	uri: `${baseURL}/graphql`,

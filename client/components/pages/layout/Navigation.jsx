@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropType from "prop-types";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import {
@@ -33,6 +34,7 @@ const Navigation = props => {
 						<span>
 							<FiUser />
 							<Query
+								fetchPolicy={"no-cache"}
 								query={gql`
 									{
 										currentUser {
@@ -50,7 +52,9 @@ const Navigation = props => {
 					</S.Anchor>
 					<S.SubList active={state.user}>
 						<S.SubListItem>
-							<S.SubLink to="/">Change Password</S.SubLink>
+							<S.SubAnchor onClick={props.changePassword}>
+								Change Password
+							</S.SubAnchor>
 						</S.SubListItem>
 						<S.SubListItem>
 							<S.SubLink to="/auth/logout">Logout</S.SubLink>
@@ -84,6 +88,7 @@ const Navigation = props => {
 					</S.Link>
 				</S.ListItem>
 				<Query
+					fetchPolicy={"no-cache"}
 					query={gql`
 						{
 							currentUser {
@@ -119,6 +124,10 @@ const Navigation = props => {
 			</S.List>
 		</S.Navigation>
 	);
+};
+
+Navigation.propTypes = {
+	changePassword: PropType.func.isRequired
 };
 
 export default Navigation;

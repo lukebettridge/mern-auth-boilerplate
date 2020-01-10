@@ -1,5 +1,12 @@
+const bcrypt = require("bcryptjs");
+const { UserInputError } = require("apollo-server-express");
+
 const { AuthorizationError } = require("../errors");
-const validation = require("../../validation/update-user");
+const { passwordHash } = require("../../utils");
+const validate = {
+	changePassword: require("../../validation/reset-password"),
+	updateUser: require("../../validation/update-user")
+};
 const User = require("../models/User");
 
 const userResolver = {
@@ -41,13 +48,38 @@ const userResolver = {
 				user.update({ active: false }).then(() => false)
 			);
 		},
+		changePassword: (parent, args, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			const { password, newPassword, newPassword2 } = args.input;
+			return bcrypt.compare(password, context.user.password).then(isMatch => {
+				if (isMatch) {
+					const { errors, isValid } = validate.changePassword({
+						newPassword,
+						newPassword2
+					});
+					if (!isValid) throw new UserInputError("Invalid entry", { errors });
+
+					passwordHash(newPassword, (err, hash) => {
+						if (err) throw err;
+						return context.user
+							.update({ password: hash })
+							.then(() => context.user.id);
+					});
+				} else throw new Error("The password that you've entered is incorrect");
+			});
+		},
 		updateUser: (parent, args, context) => {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
 			const { id, forename, surname, email } = args.input;
-			const { isValid } = validation({ forename, surname, email });
-			if (!isValid) throw new Error();
+			const { errors, isValid } = validate.updateUser({
+				forename,
+				surname,
+				email
+			});
+			if (!isValid) throw new UserInputError("Invalid entry", { errors });
 
 			return User.findById(id).then(user =>
 				user.update({ forename, surname, email }).then(() => id)

@@ -10,7 +10,7 @@ const Input = props => {
 
 	useEffect(() => {
 		const { error } = props;
-		setState({ ...state, error });
+		setState(prev => ({ ...prev, error }));
 	}, [props.error]);
 
 	useEffect(() => {
@@ -38,7 +38,7 @@ const Input = props => {
 			error = `${prefix} must be larger than ${min}.`;
 		}
 
-		if (!props.error) setState({ ...state, error });
+		if (!props.error) setState(prev => ({ ...prev, error }));
 	};
 
 	return (

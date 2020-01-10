@@ -26,11 +26,13 @@ const Login = () => {
 		}
 	}, [state.validate]);
 
-	const onChange = e =>
-		setState({
-			...state,
-			[e.target.name]: e.target.value
-		});
+	const onChange = e => {
+		const { name, value } = e.target;
+		setState(prev => ({
+			...prev,
+			[name]: value
+		}));
+	};
 
 	const onSubmit = e => {
 		e.preventDefault();
@@ -53,10 +55,10 @@ const Login = () => {
 				history.push("/home");
 			})
 			.catch(err => {
-				setState({
-					...state,
+				setState(prev => ({
+					...prev,
 					errors: err.response.data
-				});
+				}));
 			});
 	};
 

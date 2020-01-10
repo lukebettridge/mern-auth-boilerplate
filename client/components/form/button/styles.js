@@ -32,6 +32,7 @@ const Button = styled.button`
 	${props =>
 		props.inline
 			? css`
+					display: inline;
 					margin-left: 15px;
 			  `
 			: css`

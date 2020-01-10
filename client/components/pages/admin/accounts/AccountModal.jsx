@@ -29,21 +29,28 @@ const AccountModal = props => {
 		if (state.validate) setState({ ...state, validate: false });
 	}, [state.validate]);
 
-	const onChange = e =>
-		setState({
-			...state,
+	const onChange = e => {
+		const { name, value } = e.target;
+		setState(prev => ({
+			...prev,
 			user: {
-				...state.user,
-				[e.target.name]: e.target.value
+				...prev.user,
+				[name]: value
 			}
-		});
+		}));
+	};
 
 	const updateUser = mutation => {
 		setState({ ...state, validate: true });
 
-		mutation().then(() => {
-			setState({ ...state, editing: false });
-		});
+		mutation()
+			.then(() => {
+				setState({ ...state, editing: false });
+			})
+			.catch(err => {
+				const errors = err.graphQLErrors[0];
+				setState(prev => ({ ...prev, errors }));
+			});
 	};
 
 	const deactivateUser = mutation => {
@@ -179,6 +186,7 @@ const AccountModal = props => {
 					>
 						{mutation => (
 							<Query
+								fetchPolicy={"no-cache"}
 								query={gql`
 									{
 										currentUser {
