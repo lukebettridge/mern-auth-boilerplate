@@ -103,7 +103,7 @@ router.get("/reset-password", (req, res) => {
 		date.setDate(date.getDate() + process.env.EXPIRE_PASSWORD_RESET_DAYS || 1);
 		const resetKey = randomString(RESET_KEY_STRING_LENGTH, date);
 		user
-			.update({ resetKey })
+			.updateOne({ resetKey })
 			.then(() => {
 				const url = `${process.env.BASE_URL}/auth/reset-password/${resetKey}`;
 				mail({
@@ -151,7 +151,7 @@ router.post("/reset-password", (req, res) => {
 		passwordHash(newPassword, (err, hash) => {
 			if (err) throw err;
 			user
-				.update({ password: hash, resetKey: undefined })
+				.updateOne({ password: hash, resetKey: undefined })
 				.then(() => res.json({ success: true }))
 				.catch(err => res.status(400).json(err));
 		});

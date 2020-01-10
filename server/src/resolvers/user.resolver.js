@@ -35,7 +35,7 @@ const userResolver = {
 				throw new AuthorizationError();
 
 			return User.findById(args.id).then(user =>
-				user.update({ active: true }).then(() => true)
+				user.updateOne({ active: true }).then(() => true)
 			);
 		},
 		deactivateUser: (parent, args, context) => {
@@ -45,7 +45,7 @@ const userResolver = {
 			if (context.user.id === args.id) throw new Error();
 
 			return User.findById(args.id).then(user =>
-				user.update({ active: false }).then(() => false)
+				user.updateOne({ active: false }).then(() => false)
 			);
 		},
 		changePassword: (parent, args, context) => {
@@ -63,7 +63,7 @@ const userResolver = {
 					passwordHash(newPassword, (err, hash) => {
 						if (err) throw err;
 						return context.user
-							.update({ password: hash })
+							.updateOne({ password: hash })
 							.then(() => context.user.id);
 					});
 				} else throw new Error("The password that you've entered is incorrect");
@@ -82,7 +82,7 @@ const userResolver = {
 			if (!isValid) throw new UserInputError("Invalid entry", { errors });
 
 			return User.findById(id).then(user =>
-				user.update({ forename, surname, email }).then(() => id)
+				user.updateOne({ forename, surname, email }).then(() => id)
 			);
 		}
 	}

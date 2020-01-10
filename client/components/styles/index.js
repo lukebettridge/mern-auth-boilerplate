@@ -266,6 +266,7 @@ const TableAction = styled.a`
 	background-color: #fbfbfc;
 	border: 1px solid #e9ecef;
 	color: #489be8;
+	cursor: pointer;
 	border-top: 0;
 	display: block;
 	font-size: 11pt;

@@ -22,11 +22,11 @@ const AccountModal = props => {
 
 	useEffect(() => {
 		if (props.isOpen) setState(initialState);
-		else setState({ ...state, user: {} });
+		else setState(prev => ({ ...prev, user: {} }));
 	}, [props.isOpen]);
 
 	useEffect(() => {
-		if (state.validate) setState({ ...state, validate: false });
+		if (state.validate) setState(prev => ({ ...prev, validate: false }));
 	}, [state.validate]);
 
 	const onChange = e => {
@@ -41,11 +41,11 @@ const AccountModal = props => {
 	};
 
 	const updateUser = mutation => {
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		mutation()
 			.then(() => {
-				setState({ ...state, editing: false });
+				setState(prev => ({ ...prev, editing: false }));
 			})
 			.catch(err => {
 				const errors = err.graphQLErrors[0];
@@ -55,25 +55,25 @@ const AccountModal = props => {
 
 	const deactivateUser = mutation => {
 		mutation().then(({ data }) => {
-			setState({
-				...state,
+			setState(prev => ({
+				...prev,
 				user: {
-					...state.user,
+					...prev.user,
 					active: data.deactivateUser
 				}
-			});
+			}));
 		});
 	};
 
 	const activateUser = mutation => {
 		mutation().then(({ data }) => {
-			setState({
-				...state,
+			setState(prev => ({
+				...prev,
 				user: {
-					...state.user,
+					...prev.user,
 					active: data.activateUser
 				}
-			});
+			}));
 		});
 	};
 
@@ -98,10 +98,10 @@ const AccountModal = props => {
 									) : (
 										<Input
 											error={state.errors.surname}
+											inline
 											isRequired={true}
 											name="surname"
 											onChange={onChange}
-											placeholder="Surname"
 											type="text"
 											validate={state.validate}
 											value={state.user.surname}
@@ -117,10 +117,10 @@ const AccountModal = props => {
 									) : (
 										<Input
 											error={state.errors.forename}
+											inline
 											isRequired={true}
 											name="forename"
 											onChange={onChange}
-											placeholder="Forename"
 											type="text"
 											validate={state.validate}
 											value={state.user.forename}
@@ -136,11 +136,11 @@ const AccountModal = props => {
 									) : (
 										<Input
 											error={state.errors.email}
+											inline
 											isRequired={true}
 											name="email"
 											onChange={onChange}
 											pattern={pattern.email}
-											placeholder="Email Address"
 											type="email"
 											validate={state.validate}
 											value={state.user.email}
@@ -163,7 +163,7 @@ const AccountModal = props => {
 								onClick={
 									state.editing
 										? () => updateUser(mutation)
-										: () => setState({ ...state, editing: true })
+										: () => setState(prev => ({ ...prev, editing: true }))
 								}
 							>
 								{state.editing ? "Save" : "Edit"} Details

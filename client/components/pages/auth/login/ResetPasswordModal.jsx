@@ -22,7 +22,7 @@ const ResetPasswordModal = props => {
 	}, [props.isOpen]);
 
 	useEffect(() => {
-		if (state.validate) setState({ ...state, validate: false });
+		if (state.validate) setState(prev => ({ ...prev, validate: false }));
 	}, [state.validate]);
 
 	const onChange = e => {
@@ -35,7 +35,7 @@ const ResetPasswordModal = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		axios
 			.get(`/api/auth/reset-password?email=${state.email}`, {
@@ -43,14 +43,14 @@ const ResetPasswordModal = props => {
 				withCredentials: true
 			})
 			.then(() => {
-				setState({ ...state, success: true });
+				setState(prev => ({ ...prev, success: true }));
 				props.close();
 			})
 			.catch(err => {
-				setState({
-					...state,
+				setState(prev => ({
+					...prev,
 					errors: err.response.data
-				});
+				}));
 			});
 	};
 
@@ -65,11 +65,11 @@ const ResetPasswordModal = props => {
 					<Input
 						error={state.errors.email}
 						isRequired={true}
+						label="Email Address"
 						mb="m"
 						name="email"
 						onChange={onChange}
 						pattern={pattern.email}
-						placeholder="Email Address"
 						type="email"
 						validate={state.validate}
 						value={state.email}

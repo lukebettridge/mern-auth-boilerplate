@@ -22,7 +22,7 @@ const Login = () => {
 
 	useEffect(() => {
 		if (state.validate) {
-			setState({ ...state, validate: false });
+			setState(prev => ({ ...prev, validate: false }));
 		}
 	}, [state.validate]);
 
@@ -36,7 +36,7 @@ const Login = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		axios
 			.post(
@@ -75,10 +75,10 @@ const Login = () => {
 						<Input
 							error={state.errors.email}
 							isRequired={true}
+							label="Email Address"
 							name="email"
 							onChange={onChange}
 							pattern={pattern.email}
-							placeholder="Email Address"
 							type="email"
 							validate={state.validate}
 							value={state.email}
@@ -86,10 +86,10 @@ const Login = () => {
 						<Input
 							error={state.errors.password}
 							isRequired={true}
+							label="Password"
 							mb="m"
 							name="password"
 							onChange={onChange}
-							placeholder={"Password"}
 							type="password"
 							validate={state.validate}
 							value={state.password}
@@ -99,7 +99,7 @@ const Login = () => {
 						</Button>
 						{state.errors.error && <Error mb="s">{state.errors.error}</Error>}
 						<Link
-							onClick={() => setState({ ...state, modalIsOpen: true })}
+							onClick={() => setState(prev => ({ ...prev, modalIsOpen: true }))}
 							secondary
 						>
 							Forgotten your password?
@@ -111,7 +111,7 @@ const Login = () => {
 				</Box>
 			</Layout>
 			<ResetPasswordModal
-				close={() => setState({ ...state, modalIsOpen: false })}
+				close={() => setState(prev => ({ ...prev, modalIsOpen: false }))}
 				isOpen={state.modalIsOpen}
 			/>
 		</React.Fragment>

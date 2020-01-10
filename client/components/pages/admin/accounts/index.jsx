@@ -27,15 +27,15 @@ const Accounts = () => {
 	});
 
 	const onClick = user => {
-		setState({ ...state, modalIsOpen: true, user });
+		setState(prev => ({ ...prev, modalIsOpen: true, user }));
 	};
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState({
-			...state,
+		setState(prev => ({
+			...prev,
 			query: queryInput.current.value
-		});
+		}));
 	};
 
 	return (
@@ -51,7 +51,8 @@ const Accounts = () => {
 						<FilterBody>
 							<Input
 								forwardRef={queryInput}
-								mb="none"
+								inline
+								mt="none"
 								placeholder="Search..."
 								secondary
 							/>
@@ -149,7 +150,7 @@ const Accounts = () => {
 								<AccountModal
 									close={() => {
 										refetch();
-										setState({ ...state, modalIsOpen: false });
+										setState(prev => ({ ...prev, modalIsOpen: false }));
 									}}
 									isOpen={state.modalIsOpen}
 									user={state.user}

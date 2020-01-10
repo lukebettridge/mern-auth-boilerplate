@@ -21,7 +21,7 @@ const Register = () => {
 
 	useEffect(() => {
 		if (state.validate) {
-			setState({ ...state, validate: false });
+			setState(prev => ({ ...prev, validate: false }));
 		}
 	}, [state.validate]);
 
@@ -35,7 +35,7 @@ const Register = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		axios
 			.post(
@@ -50,13 +50,13 @@ const Register = () => {
 				{ baseURL }
 			)
 			.then(() => {
-				setState({ ...state, success: true });
+				setState(prev => ({ ...prev, success: true }));
 			})
 			.catch(err => {
-				setState({
-					...state,
+				setState(prev => ({
+					...prev,
 					errors: err.response.data
-				});
+				}));
 			});
 	};
 
@@ -71,10 +71,10 @@ const Register = () => {
 					<Input
 						error={state.errors.email}
 						isRequired={true}
+						label="Email Address"
 						name="email"
 						onChange={onChange}
 						pattern={pattern.email}
-						placeholder="Email Address"
 						type="email"
 						validate={state.validate}
 						value={state.email}
@@ -82,27 +82,27 @@ const Register = () => {
 					<Input
 						error={state.errors.forename}
 						isRequired={true}
+						label="Forename"
 						name="forename"
 						onChange={onChange}
-						placeholder="Forename"
 						validate={state.validate}
 						value={state.forename}
 					/>
 					<Input
 						error={state.errors.surname}
 						isRequired={true}
+						label="Surname"
 						name="surname"
 						onChange={onChange}
-						placeholder="Surname"
 						validate={state.validate}
 						value={state.surname}
 					/>
 					<Input
 						error={state.errors.password}
 						isRequired={true}
+						label={"Password"}
 						name="password"
 						onChange={onChange}
-						placeholder={"Password"}
 						type="password"
 						validate={state.validate}
 						value={state.password}
@@ -111,10 +111,10 @@ const Register = () => {
 						error={state.errors.password2}
 						friendlyName={"Confirm password"}
 						isRequired={true}
+						label={"Confirm Password"}
 						mb="m"
 						name="password2"
 						onChange={onChange}
-						placeholder={"Confirm Password"}
 						type="password"
 						validate={state.validate}
 						value={state.password2}

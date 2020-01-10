@@ -17,7 +17,17 @@ const Input = props => {
 		if (props.validate) validate();
 	}, [props.validate]);
 
-	const validate = () => {
+	const onBlur = e => {
+		validate(true);
+		if (props.onBlur) props.onBlur(e);
+	};
+
+	const onChange = e => {
+		setState(prev => ({ ...prev, error: "" }));
+		if (props.onChange) props.onChange(e);
+	};
+
+	const validate = (onBlur = false) => {
 		let error = "";
 		const { friendlyName, isRequired, max, min, name, pattern, value } = props;
 		const prefix = friendlyName || name || "This";
@@ -38,17 +48,25 @@ const Input = props => {
 			error = `${prefix} must be larger than ${min}.`;
 		}
 
-		if (!props.error) setState(prev => ({ ...prev, error }));
+		setState(prev => ({
+			...prev,
+			error: !onBlur ? props.error || error : error
+		}));
 	};
+
+	const id = props.id || props.name;
 
 	return (
 		<S.InputContainer {...props}>
 			<S.Input
-				inError={!!state.error}
-				onBlur={props.onBlur || validate}
 				{...props}
+				id={id}
+				inError={!!state.error}
+				onBlur={onBlur}
+				onChange={onChange}
 				ref={props.forwardRef}
 			/>
+			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && <S.Error>{state.error}</S.Error>}
 		</S.InputContainer>
 	);
@@ -58,7 +76,9 @@ Input.propTypes = {
 	error: PropType.string,
 	forwardRef: PropType.any,
 	friendlyName: PropType.string,
+	id: PropType.string,
 	isRequired: PropType.bool,
+	label: PropType.string,
 	max: PropType.number,
 	min: PropType.number,
 	name: PropType.string,

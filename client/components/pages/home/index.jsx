@@ -13,7 +13,7 @@ const Home = () => {
 	});
 
 	const onClick = todo => {
-		setState({ ...state, modalIsOpen: true, todo });
+		setState(prev => ({ ...prev, modalIsOpen: true, todo }));
 	};
 
 	return (
@@ -56,7 +56,7 @@ const Home = () => {
 							<TodoModal
 								close={() => {
 									refetch();
-									setState({ ...state, modalIsOpen: false });
+									setState(prev => ({ ...prev, modalIsOpen: false }));
 								}}
 								isOpen={state.modalIsOpen}
 								todo={state.todo}

@@ -18,11 +18,11 @@ const TodoModal = props => {
 
 	useEffect(() => {
 		if (props.isOpen) setState(initialState);
-		else setState({ ...state, todo: {} });
+		else setState(prev => ({ ...prev, todo: {} }));
 	}, [props.isOpen]);
 
 	useEffect(() => {
-		if (state.validate) setState({ ...state, validate: false });
+		if (state.validate) setState(prev => ({ ...prev, validate: false }));
 	}, [state.validate]);
 
 	const onChange = e => {
@@ -50,10 +50,10 @@ const TodoModal = props => {
 					<Input
 						error={state.errors.text}
 						isRequired={true}
+						label="Text"
 						mb="m"
 						name="text"
 						onChange={onChange}
-						placeholder="Text"
 						validate={state.validate}
 						value={text}
 					/>

@@ -3,7 +3,7 @@ import PropType from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
-import { Box } from "components/styles";
+import { Box, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import { Error } from "components/form/input/styles";
@@ -25,7 +25,7 @@ const ChangePasswordModal = props => {
 	}, [props.isOpen]);
 
 	useEffect(() => {
-		if (state.validate) setState({ ...state, validate: false });
+		if (state.validate) setState(prev => ({ ...prev, validate: false }));
 	}, [state.validate]);
 
 	const onChange = e => {
@@ -38,11 +38,11 @@ const ChangePasswordModal = props => {
 
 	const onSubmit = (e, mutation) => {
 		e.preventDefault();
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		mutation()
 			.then(() => {
-				setState({ ...state, success: true });
+				setState(prev => ({ ...prev, success: true }));
 				props.close();
 			})
 			.catch(err => {
@@ -56,6 +56,11 @@ const ChangePasswordModal = props => {
 	return (
 		<Modal close={props.close} isOpen={props.isOpen}>
 			<Box border="none" mb="none" padding="none">
+				<Paragraph mb="l">
+					Enter your current password, followed by what you&apos;d like to
+					change it to and a confirmation of that new password. Once successful,
+					you will need to use the new password the next time you login.
+				</Paragraph>
 				<Mutation
 					mutation={gql`
 						mutation changePassword($input: ChangePasswordInput!) {
@@ -69,9 +74,9 @@ const ChangePasswordModal = props => {
 							<Input
 								error={state.errors.password}
 								isRequired={true}
+								label="Password"
 								name="password"
 								onChange={onChange}
-								placeholder="Password"
 								type="password"
 								validate={state.validate}
 								value={state.password}
@@ -80,9 +85,9 @@ const ChangePasswordModal = props => {
 								error={state.errors.newPassword}
 								friendlyName="New password"
 								isRequired={true}
+								label="New Password"
 								name="newPassword"
 								onChange={onChange}
-								placeholder="New Password"
 								type="password"
 								validate={state.validate}
 								value={state.newPassword}
@@ -91,10 +96,10 @@ const ChangePasswordModal = props => {
 								error={state.errors.newPassword2}
 								friendlyName={"Confirm new password"}
 								isRequired={true}
+								label="Confirm New Password"
 								mb="m"
 								name="newPassword2"
 								onChange={onChange}
-								placeholder="Confirm New Password"
 								type="password"
 								validate={state.validate}
 								value={state.newPassword2}

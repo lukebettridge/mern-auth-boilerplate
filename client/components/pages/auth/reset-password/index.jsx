@@ -27,7 +27,7 @@ const ResetPassword = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState({ ...state, validate: true });
+		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
 		axios
 			.post(
@@ -40,13 +40,13 @@ const ResetPassword = props => {
 				{ baseURL }
 			)
 			.then(() => {
-				setState({ ...state, success: true });
+				setState(prev => ({ ...prev, success: true }));
 			})
 			.catch(err => {
-				setState({
-					...state,
+				setState(prev => ({
+					...prev,
 					errors: err.response.data
-				});
+				}));
 			});
 	};
 
@@ -60,9 +60,9 @@ const ResetPassword = props => {
 					<Input
 						error={state.errors.newPassword}
 						isRequired={true}
+						label={"New Password"}
 						name="newPassword"
 						onChange={onChange}
-						placeholder={"New Password"}
 						type="password"
 						validate={state.validate}
 						value={state.newPassword}
@@ -71,10 +71,10 @@ const ResetPassword = props => {
 						error={state.errors.newPassword2}
 						friendlyName={"Confirm new password"}
 						isRequired={true}
+						label={"Confirm New Password"}
 						mb="m"
 						name="newPassword2"
 						onChange={onChange}
-						placeholder={"Confirm New Password"}
 						type="password"
 						validate={state.validate}
 						value={state.newPassword2}
