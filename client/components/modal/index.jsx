@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropType from "prop-types";
 
 import * as S from "./styles";
 
 const Modal = props => {
+	useEffect(() => {
+		S.Modal.setAppElement("#app");
+	}, []);
+
 	return (
 		<S.Modal
 			isOpen={props.isOpen}

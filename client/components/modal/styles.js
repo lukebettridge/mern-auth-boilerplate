@@ -3,8 +3,6 @@ import breakpoints from "components/styles/breakpoints";
 
 import ReactModal from "react-modal";
 
-ReactModal.setAppElement("#app");
-
 const Close = styled.a`
 	height: 32px;
 	opacity: 0.3;
