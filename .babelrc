@@ -1,21 +1,24 @@
 {
 	"presets": [
-		"env",
-		"react"
+		"@babel/preset-env",
+		"@babel/preset-react"
 	],
 	"plugins": [
-		"transform-runtime",
-		"babel-plugin-transform-object-rest-spread",
+		"@babel/plugin-transform-runtime",
+		"@babel/plugin-transform-modules-commonjs",
+		"@babel/plugin-proposal-object-rest-spread",
 		"babel-plugin-styled-components",
 		[
 			"module-resolver",
 			{
 				"root": [
-					"./client"
+					"./"
 				],
 				"alias": {
 					"components": "./client/components",
-					"utils": "./client/utils"
+					"utils": "./client/utils",
+					"client": "./client",
+					"server": "./server"
 				}
 			}
 		]

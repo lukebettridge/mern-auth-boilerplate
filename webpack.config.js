@@ -18,7 +18,12 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loaders: ["babel-loader"]
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env"]
+					}
+				}
 			}
 		]
 	},
