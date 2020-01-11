@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { UserInputError } = require("apollo-server-express");
 
-const { AuthorizationError } = require("../errors");
+const { AuthorizationError, GenericError, InputError } = require("../errors");
 const { passwordHash } = require("../../utils");
 const validate = {
 	changePassword: require("../../validation/reset-password"),
@@ -42,7 +41,7 @@ const userResolver = {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
-			if (context.user.id === args.id) throw new Error();
+			if (context.user.id === args.id) throw new GenericError();
 
 			return User.findById(args.id).then(user =>
 				user.updateOne({ active: false }).then(() => false)
@@ -58,7 +57,7 @@ const userResolver = {
 						newPassword,
 						newPassword2
 					});
-					if (!isValid) throw new UserInputError("Invalid entry", { errors });
+					if (!isValid) throw InputError({ errors });
 
 					passwordHash(newPassword, (err, hash) => {
 						if (err) throw err;
@@ -66,7 +65,12 @@ const userResolver = {
 							.updateOne({ password: hash })
 							.then(() => context.user.id);
 					});
-				} else throw new Error("The password that you've entered is incorrect");
+				} else
+					throw InputError({
+						errors: {
+							password: "The password that you've entered is incorrect"
+						}
+					});
 			});
 		},
 		updateUser: (parent, args, context) => {
@@ -79,7 +83,7 @@ const userResolver = {
 				surname,
 				email
 			});
-			if (!isValid) throw new UserInputError("Invalid entry", { errors });
+			if (!isValid) throw InputError({ errors });
 
 			return User.findById(id).then(user =>
 				user.updateOne({ forename, surname, email }).then(() => id)

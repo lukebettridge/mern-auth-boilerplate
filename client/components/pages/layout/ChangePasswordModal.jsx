@@ -107,7 +107,6 @@ const ChangePasswordModal = props => {
 							<Button maxWidth="350px" type="submit">
 								Submit
 							</Button>
-							{state.errors.message && <Error>{state.errors.message}</Error>}
 						</form>
 					)}
 				</Mutation>
