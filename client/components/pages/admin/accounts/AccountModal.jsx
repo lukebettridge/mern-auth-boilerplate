@@ -102,7 +102,7 @@ const AccountModal = props => {
 			close={props.close}
 			isOpen={props.isOpen}
 			sideModal={true}
-			title={"Account Information"}
+			title={state.new ? "New Account" : "Account Information"}
 		>
 			<form noValidate>
 				<FlexBox>
