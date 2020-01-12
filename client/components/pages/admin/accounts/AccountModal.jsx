@@ -162,12 +162,15 @@ const AccountModal = props => {
 						`}
 						variables={{ input: { id, forename, surname, email } }}
 					>
-						{mutation => (
+						{(mutation, { loading }) => (
 							<TableAction
+								disabled={loading}
 								onClick={
-									state.editing
-										? () => updateUser(mutation)
-										: () => setState(prev => ({ ...prev, editing: true }))
+									!loading
+										? state.editing
+											? () => updateUser(mutation)
+											: () => setState(prev => ({ ...prev, editing: true }))
+										: null
 								}
 							>
 								{state.editing ? "Save" : "Edit"} Details
@@ -188,7 +191,7 @@ const AccountModal = props => {
 						`}
 						variables={{ id }}
 					>
-						{mutation => (
+						{(mutation, { loading }) => (
 							<Query
 								fetchPolicy={"no-cache"}
 								query={gql`
@@ -199,13 +202,20 @@ const AccountModal = props => {
 									}
 								`}
 							>
-								{({ loading, error, data }) => (
+								{query => (
 									<Button
-										disabled={loading || error || data.currentUser.id === id}
+										disabled={
+											loading ||
+											query.loading ||
+											query.error ||
+											query.data.currentUser.id === id
+										}
 										onClick={
-											active
-												? () => deactivateUser(mutation)
-												: () => activateUser(mutation)
+											!loading
+												? active
+													? () => deactivateUser(mutation)
+													: () => activateUser(mutation)
+												: null
 										}
 										secondary={active}
 									>

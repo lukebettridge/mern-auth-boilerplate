@@ -273,6 +273,12 @@ const TableAction = styled.a`
 	margin-bottom: 20px;
 	padding: 15px;
 	text-align: center;
+
+	${props =>
+		props.disabled &&
+		css`
+			color: #bbd7f5;
+		`}
 `;
 
 const Status = styled.span`
