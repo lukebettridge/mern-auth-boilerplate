@@ -2,6 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const todoType = require("./todo.type");
 const userType = require("./user.type");
+const tokenType = require("./token.type");
 
 module.exports = gql`
 	type Query {
@@ -14,4 +15,5 @@ module.exports = gql`
 
 	${todoType}
 	${userType}
+	${tokenType}
 `;

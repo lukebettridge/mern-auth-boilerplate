@@ -51,14 +51,15 @@ const Login = () => {
 				}
 			)
 			.then(() => {
-				document.cookie = "authenticated=true;path=/";
 				history.push("/home");
 			})
 			.catch(err => {
-				setState(prev => ({
-					...prev,
-					errors: err.response.data
-				}));
+				if (err.response) {
+					setState(prev => ({
+						...prev,
+						errors: err.response.data
+					}));
+				}
 			});
 	};
 

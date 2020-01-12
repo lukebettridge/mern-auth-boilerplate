@@ -51,7 +51,11 @@ const App = () => {
 							path="/auth/reset-password/:resetKey"
 						/>
 						<ProtectedRoute component={Home} path="/(|home)/" />
-						<ProtectedRoute component={Accounts} path="/admin/accounts" />
+						<ProtectedRoute
+							component={Accounts}
+							path="/admin/accounts"
+							roles={["admin"]}
+						/>
 					</Switch>
 					<NotificationSystem
 						ref={notificationSystem}

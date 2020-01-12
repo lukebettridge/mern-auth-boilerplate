@@ -1,18 +1,45 @@
 import React from "react";
-import Cookies from "js-cookie";
+import { Redirect } from "react-router-dom";
+import { Mutation } from "react-apollo";
+import { gql } from "apollo-boost";
 
 import Layout from "../Layout";
+import OnRender from "./OnRender";
 import { Box, Paragraph, RouterLink } from "components/styles";
 
 const Logout = () => {
-	Cookies.remove("authenticated");
 	return (
 		<Layout>
 			<Box>
-				<Paragraph>You have been logged out successfully.</Paragraph>
-				<RouterLink mt="l" to="/auth/login">
-					Go back to login
-				</RouterLink>
+				<Mutation
+					mutation={gql`
+						mutation addToken {
+							addToken
+						}
+					`}
+				>
+					{(mutation, { loading, error, data }) => {
+						if (loading) return null;
+						if (error)
+							return (
+								<Redirect
+									to={{
+										pathname: "/auth/login"
+									}}
+								/>
+							);
+						if (data)
+							return (
+								<React.Fragment>
+									<Paragraph>You have been logged out successfully.</Paragraph>
+									<RouterLink mt="l" to="/auth/login">
+										Go back to login
+									</RouterLink>
+								</React.Fragment>
+							);
+						return <OnRender mutation={mutation} />;
+					}}
+				</Mutation>
 			</Box>
 		</Layout>
 	);

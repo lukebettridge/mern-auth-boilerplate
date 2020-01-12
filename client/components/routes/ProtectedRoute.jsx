@@ -3,12 +3,10 @@ import PropType from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import Cookies from "js-cookie";
 
 import Layout from "../pages/layout";
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
-	const isAuthenticated = Cookies.get("authenticated") === "true";
+const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 	const redirect = props => (
 		<Redirect
 			to={{
@@ -38,9 +36,12 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 					`}
 				>
 					{({ loading, error, data }) =>
-						isAuthenticated && loading ? (
+						loading ? (
 							<Layout />
-						) : !isAuthenticated || error || !data.currentUser ? (
+						) : error ||
+						  !data.currentUser ||
+						  (roles &&
+								!data.currentUser.roles.some(role => roles.includes(role))) ? (
 							redirect(props)
 						) : (
 							<Component {...props} currentUser={data.currentUser} />
@@ -54,7 +55,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 ProtectedRoute.propTypes = {
 	component: PropType.any,
-	location: PropType.any
+	location: PropType.any,
+	roles: PropType.arrayOf(PropType.string)
 };
 
 export default ProtectedRoute;
