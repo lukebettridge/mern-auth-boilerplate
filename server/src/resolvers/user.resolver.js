@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const { AuthorizationError, GenericError, InputError } = require("../errors");
 const { passwordHash } = require("../../utils");
 const validate = {
+	addUser: require("../../validation/register"),
 	changePassword: require("../../validation/reset-password"),
 	updateUser: require("../../validation/update-user")
 };
@@ -29,6 +30,36 @@ const userResolver = {
 		}
 	},
 	Mutation: {
+		addUser: (parent, args, context) => {
+			if (!context.user || !context.user.roles.includes("admin"))
+				throw new AuthorizationError();
+
+			const { forename, surname, email, password, password2 } = args.input;
+			const { errors, isValid } = validate.addUser({
+				forename,
+				surname,
+				email,
+				password,
+				password2
+			});
+			if (!isValid) throw InputError({ errors });
+
+			return User.findOne({ email }).then(user => {
+				if (user)
+					throw InputError({
+						errors: {
+							email:
+								"The email address that you've entered is already associated with an account"
+						}
+					});
+				passwordHash(password, (err, hash) => {
+					if (err) throw err;
+					return User.create({ forename, surname, email, password: hash }).then(
+						newUser => newUser.id
+					);
+				});
+			});
+		},
 		activateUser: (parent, args, context) => {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
@@ -85,8 +116,17 @@ const userResolver = {
 			});
 			if (!isValid) throw InputError({ errors });
 
-			return User.findById(id).then(user =>
-				user.updateOne({ forename, surname, email }).then(() => id)
+			return User.findById(id).then(user1 =>
+				User.findOne({ email }).then(user2 => {
+					if (user2.id !== id)
+						throw InputError({
+							errors: {
+								email:
+									"The email address that you've entered is associated with a different account"
+							}
+						});
+					user1.updateOne({ forename, surname, email }).then(() => id);
+				})
 			);
 		}
 	}

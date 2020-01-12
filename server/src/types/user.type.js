@@ -10,6 +10,14 @@ const userType = gql`
 		active: Boolean
 	}
 
+	input AddUserInput {
+		forename: String!
+		surname: String!
+		email: String!
+		password: String!
+		password2: String!
+	}
+
 	input ChangePasswordInput {
 		password: String!
 		newPassword: String!
@@ -29,6 +37,7 @@ const userType = gql`
 	}
 
 	extend type Mutation {
+		addUser(input: AddUserInput!): ID
 		activateUser(id: ID!): Boolean
 		deactivateUser(id: ID!): Boolean
 		changePassword(input: ChangePasswordInput!): ID

@@ -32,7 +32,10 @@ const Input = props => {
 		const { friendlyName, isRequired, max, min, name, pattern, value } = props;
 		const prefix = friendlyName || name || "This";
 
-		if (isRequired && value.replace(/^\s+|\s+$/g, "").length === 0) {
+		if (
+			isRequired &&
+			(!value || value.replace(/^\s+|\s+$/g, "").length === 0)
+		) {
 			error = `${prefix} field is required`;
 		} else if (pattern && !RegExp(pattern).test(value)) {
 			error = `${prefix} field is invalid`;

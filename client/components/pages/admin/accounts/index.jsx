@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -29,7 +30,7 @@ const Accounts = props => {
 		user: null
 	});
 
-	const openModal = user => {
+	const openModal = (user = null) => {
 		setState(prev => ({ ...prev, modalIsOpen: true, user }));
 	};
 
@@ -61,7 +62,7 @@ const Accounts = props => {
 								<FiSearch />
 							</Button>
 						</form>
-						<Button width="unset">
+						<Button onClick={() => openModal()} width="unset">
 							<MediaQuery minWidth={breakpoints.m}>
 								{matches => (matches ? "New Account" : <FiUserPlus />)}
 							</MediaQuery>
@@ -160,6 +161,7 @@ const Accounts = props => {
 												refetch();
 												setState(prev => ({ ...prev, modalIsOpen: false }));
 											}}
+											currentUser={props.currentUser}
 											isOpen={state.modalIsOpen}
 											onSuccess={() =>
 												success(
@@ -177,6 +179,10 @@ const Accounts = props => {
 			</Layout>
 		</React.Fragment>
 	);
+};
+
+Accounts.propTypes = {
+	currentUser: PropTypes.object
 };
 
 export default Accounts;
