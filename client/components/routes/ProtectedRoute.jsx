@@ -1,5 +1,5 @@
 import React from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -54,9 +54,9 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 };
 
 ProtectedRoute.propTypes = {
-	component: PropType.any,
-	location: PropType.any,
-	roles: PropType.arrayOf(PropType.string)
+	component: PropTypes.any,
+	location: PropTypes.any,
+	roles: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default ProtectedRoute;

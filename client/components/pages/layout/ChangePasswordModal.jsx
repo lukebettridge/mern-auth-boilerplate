@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
 import { Box, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
-import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
 
 const ChangePasswordModal = props => {
@@ -15,7 +14,6 @@ const ChangePasswordModal = props => {
 		newPassword: "",
 		newPassword2: "",
 		errors: {},
-		success: false,
 		validate: false
 	};
 	const [state, setState] = useState(initialState);
@@ -42,7 +40,7 @@ const ChangePasswordModal = props => {
 
 		mutation()
 			.then(() => {
-				setState(prev => ({ ...prev, success: true }));
+				props.onSuccess();
 				props.close();
 			})
 			.catch(err => {
@@ -116,8 +114,9 @@ const ChangePasswordModal = props => {
 };
 
 ChangePasswordModal.propTypes = {
-	close: PropType.func.isRequired,
-	isOpen: PropType.bool.isRequired
+	close: PropTypes.func.isRequired,
+	isOpen: PropTypes.bool.isRequired,
+	onSuccess: PropTypes.func.isRequired
 };
 
 export default ChangePasswordModal;

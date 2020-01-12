@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import { FiX, FiMenu } from "react-icons/fi";
+
+import Context from "components/context";
 
 import { Container, Paragraph } from "components/styles";
 import Navigation from "./Navigation";
@@ -38,22 +40,27 @@ const Layout = props => {
 					</Paragraph>
 				</Container>
 			</S.Container>
-			<ChangePasswordModal
-				close={() => setModalIsOpen(false)}
-				isOpen={modalIsOpen}
-			/>
+			<Context.Consumer>
+				{({ notification: { success } }) => (
+					<ChangePasswordModal
+						close={() => setModalIsOpen(false)}
+						isOpen={modalIsOpen}
+						onSuccess={() => success("Your password was changed successfully.")}
+					/>
+				)}
+			</Context.Consumer>
 		</React.Fragment>
 	);
 };
 
 Layout.propTypes = {
-	children: PropType.any,
-	currentUser: PropType.shape({
-		forename: PropType.string.isRequired,
-		surname: PropType.string,
-		email: PropType.string,
-		roles: PropType.array.isRequired,
-		active: PropType.bool
+	children: PropTypes.any,
+	currentUser: PropTypes.shape({
+		forename: PropTypes.string.isRequired,
+		surname: PropTypes.string,
+		email: PropTypes.string,
+		roles: PropTypes.array.isRequired,
+		active: PropTypes.bool
 	})
 };
 

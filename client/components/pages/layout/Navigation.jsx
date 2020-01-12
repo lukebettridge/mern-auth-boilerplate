@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import {
 	FiChevronDown,
 	FiMail,
@@ -97,10 +97,10 @@ const Navigation = props => {
 };
 
 Navigation.propTypes = {
-	changePassword: PropType.func.isRequired,
-	currentUser: PropType.shape({
-		forename: PropType.string.isRequired,
-		roles: PropType.array.isRequired
+	changePassword: PropTypes.func.isRequired,
+	currentUser: PropTypes.shape({
+		forename: PropTypes.string.isRequired,
+		roles: PropTypes.array.isRequired
 	})
 };
 

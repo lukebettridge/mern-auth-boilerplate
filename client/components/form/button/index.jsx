@@ -1,5 +1,5 @@
 import React from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
@@ -8,7 +8,7 @@ const Button = props => {
 };
 
 Button.propTypes = {
-	children: PropType.any
+	children: PropTypes.any
 };
 
 export default Button;

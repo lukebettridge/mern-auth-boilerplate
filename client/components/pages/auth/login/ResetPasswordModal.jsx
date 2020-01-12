@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import { pattern } from "utils";
@@ -84,8 +84,8 @@ const ResetPasswordModal = props => {
 };
 
 ResetPasswordModal.propTypes = {
-	close: PropType.func.isRequired,
-	isOpen: PropType.bool.isRequired
+	close: PropTypes.func.isRequired,
+	isOpen: PropTypes.bool.isRequired
 };
 
 export default ResetPasswordModal;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
@@ -24,11 +24,11 @@ const Modal = props => {
 };
 
 Modal.propTypes = {
-	children: PropType.any,
-	close: PropType.func,
-	isOpen: PropType.bool.isRequired,
-	sideModal: PropType.bool,
-	title: PropType.string
+	children: PropTypes.any,
+	close: PropTypes.func,
+	isOpen: PropTypes.bool.isRequired,
+	sideModal: PropTypes.bool,
+	title: PropTypes.string
 };
 
 export default Modal;

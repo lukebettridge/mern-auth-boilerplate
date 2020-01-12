@@ -1,5 +1,5 @@
 import React from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 import { Container, Heading, Paragraph } from "../../styles";
 
@@ -25,7 +25,7 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-	children: PropType.any
+	children: PropTypes.any
 };
 
 export default Layout;

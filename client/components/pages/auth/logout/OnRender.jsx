@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 const OnRender = props => {
 	useEffect(() => {
@@ -9,7 +9,7 @@ const OnRender = props => {
 };
 
 OnRender.propTypes = {
-	mutation: PropType.func.isRequired
+	mutation: PropTypes.func.isRequired
 };
 
 export default OnRender;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import { Mutation, Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
@@ -232,10 +232,10 @@ const AccountModal = props => {
 };
 
 AccountModal.propTypes = {
-	close: PropType.func.isRequired,
-	isOpen: PropType.bool.isRequired,
-	onSuccess: PropType.func.isRequired,
-	user: PropType.any
+	close: PropTypes.func.isRequired,
+	isOpen: PropTypes.bool.isRequired,
+	onSuccess: PropTypes.func.isRequired,
+	user: PropTypes.any
 };
 
 export default AccountModal;

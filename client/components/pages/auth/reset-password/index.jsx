@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import Layout from "../Layout";
@@ -96,7 +96,7 @@ const ResetPassword = props => {
 };
 
 ResetPassword.propTypes = {
-	match: PropType.any
+	match: PropTypes.any
 };
 
 export default ResetPassword;

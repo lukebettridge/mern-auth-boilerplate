@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 import { Box } from "components/styles";
 import Modal from "components/modal";
@@ -67,9 +67,9 @@ const TodoModal = props => {
 };
 
 TodoModal.propTypes = {
-	close: PropType.func.isRequired,
-	isOpen: PropType.bool.isRequired,
-	todo: PropType.any
+	close: PropTypes.func.isRequired,
+	isOpen: PropTypes.bool.isRequired,
+	todo: PropTypes.any
 };
 
 export default TodoModal;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
@@ -73,22 +73,22 @@ const Input = props => {
 };
 
 Input.propTypes = {
-	error: PropType.string,
-	forwardRef: PropType.any,
-	friendlyName: PropType.string,
-	id: PropType.string,
-	isRequired: PropType.bool,
-	label: PropType.string,
-	max: PropType.number,
-	min: PropType.number,
-	name: PropType.string,
-	onBlur: PropType.func,
-	onChange: PropType.func,
-	pattern: PropType.any,
-	placeholder: PropType.string,
-	type: PropType.string,
-	validate: PropType.bool,
-	value: PropType.any
+	error: PropTypes.string,
+	forwardRef: PropTypes.any,
+	friendlyName: PropTypes.string,
+	id: PropTypes.string,
+	isRequired: PropTypes.bool,
+	label: PropTypes.string,
+	max: PropTypes.number,
+	min: PropTypes.number,
+	name: PropTypes.string,
+	onBlur: PropTypes.func,
+	onChange: PropTypes.func,
+	pattern: PropTypes.any,
+	placeholder: PropTypes.string,
+	type: PropTypes.string,
+	validate: PropTypes.bool,
+	value: PropTypes.any
 };
 
 Input.defaultProps = {
