@@ -21,6 +21,7 @@ const Layout = props => {
 				<Navigation
 					active={showSidebar}
 					changePassword={() => setModalIsOpen(true)}
+					currentUser={props.currentUser}
 				/>
 				<Container inactive={showSidebar} tableCell>
 					{props.children}
@@ -46,7 +47,21 @@ const Layout = props => {
 };
 
 Layout.propTypes = {
-	children: PropType.any
+	children: PropType.any,
+	currentUser: PropType.shape({
+		forename: PropType.string.isRequired,
+		surname: PropType.string,
+		email: PropType.string,
+		roles: PropType.array.isRequired,
+		active: PropType.bool
+	})
+};
+
+Layout.defaultProps = {
+	currentUser: {
+		forename: "User",
+		roles: []
+	}
 };
 
 export default Layout;

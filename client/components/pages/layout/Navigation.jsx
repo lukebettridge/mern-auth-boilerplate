@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import PropType from "prop-types";
-import { Query } from "react-apollo";
-import { gql } from "apollo-boost";
 import {
 	FiChevronDown,
 	FiMail,
@@ -33,20 +31,7 @@ const Navigation = props => {
 					<S.Anchor active={state.user} onClick={() => updateState("user")}>
 						<span>
 							<FiUser />
-							<Query
-								fetchPolicy={"no-cache"}
-								query={gql`
-									{
-										currentUser {
-											forename
-										}
-									}
-								`}
-							>
-								{({ loading, error, data }) =>
-									loading || error ? "User" : data.currentUser.forename
-								}
-							</Query>
+							{props.currentUser.forename}
 						</span>
 						<FiChevronDown />
 					</S.Anchor>
@@ -87,31 +72,16 @@ const Navigation = props => {
 						<FiChevronDown />
 					</S.Link>
 				</S.ListItem>
-				<Query
-					fetchPolicy={"no-cache"}
-					query={gql`
-						{
-							currentUser {
-								roles
-							}
-						}
-					`}
-				>
-					{({ loading, error, data }) =>
-						!loading &&
-						!error &&
-						data.currentUser.roles.includes("admin") && (
-							<S.ListItem>
-								<S.Link to="/admin/accounts">
-									<span>
-										<FiUsers />
-										Accounts
-									</span>
-								</S.Link>
-							</S.ListItem>
-						)
-					}
-				</Query>
+				{props.currentUser.roles.includes("admin") && (
+					<S.ListItem>
+						<S.Link to="/admin/accounts">
+							<span>
+								<FiUsers />
+								Accounts
+							</span>
+						</S.Link>
+					</S.ListItem>
+				)}
 				<S.ListItem>
 					<S.Link to="/">
 						<span>
@@ -127,7 +97,11 @@ const Navigation = props => {
 };
 
 Navigation.propTypes = {
-	changePassword: PropType.func.isRequired
+	changePassword: PropType.func.isRequired,
+	currentUser: PropType.shape({
+		forename: PropType.string.isRequired,
+		roles: PropType.array.isRequired
+	})
 };
 
 export default Navigation;

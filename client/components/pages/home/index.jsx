@@ -6,7 +6,7 @@ import Layout from "../layout";
 import { Subheading, Table } from "components/styles";
 import TodoModal from "./TodoModal";
 
-const Home = () => {
+const Home = props => {
 	const [state, setState] = useState({
 		modalIsOpen: false,
 		todo: null
@@ -17,7 +17,7 @@ const Home = () => {
 	};
 
 	return (
-		<Layout>
+		<Layout {...props}>
 			<Subheading>Todos</Subheading>
 			<Query
 				fetchPolicy={"no-cache"}

@@ -20,7 +20,7 @@ import Input from "components/form/input";
 import Button from "components/form/button";
 import AccountModal from "./AccountModal";
 
-const Accounts = () => {
+const Accounts = props => {
 	const queryInput = useRef();
 	const [state, setState] = useState({
 		modalIsOpen: false,
@@ -42,7 +42,7 @@ const Accounts = () => {
 
 	return (
 		<React.Fragment>
-			<Layout>
+			<Layout {...props}>
 				<Subheading>Accounts</Subheading>
 
 				<FilterWrap>
