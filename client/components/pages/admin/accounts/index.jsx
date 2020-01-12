@@ -3,6 +3,8 @@ import MediaQuery from "react-responsive";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
+import Context from "components/context";
+
 import Layout from "components/pages/layout";
 import {
 	FilterBody,
@@ -147,14 +149,23 @@ const Accounts = () => {
 										)
 									}
 								</MediaQuery>
-								<AccountModal
-									close={() => {
-										refetch();
-										setState(prev => ({ ...prev, modalIsOpen: false }));
-									}}
-									isOpen={state.modalIsOpen}
-									user={state.user}
-								/>
+								<Context.Consumer>
+									{({ notification: { success } }) => (
+										<AccountModal
+											close={() => {
+												refetch();
+												setState(prev => ({ ...prev, modalIsOpen: false }));
+											}}
+											isOpen={state.modalIsOpen}
+											onSuccess={() =>
+												success(
+													"The account information was updated successfully."
+												)
+											}
+											user={state.user}
+										/>
+									)}
+								</Context.Consumer>
 							</React.Fragment>
 						);
 					}}

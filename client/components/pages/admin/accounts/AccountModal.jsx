@@ -14,7 +14,6 @@ const AccountModal = props => {
 		editing: false,
 		email: "",
 		errors: {},
-		success: false,
 		user: props.user || {},
 		validate: false
 	};
@@ -46,10 +45,13 @@ const AccountModal = props => {
 		mutation()
 			.then(() => {
 				setState(prev => ({ ...prev, editing: false }));
+				props.onSuccess();
 			})
 			.catch(err => {
-				const errors = err.graphQLErrors[0];
-				setState(prev => ({ ...prev, errors }));
+				if (err.graphQLErrors) {
+					const errors = err.graphQLErrors[0];
+					setState(prev => ({ ...prev, errors }));
+				}
 			});
 	};
 
@@ -62,6 +64,7 @@ const AccountModal = props => {
 					active: data.deactivateUser
 				}
 			}));
+			props.onSuccess();
 		});
 	};
 
@@ -74,6 +77,7 @@ const AccountModal = props => {
 					active: data.activateUser
 				}
 			}));
+			props.onSuccess();
 		});
 	};
 
@@ -220,6 +224,7 @@ const AccountModal = props => {
 AccountModal.propTypes = {
 	close: PropType.func.isRequired,
 	isOpen: PropType.bool.isRequired,
+	onSuccess: PropType.func.isRequired,
 	user: PropType.any
 };
 
