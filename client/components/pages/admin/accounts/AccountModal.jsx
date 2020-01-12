@@ -4,7 +4,7 @@ import { Mutation, Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
 import { pattern } from "utils";
-import { Box, FlexBox, Paragraph } from "components/styles";
+import { FlexBox, Link, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -135,7 +135,6 @@ const AccountModal = props => {
 						<Button
 							disabled={loading}
 							onClick={!loading ? () => updateUser(mutation) : null}
-							width="auto"
 						>
 							Save Details
 						</Button>
@@ -168,7 +167,8 @@ const AccountModal = props => {
 						`}
 					>
 						{query => (
-							<Button
+							<Link
+								center
 								disabled={
 									loading ||
 									query.loading ||
@@ -184,8 +184,8 @@ const AccountModal = props => {
 								}
 								secondary={active}
 							>
-								{active ? "Deactivate" : "Activate"} Account
-							</Button>
+								{active ? "Deactivate" : "Activate"} account
+							</Link>
 						)}
 					</Query>
 				)}

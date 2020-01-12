@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import breakpoints from "components/styles/breakpoints";
 
 const Error = styled.p`
 	color: #db1802;
@@ -53,6 +54,10 @@ const Input = styled.input`
 const InputContainer = styled.div`
 	position: relative;
 	width: 100%;
+
+	@media (min-width: ${breakpoints.m}) {
+		min-width: 250px;
+	}
 
 	${props =>
 		props.label &&

@@ -57,7 +57,7 @@ const Input = props => {
 	const id = props.id || props.name;
 
 	return (
-		<S.InputContainer {...props}>
+		<S.InputContainer className="inputContainer" {...props}>
 			<S.Input
 				{...props}
 				id={id}

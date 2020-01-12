@@ -81,13 +81,50 @@ const FilterHeader = styled.div`
 `;
 
 const FilterBody = styled.div`
+	align-items: center;
 	background-color: #ffffff;
 	display: flex;
+	justify-content: space-between;
 	padding: 20px;
+	form {
+		align-items: center;
+		display: flex;
+		flex-grow: 1;
+		margin-right: 5px;
+
+		.inputContainer {
+			margin-right: 10px;
+		}
+
+		@media (min-width: ${breakpoints.m}) {
+			flex-grow: 0;
+		}
+	}
+
+	button {
+		height: 42px;
+	}
+
+	button,
+	input {
+		margin-bottom: 0;
+	}
 `;
 
 const FlexBox = styled.div`
 	display: flex;
+
+	button,
+	.inputContainer {
+		margin-left: 5px;
+		margin-right: 5px;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 `;
 
 const Heading = styled.h1`
@@ -101,7 +138,6 @@ const Heading = styled.h1`
 
 const linkStyles = props => `
 	color: #489be8;
-	cursor: pointer;
 	display: block;
 	font-size: 11pt;
 	font-weight: 300;
@@ -117,7 +153,7 @@ const linkStyles = props => `
 		props.secondary
 			? css`
 					color: #888888;
-					opacity: 0.6;
+					opacity: 0.7;
 
 					&:hover {
 						opacity: 1;
@@ -126,6 +162,26 @@ const linkStyles = props => `
 			: ""
 	}
 	
+	${
+		props.disabled
+			? css`
+					opacity: 0.4;
+					&:hover {
+						opacity: 0.4;
+					}
+			  `
+			: css`
+					cursor: pointer;
+			  `
+	}
+
+	${
+		props.center
+			? css`
+					text-align: center;
+			  `
+			: ""
+	}
 `;
 
 const Link = styled.a`

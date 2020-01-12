@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import MediaQuery from "react-responsive";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import { FiUserPlus, FiSearch } from "react-icons/fi";
 
 import Context from "components/context";
 
@@ -28,11 +29,11 @@ const Accounts = props => {
 		user: null
 	});
 
-	const onClick = user => {
+	const openModal = user => {
 		setState(prev => ({ ...prev, modalIsOpen: true, user }));
 	};
 
-	const onSubmit = e => {
+	const onSearch = e => {
 		e.preventDefault();
 		setState(prev => ({
 			...prev,
@@ -49,18 +50,23 @@ const Accounts = props => {
 					<FilterHeader>
 						<small>Filter your results</small>
 					</FilterHeader>
-					<form noValidate onSubmit={onSubmit}>
-						<FilterBody>
+					<FilterBody>
+						<form noValidate onSubmit={onSearch}>
 							<Input
 								forwardRef={queryInput}
-								placeholder="Search..."
+								placeholder="Search Term"
 								secondary
 							/>
 							<Button secondary type="submit" width="unset">
-								Submit
+								<FiSearch />
 							</Button>
-						</FilterBody>
-					</form>
+						</form>
+						<Button width="unset">
+							<MediaQuery minWidth={breakpoints.m}>
+								{matches => (matches ? "New Account" : <FiUserPlus />)}
+							</MediaQuery>
+						</Button>
+					</FilterBody>
 				</FilterWrap>
 
 				<Query
@@ -99,7 +105,7 @@ const Accounts = props => {
 												</thead>
 												<tbody>
 													{data.users.map(user => (
-														<tr key={user.id} onClick={() => onClick(user)}>
+														<tr key={user.id} onClick={() => openModal(user)}>
 															<td className="col-1">
 																<Status success={user.active}>
 																	{user.active ? "Active" : "Inactive"}
@@ -139,7 +145,7 @@ const Accounts = props => {
 															</tr>
 														</tbody>
 													</Table>
-													<TableAction onClick={() => onClick(user)}>
+													<TableAction onClick={() => openModal(user)}>
 														More Details
 													</TableAction>
 												</React.Fragment>
