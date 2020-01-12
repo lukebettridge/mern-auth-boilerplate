@@ -56,29 +56,25 @@ const ResetPasswordModal = props => {
 
 	return (
 		<Modal close={props.close} isOpen={props.isOpen}>
-			<Box border="none" mb="none" padding="none">
-				<Paragraph mb="l">
-					Enter the email address associated with your account and click submit.
-					An email will be sent to you with a link to reset your password.
-				</Paragraph>
-				<form noValidate onSubmit={onSubmit}>
-					<Input
-						error={state.errors.email}
-						isRequired={true}
-						label="Email Address"
-						mb="m"
-						name="email"
-						onChange={onChange}
-						pattern={pattern.email}
-						type="email"
-						validate={state.validate}
-						value={state.email}
-					/>
-					<Button maxWidth="350px" type="submit">
-						Submit
-					</Button>
-				</form>
-			</Box>
+			<Paragraph mb="l">
+				Enter the email address associated with your account and click submit.
+				An email will be sent to you with a link to reset your password.
+			</Paragraph>
+			<form noValidate onSubmit={onSubmit}>
+				<Input
+					error={state.errors.email}
+					isRequired={true}
+					label="Email Address"
+					mb="m"
+					name="email"
+					onChange={onChange}
+					pattern={pattern.email}
+					type="email"
+					validate={state.validate}
+					value={state.email}
+				/>
+				<Button type="submit">Submit</Button>
+			</form>
 		</Modal>
 	);
 };

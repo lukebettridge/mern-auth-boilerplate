@@ -18,7 +18,7 @@ const Modal = props => {
 				<S.Close onClick={props.close} />
 				{props.title && <S.Heading>{props.title}</S.Heading>}
 			</S.Header>
-			{props.children}
+			<S.Body>{props.children}</S.Body>
 		</S.Modal>
 	);
 };

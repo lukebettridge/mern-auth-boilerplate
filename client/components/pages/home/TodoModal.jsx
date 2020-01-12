@@ -45,23 +45,19 @@ const TodoModal = props => {
 			sideModal={true}
 			title={"Todo Information"}
 		>
-			<Box border="none" mb="none" padding="none">
-				<form>
-					<Input
-						error={state.errors.text}
-						isRequired={true}
-						label="Text"
-						mb="m"
-						name="text"
-						onChange={onChange}
-						validate={state.validate}
-						value={text}
-					/>
-					<Button maxWidth="350px" type="submit">
-						Submit
-					</Button>
-				</form>
-			</Box>
+			<form>
+				<Input
+					error={state.errors.text}
+					isRequired={true}
+					label="Text"
+					mb="m"
+					name="text"
+					onChange={onChange}
+					validate={state.validate}
+					value={text}
+				/>
+				<Button type="submit">Submit</Button>
+			</form>
 		</Modal>
 	);
 };

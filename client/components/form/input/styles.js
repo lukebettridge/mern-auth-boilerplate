@@ -4,29 +4,11 @@ const Error = styled.p`
 	color: #db1802;
 	font-size: 10pt;
 	font-weight: 300;
-	margin: 10px auto 0;
-	max-width: 350px;
+	margin-bottom: 16px;
+	margin-top: 0;
 	&:first-letter {
 		text-transform: capitalize;
 	}
-
-	${props =>
-		props.mt === "none" &&
-		css`
-			margin-top: 0;
-		`}
-
-	${props =>
-		props.mt === "s" &&
-		css`
-			margin-top: 16px;
-		`}
-
-	${props =>
-		props.mb === "s" &&
-		css`
-			margin-bottom: 16px;
-		`}
 `;
 
 const Input = styled.input`
@@ -36,6 +18,7 @@ const Input = styled.input`
 	box-shadow: none;
 	font-size: 11pt;
 	font-weight: 300;
+	margin-bottom: 8px;
 	outline: none;
 	padding: 12px 10px;
 	width: 100%;
@@ -65,34 +48,20 @@ const Input = styled.input`
 				color: #db1802;
 			}
 		`}
-
-	${props =>
-		props.small &&
-		css`
-			font-size: 10pt;
-		`}
 `;
 
 const InputContainer = styled.div`
-	max-width: 350px;
 	position: relative;
 	width: 100%;
 
 	${props =>
-		!props.inline &&
-		css`
-			margin: 0 auto 10px auto;
-		`}
-
-	${props =>
 		props.label &&
-		props.mt !== "none" &&
 		css`
-			margin-top: 25px;
+			margin-top: 20px;
 		`}
 
 	${props =>
-		props.mb === "m" &&
+		props.mb &&
 		css`
 			margin-bottom: 30px;
 		`}

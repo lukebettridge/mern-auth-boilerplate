@@ -4,7 +4,7 @@ import { FiX, FiMenu } from "react-icons/fi";
 
 import Context from "components/context";
 
-import { Container, Paragraph } from "components/styles";
+import { Container } from "components/styles";
 import Navigation from "./Navigation";
 import ChangePasswordModal from "./ChangePasswordModal";
 
@@ -27,7 +27,7 @@ const Layout = props => {
 				/>
 				<Container inactive={showSidebar} tableCell>
 					{props.children}
-					<Paragraph center light mt="l">
+					<S.Footer>
 						Developed by{" "}
 						<a
 							href="https://paddl.co.uk/"
@@ -37,7 +37,7 @@ const Layout = props => {
 							Paddl
 						</a>
 						.
-					</Paragraph>
+					</S.Footer>
 				</Container>
 			</S.Container>
 			<Context.Consumer>

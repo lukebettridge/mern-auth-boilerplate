@@ -3,6 +3,12 @@ import breakpoints from "components/styles/breakpoints";
 
 import ReactModal from "react-modal";
 
+const Body = styled.div`
+	@media (min-width: ${breakpoints.m}) {
+		padding: 10px 20px;
+	}
+`;
+
 const Close = styled.a`
 	height: 32px;
 	opacity: 0.3;
@@ -38,6 +44,10 @@ const Header = styled.div`
 	flex-direction: row-reverse;
 	justify-content: space-between;
 	margin-bottom: 30px;
+
+	@media (min-width: ${breakpoints.m}) {
+		padding-left: 20px;
+	}
 `;
 
 const Heading = styled.h2`
@@ -88,4 +98,4 @@ const Modal = styled(ReactModal)`
 			  `}
 `;
 
-module.exports = { Close, Header, Heading, Modal };
+module.exports = { Body, Close, Header, Heading, Modal };

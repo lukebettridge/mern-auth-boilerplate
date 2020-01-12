@@ -4,7 +4,7 @@ import { Mutation, Query } from "react-apollo";
 import { gql } from "apollo-boost";
 
 import { pattern } from "utils";
-import { Box, Paragraph, Table, TableAction } from "components/styles";
+import { Box, FlexBox, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -90,143 +90,106 @@ const AccountModal = props => {
 			sideModal={true}
 			title={"Account Information"}
 		>
-			<Box border="none" mb="none" padding="none">
-				<React.Fragment key={id}>
-					<Table>
-						<tbody>
-							<tr>
-								<th>Surname</th>
-								<td>
-									{!state.editing ? (
-										surname
-									) : (
-										<Input
-											error={state.errors.surname}
-											inline
-											isRequired={true}
-											name="surname"
-											onChange={onChange}
-											type="text"
-											validate={state.validate}
-											value={state.user.surname}
-										/>
-									)}
-								</td>
-							</tr>
-							<tr>
-								<th>Forename</th>
-								<td>
-									{!state.editing ? (
-										forename
-									) : (
-										<Input
-											error={state.errors.forename}
-											inline
-											isRequired={true}
-											name="forename"
-											onChange={onChange}
-											type="text"
-											validate={state.validate}
-											value={state.user.forename}
-										/>
-									)}
-								</td>
-							</tr>
-							<tr>
-								<th>Email</th>
-								<td>
-									{!state.editing ? (
-										email
-									) : (
-										<Input
-											error={state.errors.email}
-											inline
-											isRequired={true}
-											name="email"
-											onChange={onChange}
-											pattern={pattern.email}
-											type="email"
-											validate={state.validate}
-											value={state.user.email}
-										/>
-									)}
-								</td>
-							</tr>
-						</tbody>
-					</Table>
-					<Mutation
-						mutation={gql`
-							mutation updateUser($input: UpdateUserInput!) {
-								updateUser(input: $input)
-							}
-						`}
-						variables={{ input: { id, forename, surname, email } }}
-					>
-						{(mutation, { loading }) => (
-							<TableAction
-								disabled={loading}
-								onClick={
-									!loading
-										? state.editing
-											? () => updateUser(mutation)
-											: () => setState(prev => ({ ...prev, editing: true }))
-										: null
-								}
-							>
-								{state.editing ? "Save" : "Edit"} Details
-							</TableAction>
-						)}
-					</Mutation>
-					<Paragraph light>
-						This user account is {active ? "activated" : "deactivated"}. A
-						deactivated account is prevented from logging into the portal and
-						retrieving sensitive information from the application APIs, even
-						when authenticated.
-					</Paragraph>
-					<Mutation
-						mutation={gql`
+			<form noValidate>
+				<FlexBox>
+					<Input
+						error={state.errors.surname}
+						isRequired={true}
+						label="Surname"
+						name="surname"
+						onChange={onChange}
+						validate={state.validate}
+						value={state.user.surname}
+					/>
+					<Input
+						error={state.errors.forename}
+						isRequired={true}
+						label="Forename"
+						name="forename"
+						onChange={onChange}
+						validate={state.validate}
+						value={state.user.forename}
+					/>
+				</FlexBox>
+				<Input
+					error={state.errors.email}
+					isRequired={true}
+					label="Email Address"
+					mb="m"
+					name="email"
+					onChange={onChange}
+					pattern={pattern.email}
+					type="email"
+					validate={state.validate}
+					value={state.user.email}
+				/>
+				<Mutation
+					mutation={gql`
+						mutation updateUser($input: UpdateUserInput!) {
+							updateUser(input: $input)
+						}
+					`}
+					variables={{ input: { id, forename, surname, email } }}
+				>
+					{(mutation, { loading }) => (
+						<Button
+							disabled={loading}
+							onClick={!loading ? () => updateUser(mutation) : null}
+							width="auto"
+						>
+							Save Details
+						</Button>
+					)}
+				</Mutation>
+			</form>
+			<Paragraph center light>
+				This user account is {active ? "activated" : "deactivated"}. A
+				deactivated account is prevented from logging into the portal and
+				retrieving sensitive information from the application APIs, even when
+				authenticated.
+			</Paragraph>
+			<Mutation
+				mutation={gql`
 							mutation ${active ? "deactivateUser" : "activateUser"}($id: ID!) {
 								${active ? "deactivateUser" : "activateUser"}(id: $id)
 							}
 						`}
-						variables={{ id }}
+				variables={{ id }}
+			>
+				{(mutation, { loading }) => (
+					<Query
+						fetchPolicy={"no-cache"}
+						query={gql`
+							{
+								currentUser {
+									id
+								}
+							}
+						`}
 					>
-						{(mutation, { loading }) => (
-							<Query
-								fetchPolicy={"no-cache"}
-								query={gql`
-									{
-										currentUser {
-											id
-										}
-									}
-								`}
+						{query => (
+							<Button
+								disabled={
+									loading ||
+									query.loading ||
+									query.error ||
+									query.data.currentUser.id === id
+								}
+								onClick={
+									!loading
+										? active
+											? () => deactivateUser(mutation)
+											: () => activateUser(mutation)
+										: null
+								}
+								secondary={active}
 							>
-								{query => (
-									<Button
-										disabled={
-											loading ||
-											query.loading ||
-											query.error ||
-											query.data.currentUser.id === id
-										}
-										onClick={
-											!loading
-												? active
-													? () => deactivateUser(mutation)
-													: () => activateUser(mutation)
-												: null
-										}
-										secondary={active}
-									>
-										{active ? "Deactivate" : "Activate"} Account
-									</Button>
-								)}
-							</Query>
+								{active ? "Deactivate" : "Activate"} Account
+							</Button>
 						)}
-					</Mutation>
-				</React.Fragment>
-			</Box>
+					</Query>
+				)}
+			</Mutation>
 		</Modal>
 	);
 };

@@ -8,7 +8,7 @@ const Layout = props => {
 		<Container small>
 			<Heading>Webapp</Heading>
 			{props.children}
-			<Paragraph center light mt="l">
+			<Paragraph center light>
 				Developed by{" "}
 				<a
 					href="https://paddl.co.uk/"

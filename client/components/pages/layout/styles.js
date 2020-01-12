@@ -47,6 +47,22 @@ const Container = styled.div`
 	height: 100%;
 `;
 
+const Footer = styled.p`
+	color: #cccccc;
+	font-size: 10pt;
+	font-weight: 300;
+	margin-top: 60px;
+	text-align: center;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		&:hover {
+			text-decoration underline;
+		}
+	}
+`;
+
 const Link = styled(RouterLink)`
 	${anchorStyles}
 `;
@@ -134,6 +150,7 @@ const Navigation = styled.div`
 module.exports = {
 	Anchor,
 	Container,
+	Footer,
 	Link,
 	List,
 	ListItem,

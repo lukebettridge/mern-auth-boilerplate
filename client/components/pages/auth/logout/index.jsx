@@ -32,9 +32,7 @@ const Logout = () => {
 							return (
 								<React.Fragment>
 									<Paragraph>You have been logged out successfully.</Paragraph>
-									<RouterLink mt="l" to="/auth/login">
-										Go back to login
-									</RouterLink>
+									<RouterLink to="/auth/login">Go back to login</RouterLink>
 								</React.Fragment>
 							);
 						return <OnRender mutation={mutation} />;

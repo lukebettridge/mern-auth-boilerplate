@@ -53,62 +53,58 @@ const ChangePasswordModal = props => {
 
 	return (
 		<Modal close={props.close} isOpen={props.isOpen}>
-			<Box border="none" mb="none" padding="none">
-				<Paragraph mb="l">
-					Enter your current password, followed by what you&apos;d like to
-					change it to and a confirmation of that new password. Once successful,
-					you will need to use the new password the next time you login.
-				</Paragraph>
-				<Mutation
-					mutation={gql`
-						mutation changePassword($input: ChangePasswordInput!) {
-							changePassword(input: $input)
-						}
-					`}
-					variables={{ input: { password, newPassword, newPassword2 } }}
-				>
-					{mutation => (
-						<form noValidate onSubmit={e => onSubmit(e, mutation)}>
-							<Input
-								error={state.errors.password}
-								isRequired={true}
-								label="Password"
-								name="password"
-								onChange={onChange}
-								type="password"
-								validate={state.validate}
-								value={state.password}
-							/>
-							<Input
-								error={state.errors.newPassword}
-								friendlyName="New password"
-								isRequired={true}
-								label="New Password"
-								name="newPassword"
-								onChange={onChange}
-								type="password"
-								validate={state.validate}
-								value={state.newPassword}
-							/>
-							<Input
-								error={state.errors.newPassword2}
-								friendlyName={"Confirm new password"}
-								isRequired={true}
-								label="Confirm New Password"
-								mb="m"
-								name="newPassword2"
-								onChange={onChange}
-								type="password"
-								validate={state.validate}
-								value={state.newPassword2}
-							/>
-							<Button maxWidth="350px" type="submit">
-								Submit
-							</Button>
-						</form>
-					)}
-				</Mutation>
-			</Box>
+			<Paragraph center mb="l">
+				Enter your current password, followed by what you&apos;d like to change
+				it to and a confirmation of that new password. Once successful, you will
+				need to use the new password the next time you login.
+			</Paragraph>
+			<Mutation
+				mutation={gql`
+					mutation changePassword($input: ChangePasswordInput!) {
+						changePassword(input: $input)
+					}
+				`}
+				variables={{ input: { password, newPassword, newPassword2 } }}
+			>
+				{mutation => (
+					<form noValidate onSubmit={e => onSubmit(e, mutation)}>
+						<Input
+							error={state.errors.password}
+							isRequired={true}
+							label="Password"
+							name="password"
+							onChange={onChange}
+							type="password"
+							validate={state.validate}
+							value={state.password}
+						/>
+						<Input
+							error={state.errors.newPassword}
+							friendlyName="New password"
+							isRequired={true}
+							label="New Password"
+							name="newPassword"
+							onChange={onChange}
+							type="password"
+							validate={state.validate}
+							value={state.newPassword}
+						/>
+						<Input
+							error={state.errors.newPassword2}
+							friendlyName={"Confirm new password"}
+							isRequired={true}
+							label="Confirm New Password"
+							mb="m"
+							name="newPassword2"
+							onChange={onChange}
+							type="password"
+							validate={state.validate}
+							value={state.newPassword2}
+						/>
+						<Button type="submit">Submit</Button>
+					</form>
+				)}
+			</Mutation>
 		</Modal>
 	);
 };

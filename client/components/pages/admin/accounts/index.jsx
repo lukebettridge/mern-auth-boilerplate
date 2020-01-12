@@ -53,12 +53,10 @@ const Accounts = props => {
 						<FilterBody>
 							<Input
 								forwardRef={queryInput}
-								inline
-								mt="none"
 								placeholder="Search..."
 								secondary
 							/>
-							<Button inline secondary type="submit">
+							<Button secondary type="submit" width="unset">
 								Submit
 							</Button>
 						</FilterBody>

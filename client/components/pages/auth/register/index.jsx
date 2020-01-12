@@ -119,14 +119,9 @@ const Register = () => {
 						validate={state.validate}
 						value={state.password2}
 					/>
-					<Button maxWidth="350px" type="submit">
-						Register
-					</Button>
+					<Button type="submit">Register</Button>
 				</form>
-				{state.success && <p>Success!</p>}
-				<RouterLink mt="l" to="/auth/login">
-					Go back to login
-				</RouterLink>
+				<RouterLink to="/auth/login">Go back to login</RouterLink>
 			</Box>
 		</Layout>
 	);

@@ -79,17 +79,10 @@ const ResetPassword = props => {
 						validate={state.validate}
 						value={state.newPassword2}
 					/>
-					<Button maxWidth="350px" type="submit">
-						Submit
-					</Button>
-					{state.errors.resetKey && (
-						<Error mb="s">{state.errors.resetKey}</Error>
-					)}
+					<Button type="submit">Submit</Button>
+					{state.errors.resetKey && <Error>{state.errors.resetKey}</Error>}
 				</form>
-				{state.success && <p>Success!</p>}
-				<RouterLink mt="l" to="/auth/login">
-					Go back to login
-				</RouterLink>
+				<RouterLink to="/auth/login">Go back to login</RouterLink>
 			</Box>
 		</Layout>
 	);

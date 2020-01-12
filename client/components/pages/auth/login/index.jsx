@@ -95,20 +95,16 @@ const Login = () => {
 							validate={state.validate}
 							value={state.password}
 						/>
-						<Button maxWidth="350px" type="submit">
-							Submit
-						</Button>
-						{state.errors.error && <Error mb="s">{state.errors.error}</Error>}
-						<Link
-							onClick={() => setState(prev => ({ ...prev, modalIsOpen: true }))}
-							secondary
-						>
-							Forgotten your password?
-						</Link>
+						<Button type="submit">Submit</Button>
+						{state.errors.error && <Error>{state.errors.error}</Error>}
 					</form>
-					<RouterLink mt="l" to="/auth/register">
-						Create an account
-					</RouterLink>
+					<Link
+						onClick={() => setState(prev => ({ ...prev, modalIsOpen: true }))}
+						secondary
+					>
+						Forgotten your password?
+					</Link>
+					<RouterLink to="/auth/register">Create an account</RouterLink>
 				</Box>
 			</Layout>
 			<ResetPasswordModal

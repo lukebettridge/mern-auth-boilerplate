@@ -7,13 +7,12 @@ import { Link as ReactRouterLink } from "react-router-dom";
 const Box = styled.div`
 	background-color: #ffffff;
 	border: 1px solid #e9ecef;
-	color: #666666;
 	margin-bottom: 20px;
 	padding: 40px 30px;
 	text-align: center;
 
 	@media (min-width: ${breakpoints.m}) {
-		padding: 54px;
+		padding: 54px 80px;
 		padding-bottom: 50px;
 	}
 
@@ -26,24 +25,6 @@ const Box = styled.div`
 			hr {
 				border-color: #e0e0e0;
 			}
-		`}
-
-		${props =>
-			props.border &&
-			css`
-				border: ${props.border};
-			`}
-
-	${props =>
-		props.mb === "none" &&
-		css`
-			margin-bottom: 0;
-		`}
-
-	${props =>
-		props.padding === "none" &&
-		css`
-			padding: 0 !important;
 		`}
 `;
 
@@ -105,6 +86,10 @@ const FilterBody = styled.div`
 	padding: 20px;
 `;
 
+const FlexBox = styled.div`
+	display: flex;
+`;
+
 const Heading = styled.h1`
 	color: #212529;
 	font-size: 30pt;
@@ -120,9 +105,13 @@ const linkStyles = props => `
 	display: block;
 	font-size: 11pt;
 	font-weight: 300;
-	margin: 10px;
+	margin-bottom: 20px;
 	text-decoration: none;
 	transition: opacity 0.3s;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 
 	${
 		props.secondary
@@ -136,14 +125,6 @@ const linkStyles = props => `
 			  `
 			: ""
 	}
-
-	${
-		props.mt === "l"
-			? css`
-					margin-top: 35px;
-			  `
-			: ""
-	}
 	
 `;
 
@@ -152,6 +133,7 @@ const Link = styled.a`
 `;
 
 const Paragraph = styled.p`
+	color: #666666;
 	font-weight: 300;
 	line-height: 1.9;
 	margin-top: 0;
@@ -169,18 +151,6 @@ const Paragraph = styled.p`
 		props.center &&
 		css`
 			text-align: center;
-		`}
-
-	${props =>
-		props.mt === "l" &&
-		css`
-			margin-top: 35px;
-		`}
-
-	${props =>
-		props.mb === "l" &&
-		css`
-			margin-bottom: 35px;
 		`}
 
 	a {
@@ -318,6 +288,7 @@ export {
 	FilterBody,
 	FilterHeader,
 	FilterWrap,
+	FlexBox,
 	Heading,
 	Link,
 	Paragraph,
