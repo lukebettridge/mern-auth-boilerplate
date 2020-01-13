@@ -7,6 +7,12 @@ const Body = styled.div`
 	@media (min-width: ${breakpoints.m}) {
 		padding: 10px 20px;
 	}
+
+	${props =>
+		!props.sideModal &&
+		css`
+			text-align: center;
+		`}
 `;
 
 const Close = styled.a`

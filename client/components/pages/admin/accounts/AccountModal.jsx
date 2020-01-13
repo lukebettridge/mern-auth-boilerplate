@@ -107,15 +107,6 @@ const AccountModal = props => {
 			<form noValidate>
 				<FlexBox>
 					<Input
-						error={state.errors.surname}
-						isRequired={true}
-						label="Surname"
-						name="surname"
-						onChange={onChange}
-						validate={state.validate}
-						value={state.user.surname}
-					/>
-					<Input
 						error={state.errors.forename}
 						isRequired={true}
 						label="Forename"
@@ -123,6 +114,15 @@ const AccountModal = props => {
 						onChange={onChange}
 						validate={state.validate}
 						value={state.user.forename}
+					/>
+					<Input
+						error={state.errors.surname}
+						isRequired={true}
+						label="Surname"
+						name="surname"
+						onChange={onChange}
+						validate={state.validate}
+						value={state.user.surname}
 					/>
 				</FlexBox>
 				<Input

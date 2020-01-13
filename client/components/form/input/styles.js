@@ -62,7 +62,7 @@ const InputContainer = styled.div`
 	${props =>
 		props.label &&
 		css`
-			margin-top: 20px;
+			margin-top: 30px;
 		`}
 
 	${props =>

@@ -21,7 +21,7 @@ const todoResolver = {
 			if (!context.user) throw new AuthorizationError();
 
 			return Todo.create({ text, user: context.user._id }).then(
-				todo => todo.id
+				todo => todo._id
 			);
 		},
 		removeTodo: (parent, { id }, context) => {
@@ -30,7 +30,7 @@ const todoResolver = {
 			return Todo.findById(id).then(todo => {
 				if (context.user._id.toString() !== todo.user.toString())
 					throw new AuthorizationError();
-				return todo.remove().then(() => todo.id);
+				return todo.remove().then(() => todo._id);
 			});
 		},
 		updateTodo: (parent, { id, text }, context) => {

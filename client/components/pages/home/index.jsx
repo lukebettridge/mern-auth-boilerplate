@@ -125,13 +125,13 @@ const Home = props => {
 								{({ notification: { success } }) => (
 									<TodoModal
 										close={() => {
-											refetch();
 											setState(prev => ({ ...prev, modalIsOpen: false }));
 										}}
 										isOpen={state.modalIsOpen}
-										onSuccess={() =>
-											success("The todo information was updated successfully.")
-										}
+										onSuccess={() => {
+											refetch();
+											success("The todo information was updated successfully.");
+										}}
 										todo={state.todo}
 									/>
 								)}

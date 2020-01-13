@@ -3,16 +3,15 @@ import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
+import { pattern } from "utils";
 import { Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
 
-const ChangePasswordModal = props => {
+const EditProfileModal = props => {
 	const initialState = {
-		password: "",
-		newPassword: "",
-		newPassword2: "",
+		...props.currentUser,
 		errors: {},
 		validate: false
 	};
@@ -49,59 +48,54 @@ const ChangePasswordModal = props => {
 			});
 	};
 
-	const { password, newPassword, newPassword2 } = state;
+	const { forename, surname, email } = state;
 
 	return (
 		<Modal close={props.close} isOpen={props.isOpen}>
 			<Paragraph center mb="l">
-				Enter your current password, followed by what you&apos;d like to change
-				it to and a confirmation of that new password. Once successful, you will
-				need to use the new password the next time you login.
+				Change your profile information by using the form below.
 			</Paragraph>
 			<Mutation
 				mutation={gql`
-					mutation changePassword($input: ChangePasswordInput!) {
-						changePassword(input: $input)
+					mutation updateCurrentUser($input: UpdateCurrentUserInput!) {
+						updateCurrentUser(input: $input)
 					}
 				`}
-				variables={{ input: { password, newPassword, newPassword2 } }}
+				variables={{ input: { forename, surname, email } }}
 			>
 				{mutation => (
 					<form noValidate onSubmit={e => onSubmit(e, mutation)}>
 						<Input
-							error={state.errors.password}
+							error={state.errors.forename}
 							isRequired={true}
-							label="Password"
-							name="password"
+							label="Forename"
+							name="forename"
 							onChange={onChange}
-							type="password"
 							validate={state.validate}
-							value={state.password}
+							value={state.forename}
 						/>
 						<Input
-							error={state.errors.newPassword}
-							friendlyName="New password"
+							error={state.errors.surname}
 							isRequired={true}
-							label="New Password"
-							name="newPassword"
+							label="Surname"
+							name="surname"
 							onChange={onChange}
-							type="password"
 							validate={state.validate}
-							value={state.newPassword}
+							value={state.surname}
 						/>
 						<Input
-							error={state.errors.newPassword2}
-							friendlyName={"Confirm new password"}
+							error={state.errors.email}
 							isRequired={true}
-							label="Confirm New Password"
+							label="Email Address"
 							mb="m"
-							name="newPassword2"
+							name="email"
 							onChange={onChange}
-							type="password"
+							pattern={pattern.email}
+							type="email"
 							validate={state.validate}
-							value={state.newPassword2}
+							value={state.email}
 						/>
-						<Button type="submit">Submit</Button>
+						<Button type="submit">Save</Button>
 					</form>
 				)}
 			</Mutation>
@@ -109,10 +103,15 @@ const ChangePasswordModal = props => {
 	);
 };
 
-ChangePasswordModal.propTypes = {
+EditProfileModal.propTypes = {
 	close: PropTypes.func.isRequired,
+	currentUser: PropTypes.shape({
+		forename: PropTypes.string.isRequired,
+		surname: PropTypes.string.isRequired,
+		email: PropTypes.string.isRequired
+	}).isRequired,
 	isOpen: PropTypes.bool.isRequired,
 	onSuccess: PropTypes.func.isRequired
 };
 
-export default ChangePasswordModal;
+export default EditProfileModal;

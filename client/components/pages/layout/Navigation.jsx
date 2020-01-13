@@ -29,6 +29,11 @@ const Navigation = props => {
 					</S.Anchor>
 					<S.SubList active={state.user}>
 						<S.SubListItem>
+							<S.SubAnchor onClick={props.editProfile}>
+								Edit Profile
+							</S.SubAnchor>
+						</S.SubListItem>
+						<S.SubListItem>
 							<S.SubAnchor onClick={props.changePassword}>
 								Change Password
 							</S.SubAnchor>
@@ -66,7 +71,8 @@ Navigation.propTypes = {
 	currentUser: PropTypes.shape({
 		forename: PropTypes.string.isRequired,
 		roles: PropTypes.array.isRequired
-	})
+	}),
+	editProfile: PropTypes.func.isRequired
 };
 
 export default Navigation;

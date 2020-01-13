@@ -35,7 +35,7 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 						}
 					`}
 				>
-					{({ loading, error, data }) =>
+					{({ loading, error, data, refetch }) =>
 						loading ? (
 							<Layout />
 						) : error ||
@@ -44,7 +44,11 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 								!data.currentUser.roles.some(role => roles.includes(role))) ? (
 							redirect(props)
 						) : (
-							<Component {...props} currentUser={data.currentUser} />
+							<Component
+								{...props}
+								currentUser={data.currentUser}
+								refetchCurrentUser={refetch}
+							/>
 						)
 					}
 				</Query>

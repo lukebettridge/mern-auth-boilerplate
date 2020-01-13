@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -158,16 +158,18 @@ const Accounts = props => {
 									{({ notification: { success } }) => (
 										<AccountModal
 											close={() => {
-												refetch();
 												setState(prev => ({ ...prev, modalIsOpen: false }));
 											}}
 											currentUser={props.currentUser}
 											isOpen={state.modalIsOpen}
-											onSuccess={() =>
+											onSuccess={() => {
+												if (state.user.id === props.currentUser.id)
+													props.refetchCurrentUser();
+												refetch();
 												success(
 													"The account information was updated successfully."
-												)
-											}
+												);
+											}}
 											user={state.user}
 										/>
 									)}
@@ -182,7 +184,8 @@ const Accounts = props => {
 };
 
 Accounts.propTypes = {
-	currentUser: PropTypes.object
+	currentUser: PropTypes.object,
+	refetchCurrentUser: PropTypes.func
 };
 
 export default Accounts;

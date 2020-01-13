@@ -57,7 +57,7 @@ const userResolver = {
 				passwordHash(password, (err, hash) => {
 					if (err) throw err;
 					return User.create({ forename, surname, email, password: hash }).then(
-						newUser => newUser.id
+						newUser => newUser._id
 					);
 				});
 			});
@@ -74,7 +74,7 @@ const userResolver = {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
-			if (context.user.id.toString() === args.id.toString())
+			if (context.user._id.toString() === args.id.toString())
 				throw new GenericError();
 
 			return User.findById(args.id).then(user =>
@@ -97,7 +97,7 @@ const userResolver = {
 						if (err) throw err;
 						return context.user
 							.updateOne({ password: hash })
-							.then(() => context.user.id);
+							.then(() => context.user._id);
 					});
 				} else
 					throw InputError({
@@ -105,6 +105,31 @@ const userResolver = {
 							password: "The password that you've entered is incorrect"
 						}
 					});
+			});
+		},
+		updateCurrentUser: (parent, args, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			const { forename, surname, email } = args.input;
+			const { errors, isValid } = validate.updateUser({
+				forename,
+				surname,
+				email
+			});
+			if (!isValid) throw InputError({ errors });
+
+			return User.findOne({ email }).then(user => {
+				if (user && user._id.toString() !== context.user._id.toString())
+					throw InputError({
+						errors: {
+							email:
+								"The email address that you've entered is associated with a different account"
+						}
+					});
+				return User.updateOne(
+					{ _id: context.user._id },
+					{ forename, surname, email }
+				).then(user => user._id);
 			});
 		},
 		updateUser: (parent, args, context) => {
@@ -121,14 +146,14 @@ const userResolver = {
 
 			return User.findById(id).then(user1 =>
 				User.findOne({ email }).then(user2 => {
-					if (user2.id.toString() !== id.toString())
+					if (user2 && user2._id.toString() !== id.toString())
 						throw InputError({
 							errors: {
 								email:
 									"The email address that you've entered is associated with a different account"
 							}
 						});
-					user1.updateOne({ forename, surname, email }).then(() => id);
+					return user1.updateOne({ forename, surname, email }).then(() => id);
 				})
 			);
 		}

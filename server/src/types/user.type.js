@@ -24,6 +24,12 @@ const userType = gql`
 		newPassword2: String!
 	}
 
+	input UpdateCurrentUserInput {
+		forename: String!
+		surname: String!
+		email: String!
+	}
+
 	input UpdateUserInput {
 		id: ID!
 		forename: String!
@@ -41,6 +47,7 @@ const userType = gql`
 		activateUser(id: ID!): Boolean
 		deactivateUser(id: ID!): Boolean
 		changePassword(input: ChangePasswordInput!): ID
+		updateCurrentUser(input: UpdateCurrentUserInput!): ID
 		updateUser(input: UpdateUserInput!): ID
 	}
 `;
