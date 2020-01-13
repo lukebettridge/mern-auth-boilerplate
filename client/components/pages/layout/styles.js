@@ -78,8 +78,8 @@ const ListItem = styled.li`
 const Slider = styled.div`
 	align-items: center;
 	background-color: #fbfbfc;
-	border-left: 1px solid #e9ecef;
-	border-bottom: 1px solid #e9ecef;
+	border: 1px solid #e9ecef;
+	border-right: none;
 	color: #294661;
 	display: flex;
 	height: 50px;
