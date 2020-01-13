@@ -72,7 +72,8 @@ const userResolver = {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
-			if (context.user.id === args.id) throw new GenericError();
+			if (context.user.id.toString() === args.id.toString())
+				throw new GenericError();
 
 			return User.findById(args.id).then(user =>
 				user.updateOne({ active: false }).then(() => false)
@@ -118,7 +119,7 @@ const userResolver = {
 
 			return User.findById(id).then(user1 =>
 				User.findOne({ email }).then(user2 => {
-					if (user2.id !== id)
+					if (user2.id.toString() !== id.toString())
 						throw InputError({
 							errors: {
 								email:

@@ -1,29 +1,77 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import MediaQuery from "react-responsive";
+import { FiPlus, FiSearch } from "react-icons/fi";
+
+import Context from "components/context";
 
 import Layout from "../layout";
-import { Subheading, Table } from "components/styles";
+import {
+	FilterBody,
+	FilterHeader,
+	FilterWrap,
+	Subheading,
+	Table,
+	TableAction
+} from "components/styles";
+import breakpoints from "components/styles/breakpoints";
+import Input from "components/form/input";
+import Button from "components/form/button";
 import TodoModal from "./TodoModal";
 
 const Home = props => {
+	const queryInput = useRef();
 	const [state, setState] = useState({
 		modalIsOpen: false,
+		query: "",
 		todo: null
 	});
 
-	const onClick = todo => {
+	const openModal = (todo = null) => {
 		setState(prev => ({ ...prev, modalIsOpen: true, todo }));
+	};
+
+	const onSearch = e => {
+		e.preventDefault();
+		setState(prev => ({
+			...prev,
+			query: queryInput.current.value
+		}));
 	};
 
 	return (
 		<Layout {...props}>
 			<Subheading>Todos</Subheading>
+
+			<FilterWrap>
+				<FilterHeader>
+					<small>Filter your results</small>
+				</FilterHeader>
+				<FilterBody>
+					<form noValidate onSubmit={onSearch}>
+						<Input
+							forwardRef={queryInput}
+							placeholder="Search Term"
+							secondary
+						/>
+						<Button secondary type="submit" width="unset">
+							<FiSearch />
+						</Button>
+					</form>
+					<Button onClick={() => openModal()} width="unset">
+						<MediaQuery minWidth={breakpoints.m}>
+							{matches => (matches ? "New Todo" : <FiPlus />)}
+						</MediaQuery>
+					</Button>
+				</FilterBody>
+			</FilterWrap>
+
 			<Query
 				fetchPolicy={"no-cache"}
 				query={gql`
 					{
-						todos {
+						todos(query: "${state.query}") {
 							id
 							text
 						}
@@ -37,30 +85,57 @@ const Home = props => {
 					}
 					return (
 						<React.Fragment>
-							<Table>
-								<thead>
-									<tr>
-										<th className="col-1">ID</th>
-										<th className="col-4">Description</th>
-									</tr>
-								</thead>
-								<tbody>
-									{data.todos.map(item => (
-										<tr key={item.id} onClick={() => onClick(item)}>
-											<td className="col-1">{item.id}</td>
-											<td className="col-4">{item.text}</td>
-										</tr>
-									))}
-								</tbody>
-							</Table>
-							<TodoModal
-								close={() => {
-									refetch();
-									setState(prev => ({ ...prev, modalIsOpen: false }));
-								}}
-								isOpen={state.modalIsOpen}
-								todo={state.todo}
-							/>
+							<MediaQuery minWidth={breakpoints.l}>
+								{matches =>
+									matches ? (
+										<Table>
+											<thead>
+												<tr>
+													<th className="col-5">Description</th>
+												</tr>
+											</thead>
+											<tbody>
+												{data.todos.map(item => (
+													<tr key={item.id} onClick={() => openModal(item)}>
+														<td className="col-5">{item.text}</td>
+													</tr>
+												))}
+											</tbody>
+										</Table>
+									) : (
+										data.todos.map(item => (
+											<React.Fragment key={item.id}>
+												<Table>
+													<tbody>
+														<tr>
+															<th className="col-2">Description</th>
+															<td className="col-3">{item.text}</td>
+														</tr>
+													</tbody>
+												</Table>
+												<TableAction onClick={() => openModal(item)}>
+													More Details
+												</TableAction>
+											</React.Fragment>
+										))
+									)
+								}
+							</MediaQuery>
+							<Context.Consumer>
+								{({ notification: { success } }) => (
+									<TodoModal
+										close={() => {
+											refetch();
+											setState(prev => ({ ...prev, modalIsOpen: false }));
+										}}
+										isOpen={state.modalIsOpen}
+										onSuccess={() =>
+											success("The todo information was updated successfully.")
+										}
+										todo={state.todo}
+									/>
+								)}
+							</Context.Consumer>
 						</React.Fragment>
 					);
 				}}

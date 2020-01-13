@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {
-	FiChevronDown,
-	FiMail,
-	FiPackage,
-	FiSettings,
-	FiSidebar,
-	FiUser,
-	FiUsers
-} from "react-icons/fi";
+import { FiChevronDown, FiCheckCircle, FiUser, FiUsers } from "react-icons/fi";
 
 import * as S from "./styles";
 
@@ -49,27 +41,9 @@ const Navigation = props => {
 				<S.ListItem>
 					<S.Link to="/">
 						<span>
-							<FiSidebar />
-							Dashboard
+							<FiCheckCircle />
+							Todos
 						</span>
-					</S.Link>
-				</S.ListItem>
-				<S.ListItem>
-					<S.Link to="/">
-						<span>
-							<FiPackage />
-							Orders
-						</span>
-						<FiChevronDown />
-					</S.Link>
-				</S.ListItem>
-				<S.ListItem>
-					<S.Link to="/">
-						<span>
-							<FiMail />
-							Messages
-						</span>
-						<FiChevronDown />
 					</S.Link>
 				</S.ListItem>
 				{props.currentUser.roles.includes("admin") && (
@@ -82,15 +56,6 @@ const Navigation = props => {
 						</S.Link>
 					</S.ListItem>
 				)}
-				<S.ListItem>
-					<S.Link to="/">
-						<span>
-							<FiSettings />
-							Settings
-						</span>
-						<FiChevronDown />
-					</S.Link>
-				</S.ListItem>
 			</S.List>
 		</S.Navigation>
 	);

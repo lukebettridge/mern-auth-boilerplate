@@ -11,7 +11,7 @@ const Button = styled.button`
 	font-size: 10pt;
 	font-weight: 300;
 	justify-content: center;
-	margin-bottom: 16px;
+	margin-bottom: 11px;
 	outline-width: 3px;
 	padding: 10px 17px;
 	transition: background-color 0.3s;

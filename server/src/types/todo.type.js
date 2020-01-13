@@ -7,12 +7,13 @@ const todoType = gql`
 	}
 
 	extend type Query {
-		todos: [Todo]
+		todos(query: String): [Todo]
 	}
 
 	extend type Mutation {
-		addTodo(text: String!): Todo
-		removeTodo(id: ID!): Todo
+		addTodo(text: String!): ID
+		removeTodo(id: ID!): ID
+		updateTodo(id: ID!, text: String!): ID
 	}
 `;
 

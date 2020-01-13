@@ -1,19 +1,46 @@
+const { AuthorizationError } = require("../errors");
+
 const Todo = require("../models/Todo");
 
 const todoResolver = {
 	Query: {
-		todos() {
-			return Todo.find();
+		todos: (parent, args, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			const query = RegExp(`${args.query}.*`, "i");
+
+			return Todo.find({ user: context.user._id }).then(todos =>
+				args.query && args.query.length > 0
+					? todos.filter(todo => todo.text.match(query))
+					: todos
+			);
 		}
 	},
 	Mutation: {
-		addTodo(_, args) {
-			const todo = new Todo(args);
-			todo.save();
-			return todo;
+		addTodo: (parent, { text }, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			return Todo.create({ text, user: context.user._id }).then(
+				todo => todo.id
+			);
 		},
-		removeTodo(_, { id }) {
-			Todo.findByIdAndRemove(id).exec();
+		removeTodo: (parent, { id }, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			return Todo.findById(id).then(todo => {
+				if (context.user._id.toString() !== todo.user.toString())
+					throw new AuthorizationError();
+				return todo.remove().then(() => todo.id);
+			});
+		},
+		updateTodo: (parent, { id, text }, context) => {
+			if (!context.user) throw new AuthorizationError();
+
+			return Todo.findById(id).then(todo => {
+				if (context.user._id.toString() !== todo.user.toString())
+					throw new AuthorizationError();
+				return todo.updateOne({ text }).then(() => id);
+			});
 		}
 	}
 };

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
-import MediaQuery from "react-responsive";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import MediaQuery from "react-responsive";
 import { FiUserPlus, FiSearch } from "react-icons/fi";
 
 import Context from "components/context";
