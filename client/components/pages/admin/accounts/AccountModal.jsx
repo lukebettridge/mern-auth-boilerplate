@@ -7,6 +7,7 @@ import { pattern } from "utils";
 import { FlexBox, Link, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
+import Select from "components/form/select";
 import Button from "components/form/button";
 
 const AccountModal = props => {
@@ -19,7 +20,8 @@ const AccountModal = props => {
 			surname: "",
 			email: "",
 			password: "",
-			password2: ""
+			password2: "",
+			roles: []
 		},
 		validate: false
 	};
@@ -35,7 +37,12 @@ const AccountModal = props => {
 	}, [state.validate]);
 
 	const onChange = e => {
-		const { name, value } = e.target;
+		let { name, value } = e.target;
+
+		if (name === "roles") {
+			value = value?.map(opt => opt.value);
+		}
+
 		setState(prev => ({
 			...prev,
 			user: {
@@ -54,7 +61,7 @@ const AccountModal = props => {
 				if (state.new) props.close();
 			})
 			.catch(err => {
-				if (err.graphQLErrors.length > 0) {
+				if (err.graphQLErrors?.length > 0) {
 					const errors = err.graphQLErrors[0];
 					setState(prev => ({ ...prev, errors }));
 				}
@@ -87,6 +94,17 @@ const AccountModal = props => {
 		});
 	};
 
+	const options = {
+		roles: [
+			{
+				value: "admin",
+				label: "Administrator",
+				isFixed: props.currentUser.id === state.user.id
+			},
+			{ value: "user", label: "Guest" }
+		]
+	};
+
 	const {
 		id,
 		forename,
@@ -94,7 +112,8 @@ const AccountModal = props => {
 		email,
 		password,
 		password2,
-		active
+		active,
+		roles
 	} = state.user;
 
 	return (
@@ -154,7 +173,6 @@ const AccountModal = props => {
 							friendlyName={"Confirm password"}
 							isRequired={true}
 							label={"Confirm Password"}
-							mb="m"
 							name="password2"
 							onChange={onChange}
 							type="password"
@@ -163,6 +181,15 @@ const AccountModal = props => {
 						/>
 					</FlexBox>
 				)}
+				<Select
+					isMulti
+					label="Role"
+					mb="m"
+					name="roles"
+					onChange={onChange}
+					options={options.roles}
+					value={options.roles.filter(role => roles?.includes(role.value))}
+				/>
 				<Mutation
 					mutation={
 						state.new
@@ -178,7 +205,7 @@ const AccountModal = props => {
 							  `
 					}
 					variables={{
-						input: { id, forename, surname, email, password, password2 }
+						input: { id, forename, surname, email, password, password2, roles }
 					}}
 				>
 					{(mutation, { loading }) => (

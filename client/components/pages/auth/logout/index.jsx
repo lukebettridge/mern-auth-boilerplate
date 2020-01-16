@@ -4,7 +4,7 @@ import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
 import Layout from "../Layout";
-import OnRender from "./OnRender";
+import OnRender from "client/components/routes/OnRender";
 import { Box, Paragraph, RouterLink } from "components/styles";
 
 const Logout = () => {
@@ -35,7 +35,7 @@ const Logout = () => {
 									<RouterLink to="/auth/login">Go back to login</RouterLink>
 								</React.Fragment>
 							);
-						return <OnRender mutation={mutation} />;
+						return <OnRender method={mutation} />;
 					}}
 				</Mutation>
 			</Box>

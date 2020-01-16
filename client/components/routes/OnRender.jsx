@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 const OnRender = props => {
 	useEffect(() => {
-		props.mutation();
+		props.method();
 	}, []);
 	return null;
 };
 
 OnRender.propTypes = {
-	mutation: PropTypes.func.isRequired
+	method: PropTypes.func.isRequired
 };
 
 export default OnRender;

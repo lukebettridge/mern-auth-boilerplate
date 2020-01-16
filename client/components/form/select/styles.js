@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import breakpoints from "components/styles/breakpoints";
+import { default as ReactSelect } from "react-select";
 
 const Error = styled.p`
 	color: #db1802;
@@ -12,28 +13,7 @@ const Error = styled.p`
 	}
 `;
 
-const Input = styled.input`
-	background-color: transparent;
-	border: 0;
-	border-bottom: 1px solid #e9ecef;
-	border-radius: 0;
-	box-shadow: none;
-	font-size: 11pt;
-	font-weight: 300;
-	margin-bottom: 8px;
-	outline: none;
-	padding: 12px 10px;
-	transition: border-color 100ms;
-	width: 100%;
-
-	&:hover {
-		border-color: #b3b3b3;
-	}
-
-	&:focus {
-		border-color: #2684ff;
-	}
-
+const Select = styled(ReactSelect)`
 	&:focus + label {
 		font-size: 75%;
 		transform: translate3d(0, -100%, 0);
@@ -42,6 +22,7 @@ const Input = styled.input`
 
 	${props =>
 		props.value &&
+		props.value.length > 0 &&
 		css`
 			& + label {
 				font-size: 75%;
@@ -59,9 +40,28 @@ const Input = styled.input`
 				color: #db1802;
 			}
 		`}
+        
+	.react-select__control {
+		appearance: none;
+		background-color: transparent;
+		border: 0;
+		border-bottom: 1px solid #e9ecef;
+		border-radius: 0;
+		box-shadow: none;
+		font-size: 12pt;
+		font-weight: 300;
+		height: 42px;
+		margin-bottom: 8px;
+		outline: none;
+		width: 100%;
+
+		.react-select__input {
+			opacity: 0;
+		}
+	}
 `;
 
-const InputContainer = styled.div`
+const SelectContainer = styled.div`
 	position: relative;
 	width: 100%;
 
@@ -93,4 +93,4 @@ const Label = styled.label`
 	transition: all 200ms;
 `;
 
-export { Error, Input, InputContainer, Label };
+export { Error, Select, SelectContainer, Label };

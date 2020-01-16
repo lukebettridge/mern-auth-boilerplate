@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -163,7 +163,7 @@ const Accounts = props => {
 											currentUser={props.currentUser}
 											isOpen={state.modalIsOpen}
 											onSuccess={() => {
-												if (state.user.id === props.currentUser.id)
+												if (state.user?.id === props.currentUser.id)
 													props.refetchCurrentUser();
 												refetch();
 												success(

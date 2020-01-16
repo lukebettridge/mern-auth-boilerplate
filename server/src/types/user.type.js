@@ -16,6 +16,7 @@ const userType = gql`
 		email: String!
 		password: String!
 		password2: String!
+		roles: [String]
 	}
 
 	input ChangePasswordInput {
@@ -35,6 +36,7 @@ const userType = gql`
 		forename: String!
 		surname: String!
 		email: String!
+		roles: [String]
 	}
 
 	extend type Query {

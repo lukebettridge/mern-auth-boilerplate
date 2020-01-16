@@ -36,7 +36,14 @@ const userResolver = {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
-			const { forename, surname, email, password, password2 } = args.input;
+			const {
+				forename,
+				surname,
+				email,
+				password,
+				password2,
+				roles
+			} = args.input;
 			const { errors, isValid } = validate.addUser({
 				forename,
 				surname,
@@ -56,9 +63,13 @@ const userResolver = {
 					});
 				passwordHash(password, (err, hash) => {
 					if (err) throw err;
-					return User.create({ forename, surname, email, password: hash }).then(
-						newUser => newUser._id
-					);
+					return User.create({
+						forename,
+						surname,
+						email,
+						password: hash,
+						roles
+					}).then(newUser => newUser._id);
 				});
 			});
 		},
@@ -136,7 +147,14 @@ const userResolver = {
 			if (!context.user || !context.user.roles.includes("admin"))
 				throw new AuthorizationError();
 
-			const { id, forename, surname, email } = args.input;
+			const { id, forename, surname, email, roles } = args.input;
+
+			if (
+				context.user._id.toString() === id.toString() &&
+				(!roles || !roles.includes("admin"))
+			)
+				throw new GenericError();
+
 			const { errors, isValid } = validate.updateUser({
 				forename,
 				surname,
@@ -153,7 +171,9 @@ const userResolver = {
 									"The email address that you've entered is associated with a different account"
 							}
 						});
-					return user1.updateOne({ forename, surname, email }).then(() => id);
+					return user1
+						.updateOne({ forename, surname, email, roles })
+						.then(() => id);
 				})
 			);
 		}
