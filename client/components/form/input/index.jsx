@@ -49,6 +49,16 @@ const Input = props => {
 			error = `${prefix} must be smaller than ${max}.`;
 		} else if (typeof min === "number" && value < min) {
 			error = `${prefix} must be larger than ${min}.`;
+		} else if (
+			typeof max === "string" &&
+			typeof min === "string" &&
+			(value.length < min || value.length > max)
+		) {
+			error = `${prefix} must have a length between ${min} and ${max}.`;
+		} else if (typeof max === "string" && value.length > max) {
+			error = `${prefix} must have a length smaller than ${max}.`;
+		} else if (typeof min === "string" && value.length < min) {
+			error = `${prefix} must have a length larger than ${min}.`;
 		}
 
 		setState(prev => ({

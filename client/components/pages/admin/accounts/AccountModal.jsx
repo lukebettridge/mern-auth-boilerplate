@@ -188,6 +188,7 @@ const AccountModal = props => {
 					name="roles"
 					onChange={onChange}
 					options={options.roles}
+					validate={state.validate}
 					value={options.roles.filter(role => roles?.includes(role.value))}
 				/>
 				<Mutation

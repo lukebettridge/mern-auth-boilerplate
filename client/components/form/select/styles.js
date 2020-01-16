@@ -34,8 +34,6 @@ const Select = styled(ReactSelect)`
 	${props =>
 		props.inError &&
 		css`
-			border-color: #db1802;
-
 			& + label {
 				color: #db1802;
 			}
@@ -54,6 +52,12 @@ const Select = styled(ReactSelect)`
 		margin-bottom: 8px;
 		outline: none;
 		width: 100%;
+
+		${props =>
+			props.inError &&
+			css`
+				border-color: #db1802;
+			`}
 
 		.react-select__input {
 			opacity: 0;

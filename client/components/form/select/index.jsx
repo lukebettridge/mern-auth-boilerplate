@@ -18,7 +18,9 @@ const Select = props => {
 	}, [props.validate]);
 
 	const orderOptions = values => {
-		return values.filter(v => v.isFixed).concat(values.filter(v => !v.isFixed));
+		return values
+			?.filter(v => v.isFixed)
+			.concat(values?.filter(v => !v.isFixed));
 	};
 
 	const onBlur = e => {
@@ -36,7 +38,7 @@ const Select = props => {
 				}
 				break;
 			case "clear":
-				value = props.options.filter(v => v.isFixed);
+				value = props.options?.filter(v => v.isFixed);
 				break;
 		}
 		if (props.onChange)
@@ -48,7 +50,25 @@ const Select = props => {
 			});
 	};
 
-	const validate = () => {};
+	const validate = (onBlur = false) => {
+		let error = "";
+		const { friendlyName, isRequired, name, value } = props;
+		const prefix = friendlyName || name || "This";
+
+		if (
+			isRequired &&
+			(!value ||
+				(props.isMulti && value.length === 0) ||
+				(!props.isMulti && value.replace(/^\s+|\s+$/g, "").length === 0))
+		) {
+			error = `${prefix} field is required`;
+		}
+
+		setState(prev => ({
+			...prev,
+			error: !onBlur ? props.error || error : error
+		}));
+	};
 
 	const styles = {
 		multiValue: (base, state) => {
