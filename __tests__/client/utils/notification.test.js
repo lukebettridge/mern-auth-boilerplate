@@ -17,7 +17,7 @@ describe("Notification method", () => {
 		};
 		const output = notification(ref);
 
-		const successSpy = spyOn(output, "success");
+		const successSpy = jest.spyOn(output, "success");
 		output.success("Test message");
 
 		expect(output.ref).toEqual(ref);

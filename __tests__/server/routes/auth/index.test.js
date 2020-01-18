@@ -1,17 +1,15 @@
-const express = require("express");
-
 const auth = require("server/routes/auth");
 const register = require("server/routes/auth/register");
 const login = require("server/routes/auth/login");
 const resetPassword = require("server/routes/auth/reset-password");
 
 describe("routes auth", () => {
-	let router;
+	let router = {
+		get: jest.fn(),
+		post: jest.fn()
+	};
 	beforeEach(() => {
-		router = {
-			get: spyOn(express.Router(), "get"),
-			post: spyOn(express.Router(), "post")
-		};
+		jest.resetAllMocks();
 	});
 	it("defines authentication routes", () => {
 		auth(router);
