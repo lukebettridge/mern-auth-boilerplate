@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const mongoose = require("mongoose");
 const { ApolloServer } = require("apollo-server-express");
+const router = express.Router();
 
 require("dotenv").config();
 
@@ -56,6 +57,6 @@ const server = new ApolloServer({
 server.applyMiddleware({ app, cors: false });
 
 // Routes
-app.use("/api/auth", routes.auth);
+app.use("/api/auth", routes.auth(router));
 
 app.listen(PORT, () => console.log("Server listening on port", PORT));

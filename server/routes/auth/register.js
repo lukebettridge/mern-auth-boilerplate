@@ -1,5 +1,4 @@
 const { passwordHash } = require("../../utils");
-
 const validate = require("../../validation/register");
 const User = require("../../src/models/User");
 

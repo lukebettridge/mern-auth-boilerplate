@@ -1,5 +1,4 @@
 const { mail, passwordHash, randomString } = require("../../utils");
-
 const validate = require("../../validation/reset-password");
 const User = require("../../src/models/User");
 const RESET_KEY_STRING_LENGTH = 10;
@@ -32,11 +31,11 @@ module.exports = {
 						to: email,
 						subject: `${process.env.APP_NAME} - Your password reset request`,
 						text: `Hello ${user.forename},
-					
-					So, you've forgotten your password... no biggie, follow this link to set a new one: ${url}
-					
-					Thanks,
-					The ${process.env.APP_NAME} Team`
+
+So, you've forgotten your password... no biggie, follow this link to set a new one: ${url}
+
+Thanks,
+The ${process.env.APP_NAME} Team`
 					})
 						.then(() => {
 							res.json({ success: true });
