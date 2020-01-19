@@ -7,8 +7,8 @@ const register = require("server/routes/auth/register");
 jest.mock("server/utils", () => ({
 	passwordHash: jest.fn()
 }));
-jest.mock("server/validation/register", () => jest.fn());
-jest.mock("server/src/models/User", () => jest.fn());
+jest.mock("server/validation/register");
+jest.mock("server/src/models/User");
 User.findOne = jest.fn();
 User.then = jest.fn();
 
@@ -78,7 +78,6 @@ describe("routes register", () => {
 
 		register(req, res);
 
-		expect(validate).toHaveBeenCalledWith(req.body);
 		expect(res.status).toHaveBeenCalledWith(400);
 		expect(res.json).toHaveBeenCalledWith({ email: "foo" });
 

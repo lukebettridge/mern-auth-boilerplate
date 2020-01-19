@@ -13,8 +13,8 @@ jest.mock("server/utils", () => ({
 }));
 mail.then = jest.fn();
 mail.catch = jest.fn();
-jest.mock("server/validation/reset-password", () => jest.fn());
-jest.mock("server/src/models/User", () => jest.fn());
+jest.mock("server/validation/reset-password");
+
 User.findOne = jest.fn();
 User.then = jest.fn();
 
@@ -171,7 +171,6 @@ describe("routes reset password (post)", () => {
 
 		resetPassword.post(req, res);
 
-		expect(validate).toHaveBeenCalledWith(req.body);
 		expect(res.status).toHaveBeenCalledWith(400);
 		expect(res.json).toHaveBeenCalledWith({ newPassword: "foo" });
 

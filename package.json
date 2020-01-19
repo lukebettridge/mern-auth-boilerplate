@@ -90,7 +90,8 @@
       "<rootDir>/__tests__/setup.js"
     ],
     "testPathIgnorePatterns": [
-      "setup.js"
+      "setup.js",
+      ".ignore.test"
     ],
     "globals": {
       "baseURL": ""

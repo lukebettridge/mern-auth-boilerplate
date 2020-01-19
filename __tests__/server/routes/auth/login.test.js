@@ -15,11 +15,10 @@ jest.mock("bcryptjs", () => ({
 jest.mock("jsonwebtoken", () => ({
 	sign: jest.fn()
 }));
-jest.mock("server/validation/login", () => jest.fn());
-jest.mock("server/src/models/User", () => ({
-	findOne: jest.fn(),
-	then: jest.fn()
-}));
+jest.mock("server/validation/login");
+
+User.findOne = jest.fn();
+User.then = jest.fn();
 
 const res = {
 	cookie: jest.fn(),
@@ -76,8 +75,6 @@ describe("routes login", () => {
 		validate.mockReturnValueOnce({ errors: { email: "foo" }, isValid: false });
 
 		login(req, res);
-
-		expect(validate).toHaveBeenCalledWith(req.body);
 
 		expect(res.status).toHaveBeenCalledWith(400);
 		expect(res.json).toHaveBeenCalledWith({ email: "foo" });
