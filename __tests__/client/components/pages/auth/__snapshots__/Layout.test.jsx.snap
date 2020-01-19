@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component snapshot renders 1`] = `
+<styles__Container
+  small={true}
+>
+  <styles__Heading>
+    Webapp
+  </styles__Heading>
+  <styles__Paragraph
+    center={true}
+    light={true}
+  >
+    Developed by
+     
+    <a
+      href="https://paddl.co.uk/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Paddl
+    </a>
+    <br />
+    . A limited company registered in England and Wales. Registered number: 11992253.
+  </styles__Paragraph>
+</styles__Container>
+`;
