@@ -1,6 +1,6 @@
 const randomString = require("server/utils/random-string");
 
-describe("generates a random string", () => {
+describe("random string utility", () => {
 	[
 		{
 			len: undefined,
@@ -23,7 +23,7 @@ describe("generates a random string", () => {
 			scenario: "with length of 10 and today's date"
 		}
 	].map(({ len, date, scenario }) => {
-		test(scenario, () => {
+		it(`generate ${scenario}`, () => {
 			const output = randomString(len, date);
 
 			const time = date ? date.getTime() : null;
