@@ -1,6 +1,10 @@
 const notification = require("client/utils/notification");
 
 describe("Notification method", () => {
+	beforeEach(() => {
+		jest.resetAllMocks();
+	});
+
 	it("Returns an object", () => {
 		const output = notification({});
 
@@ -9,18 +13,37 @@ describe("Notification method", () => {
 		expect(output.success).toBeInstanceOf(Function);
 	});
 
-	it("success calls ref", () => {
-		const ref = {
-			current: {
-				addNotification: jest.fn()
-			}
-		};
+	it("success calls ref with message", () => {
 		const output = notification(ref);
 
-		const successSpy = jest.spyOn(output, "success");
-		output.success("Test message");
+		output.success("foo");
 
 		expect(output.ref).toEqual(ref);
-		expect(successSpy).toHaveBeenCalledWith("Test message");
+		expect(ref.current.addNotification).toHaveBeenCalledWith({
+			message: "foo",
+			title: "Success",
+			level: "success",
+			position: "bl"
+		});
+	});
+
+	it("success calls ref without message", () => {
+		const output = notification(ref);
+
+		output.success();
+
+		expect(output.ref).toEqual(ref);
+		expect(ref.current.addNotification).toHaveBeenCalledWith({
+			message: "",
+			title: "Success",
+			level: "success",
+			position: "bl"
+		});
 	});
 });
+
+const ref = {
+	current: {
+		addNotification: jest.fn()
+	}
+};

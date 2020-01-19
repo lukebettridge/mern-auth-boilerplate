@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const { cloneDeep } = require("lodash");
 
 const bcrypt = require("bcryptjs");

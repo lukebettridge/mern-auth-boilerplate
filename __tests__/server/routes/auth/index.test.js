@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const auth = require("server/routes/auth");
 const register = require("server/routes/auth/register");
 const login = require("server/routes/auth/login");

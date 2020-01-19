@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 describe("user resolver", () => {
 	require("./currentUser.query.ignore.test");
 	require("./users.query.ignore.test");

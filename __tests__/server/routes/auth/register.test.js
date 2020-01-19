@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 const { passwordHash } = require("server/utils");
 const validate = require("server/validation/register");
 const User = require("server/src/models/User");

@@ -55,7 +55,7 @@ describe("update user mutation", () => {
 		expect(output).toEqual("0");
 	});
 
-	it("prevents removing admin role from current user", () => {
+	it("prevent removing admin role from current user", () => {
 		expect(() => {
 			updateUser(null, args, { user: { _id: "0", roles: ["admin"] } });
 		}).toThrow(GenericError);
