@@ -46,7 +46,7 @@ const Login = () => {
 					password: state.password
 				},
 				{
-					baseURL,
+					baseURL: process.env.BASE_URL,
 					withCredentials: true
 				}
 			)

@@ -39,7 +39,7 @@ const ResetPasswordModal = props => {
 
 		axios
 			.get(`/api/auth/reset-password?email=${state.email}`, {
-				baseURL,
+				baseURL: process.env.BASE_URL,
 				withCredentials: true
 			})
 			.then(() => {

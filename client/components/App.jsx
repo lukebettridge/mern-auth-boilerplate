@@ -20,7 +20,7 @@ import { Accounts } from "./pages/admin";
 import Home from "./pages/home";
 
 const httpLink = createHttpLink({
-	uri: `${baseURL}/graphql`,
+	uri: `${process.env.BASE_URL}/graphql`,
 	credentials: "include"
 });
 

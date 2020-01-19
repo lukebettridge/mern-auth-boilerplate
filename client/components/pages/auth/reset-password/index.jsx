@@ -37,7 +37,7 @@ const ResetPassword = props => {
 					newPassword: state.newPassword,
 					newPassword2: state.newPassword2
 				},
-				{ baseURL }
+				{ baseURL: process.env.BASE_URL }
 			)
 			.then(() => {
 				setState(prev => ({ ...prev, success: true }));

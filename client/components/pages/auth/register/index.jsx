@@ -47,7 +47,7 @@ const Register = () => {
 					password: state.password,
 					password2: state.password2
 				},
-				{ baseURL }
+				{ baseURL: process.env.BASE_URL }
 			)
 			.then(() => {
 				setState(prev => ({ ...prev, success: true }));

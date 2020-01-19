@@ -14,8 +14,5 @@ module.exports = {
 			lines: 50,
 			statements: 50
 		}
-	},
-	globals: {
-		baseURL: ""
 	}
 };

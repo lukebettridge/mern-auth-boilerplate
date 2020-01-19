@@ -7,9 +7,6 @@
 	},
 	"parser": "babel-eslint",
 	"extends": ["eslint:recommended", "plugin:react/recommended"],
-	"globals": {
-		"baseURL": true
-	},
 	"parserOptions": {
 		"ecmaFeatures": {
 			"jsx": true
