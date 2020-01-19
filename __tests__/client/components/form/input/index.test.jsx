@@ -1,13 +1,13 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
+import toJSON from "enzyme-to-json";
 
 import Input from "components/form/input";
 
 describe("Input component", () => {
 	it("snapshot renders", () => {
-		const component = renderer.create(<Input />);
-		const tree = component.toJSON();
+		const subject = shallow(<Input />);
 
-		expect(tree).toMatchSnapshot();
+		expect(toJSON(subject)).toMatchSnapshot();
 	});
 });

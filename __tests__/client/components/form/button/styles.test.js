@@ -1,32 +1,30 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { mount } from "enzyme";
+import toJSON from "enzyme-to-json";
 
 import { Button } from "components/form/button/styles";
 
 describe("Button styles", () => {
 	it("snapshot renders", () => {
-		const component = renderer.create(<Button />);
-		const tree = component.toJSON();
+		const subject = mount(<Button />);
 
-		expect(tree).toMatchSnapshot();
+		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
 	it("secondary rules applied", () => {
-		const component = renderer.create(<Button secondary />);
-		const tree = component.toJSON();
+		const subject = mount(<Button secondary />);
 
-		expect(tree).toHaveStyleRule("background-color", "transparent");
-		expect(tree).toHaveStyleRule("border", "1px solid #a3cdf3");
-		expect(tree).toHaveStyleRule("color", "#1a82e2");
-		expect(tree).toHaveStyleRule("background-color", "#e8f2fc", {
+		expect(subject).toHaveStyleRule("background-color", "transparent");
+		expect(subject).toHaveStyleRule("border", "1px solid #a3cdf3");
+		expect(subject).toHaveStyleRule("color", "#1a82e2");
+		expect(subject).toHaveStyleRule("background-color", "#e8f2fc", {
 			modifier: ":hover:not(:disabled)"
 		});
 	});
 
 	it("custom width applied", () => {
-		const component = renderer.create(<Button width="100px" />);
-		const tree = component.toJSON();
+		const subject = mount(<Button width="100px" />);
 
-		expect(tree).toHaveStyleRule("width", "100px");
+		expect(subject).toHaveStyleRule("width", "100px");
 	});
 });

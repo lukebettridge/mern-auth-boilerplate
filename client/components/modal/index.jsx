@@ -10,6 +10,7 @@ const Modal = props => {
 
 	return (
 		<S.Modal
+			ariaHideApp={!process.env.NODE_ENV === "test"}
 			isOpen={props.isOpen}
 			onRequestClose={props.close}
 			sideModal={props.sideModal}

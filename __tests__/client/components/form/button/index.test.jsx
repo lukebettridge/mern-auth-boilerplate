@@ -1,25 +1,24 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
+import toJSON from "enzyme-to-json";
 
 import Button from "components/form/button";
 
 describe("Button component", () => {
 	it("snapshot renders", () => {
-		const component = renderer.create(<Button />);
-		const tree = component.toJSON();
+		const subject = shallow(<Button />);
 
-		expect(tree).toMatchSnapshot();
+		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
 	it("renders children", () => {
-		const wrapper = shallow(
+		const subject = shallow(
 			<Button>
-				<p>Text</p>
+				<p>foo</p>
 			</Button>
 		);
 
-		expect(wrapper.find("p").length).toEqual(1);
-		expect(wrapper.find("p").text()).toEqual("Text");
+		expect(subject.find("p").length).toEqual(1);
+		expect(subject.find("p").text()).toEqual("foo");
 	});
 });
