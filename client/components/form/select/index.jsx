@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {
+	forwardRef,
+	useEffect,
+	useImperativeHandle,
+	useState
+} from "react";
 import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
-const Select = props => {
+const Select = forwardRef((props, ref) => {
 	const [state, setState] = useState({
 		error: props.error || ""
 	});
@@ -13,15 +18,7 @@ const Select = props => {
 		setState(prev => ({ ...prev, error }));
 	}, [props.error]);
 
-	useEffect(() => {
-		if (props.validate) validate();
-	}, [props.validate]);
-
-	const orderOptions = values => {
-		return values
-			?.filter(v => v.isFixed)
-			.concat(values?.filter(v => !v.isFixed));
-	};
+	useImperativeHandle(ref, () => ({ validate }));
 
 	const onBlur = e => {
 		validate(true);
@@ -68,6 +65,13 @@ const Select = props => {
 			...prev,
 			error: !onBlur ? props.error || error : error
 		}));
+		return error;
+	};
+
+	const orderOptions = values => {
+		return values
+			?.filter(v => v.isFixed)
+			.concat(values?.filter(v => !v.isFixed));
 	};
 
 	const styles = {
@@ -98,14 +102,14 @@ const Select = props => {
 				onBlur={onBlur}
 				onChange={onChange}
 				options={orderOptions(props.options)}
-				ref={props.forwardRef}
+				ref={ref}
 				styles={styles}
 			/>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && <S.Error>{state.error}</S.Error>}
 		</S.SelectContainer>
 	);
-};
+});
 
 Select.propTypes = {
 	error: PropTypes.string,

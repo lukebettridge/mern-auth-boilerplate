@@ -53,11 +53,7 @@ const Accounts = props => {
 					</FilterHeader>
 					<FilterBody>
 						<form noValidate onSubmit={onSearch}>
-							<Input
-								forwardRef={queryInput}
-								placeholder="Search Term"
-								secondary
-							/>
+							<Input placeholder="Search Term" ref={queryInput} secondary />
 							<Button secondary type="submit" width="unset">
 								<FiSearch />
 							</Button>

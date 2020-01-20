@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -13,18 +13,17 @@ const ChangePasswordModal = props => {
 		password: "",
 		newPassword: "",
 		newPassword2: "",
-		errors: {},
-		validate: false
+		errors: {}
 	};
 	const [state, setState] = useState(initialState);
+	const refs = {};
+	["password", "newPassword", "newPassword2"].forEach(
+		name => (refs[name] = useRef())
+	);
 
 	useEffect(() => {
 		if (props.isOpen) setState(initialState);
 	}, [props.isOpen]);
-
-	useEffect(() => {
-		if (state.validate) setState(prev => ({ ...prev, validate: false }));
-	}, [state.validate]);
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -34,10 +33,13 @@ const ChangePasswordModal = props => {
 		}));
 	};
 
-	const onSubmit = (e, mutation) => {
-		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
+	const changePassword = mutation => {
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
 
+		if (!isValid) return;
 		mutation()
 			.then(() => {
 				props.onSuccess();
@@ -58,53 +60,58 @@ const ChangePasswordModal = props => {
 				it to and a confirmation of that new password. Once successful, you will
 				need to use the new password the next time you login.
 			</Paragraph>
-			<Mutation
-				mutation={gql`
-					mutation changePassword($input: ChangePasswordInput!) {
-						changePassword(input: $input)
-					}
-				`}
-				variables={{ input: { password, newPassword, newPassword2 } }}
-			>
-				{mutation => (
-					<form noValidate onSubmit={e => onSubmit(e, mutation)}>
-						<Input
-							error={state.errors.password}
-							isRequired={true}
-							label="Password"
-							name="password"
-							onChange={onChange}
-							type="password"
-							validate={state.validate}
-							value={state.password}
-						/>
-						<Input
-							error={state.errors.newPassword}
-							friendlyName="New password"
-							isRequired={true}
-							label="New Password"
-							name="newPassword"
-							onChange={onChange}
-							type="password"
-							validate={state.validate}
-							value={state.newPassword}
-						/>
-						<Input
-							error={state.errors.newPassword2}
-							friendlyName={"Confirm new password"}
-							isRequired={true}
-							label="Confirm New Password"
-							mb="m"
-							name="newPassword2"
-							onChange={onChange}
-							type="password"
-							validate={state.validate}
-							value={state.newPassword2}
-						/>
-						<Button type="submit">Submit</Button>
-					</form>
-				)}
-			</Mutation>
+			<form noValidate onSubmit={e => e.preventDefault()}>
+				<Input
+					error={state.errors.password}
+					isRequired={true}
+					label="Password"
+					name="password"
+					onChange={onChange}
+					ref={refs.password}
+					type="password"
+					value={state.password}
+				/>
+				<Input
+					error={state.errors.newPassword}
+					friendlyName="New password"
+					isRequired={true}
+					label="New Password"
+					name="newPassword"
+					onChange={onChange}
+					ref={refs.newPassword}
+					type="password"
+					value={state.newPassword}
+				/>
+				<Input
+					error={state.errors.newPassword2}
+					friendlyName={"Confirm new password"}
+					isRequired={true}
+					label="Confirm New Password"
+					mb="m"
+					name="newPassword2"
+					onChange={onChange}
+					ref={refs.newPassword2}
+					type="password"
+					value={state.newPassword2}
+				/>
+				<Mutation
+					mutation={gql`
+						mutation changePassword($input: ChangePasswordInput!) {
+							changePassword(input: $input)
+						}
+					`}
+					variables={{ input: { password, newPassword, newPassword2 } }}
+				>
+					{(mutation, { loading }) => (
+						<Button
+							disabled={loading}
+							onClick={!loading ? () => changePassword(mutation) : null}
+						>
+							Submit
+						</Button>
+					)}
+				</Mutation>
+			</form>
 		</Modal>
 	);
 };

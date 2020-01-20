@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -13,9 +13,10 @@ const ResetPassword = props => {
 		errors: {},
 		newPassword: "",
 		newPassword2: "",
-		success: false,
-		validate: false
+		success: false
 	});
+	const refs = {};
+	["newPassword", "newPassword2"].forEach(name => (refs[name] = useRef()));
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -27,8 +28,13 @@ const ResetPassword = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
+
+		if (!isValid) return;
 		axios
 			.post(
 				`/api/auth/reset-password`,
@@ -63,8 +69,8 @@ const ResetPassword = props => {
 						label={"New Password"}
 						name="newPassword"
 						onChange={onChange}
+						ref={refs.newPassword}
 						type="password"
-						validate={state.validate}
 						value={state.newPassword}
 					/>
 					<Input
@@ -75,8 +81,8 @@ const ResetPassword = props => {
 						mb="m"
 						name="newPassword2"
 						onChange={onChange}
+						ref={refs.newPassword2}
 						type="password"
-						validate={state.validate}
 						value={state.newPassword2}
 					/>
 					<Button type="submit">Submit</Button>

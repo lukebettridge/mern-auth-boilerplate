@@ -11,4 +11,8 @@ Button.propTypes = {
 	children: PropTypes.any
 };
 
+Button.defaultProps = {
+	type: "button"
+};
+
 export default Button;

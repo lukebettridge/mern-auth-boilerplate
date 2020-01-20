@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -16,15 +16,10 @@ const Login = () => {
 		email: "",
 		errors: {},
 		modalIsOpen: false,
-		password: "",
-		validate: false
+		password: ""
 	});
-
-	useEffect(() => {
-		if (state.validate) {
-			setState(prev => ({ ...prev, validate: false }));
-		}
-	}, [state.validate]);
+	const refs = {};
+	["email", "password"].forEach(name => (refs[name] = useRef()));
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -36,8 +31,13 @@ const Login = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
+
+		if (!isValid) return;
 		axios
 			.post(
 				`/api/auth/login`,
@@ -80,8 +80,8 @@ const Login = () => {
 							name="email"
 							onChange={onChange}
 							pattern={pattern.email}
+							ref={refs.email}
 							type="email"
-							validate={state.validate}
 							value={state.email}
 						/>
 						<Input
@@ -91,8 +91,8 @@ const Login = () => {
 							mb="m"
 							name="password"
 							onChange={onChange}
+							ref={refs.password}
 							type="password"
-							validate={state.validate}
 							value={state.password}
 						/>
 						<Button type="submit">Submit</Button>

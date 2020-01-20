@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
 import { pattern } from "utils";
-import { Box, Paragraph } from "components/styles";
+import { Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -12,18 +12,14 @@ const ResetPasswordModal = props => {
 	const initialState = {
 		email: "",
 		errors: {},
-		success: false,
-		validate: false
+		success: false
 	};
 	const [state, setState] = useState(initialState);
+	const refs = { email: useRef() };
 
 	useEffect(() => {
 		if (props.isOpen) setState(initialState);
 	}, [props.isOpen]);
-
-	useEffect(() => {
-		if (state.validate) setState(prev => ({ ...prev, validate: false }));
-	}, [state.validate]);
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -35,8 +31,13 @@ const ResetPasswordModal = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
+
+		if (!isValid) return;
 		axios
 			.get(`/api/auth/reset-password?email=${state.email}`, {
 				baseURL: process.env.BASE_URL,
@@ -69,8 +70,8 @@ const ResetPasswordModal = props => {
 					name="email"
 					onChange={onChange}
 					pattern={pattern.email}
+					ref={refs.email}
 					type="email"
-					validate={state.validate}
 					value={state.email}
 				/>
 				<Button type="submit">Submit</Button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -14,19 +14,15 @@ const TodoModal = props => {
 		new: false,
 		todo: props.todo || {
 			text: ""
-		},
-		validate: false
+		}
 	};
 	const [state, setState] = useState(initialState);
+	const refs = { text: useRef() };
 
 	useEffect(() => {
 		if (props.isOpen) setState({ ...initialState, new: !props.todo });
 		else setState(prev => ({ ...prev, todo: {} }));
 	}, [props.isOpen]);
-
-	useEffect(() => {
-		if (state.validate) setState(prev => ({ ...prev, validate: false }));
-	}, [state.validate]);
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -40,8 +36,12 @@ const TodoModal = props => {
 	};
 
 	const saveTodo = mutation => {
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
 
+		if (!isValid) return;
 		mutation()
 			.then(() => {
 				props.onSuccess();
@@ -78,7 +78,7 @@ const TodoModal = props => {
 			sideModal={true}
 			title={state.new ? "New Todo" : "Todo Information"}
 		>
-			<form>
+			<form noValidate onSubmit={e => e.preventDefault()}>
 				<Input
 					error={state.errors.text}
 					isRequired={true}
@@ -86,7 +86,7 @@ const TodoModal = props => {
 					mb="m"
 					name="text"
 					onChange={onChange}
-					validate={state.validate}
+					ref={refs.text}
 					value={text}
 				/>
 				<Mutation

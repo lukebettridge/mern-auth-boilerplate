@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {
+	forwardRef,
+	useEffect,
+	useImperativeHandle,
+	useState
+} from "react";
 import PropTypes from "prop-types";
 
 import * as S from "./styles";
 
-const Input = props => {
+const Input = forwardRef((props, ref) => {
 	const [state, setState] = useState({
 		error: props.error || ""
 	});
@@ -13,9 +18,7 @@ const Input = props => {
 		setState(prev => ({ ...prev, error }));
 	}, [props.error]);
 
-	useEffect(() => {
-		if (props.validate) validate();
-	}, [props.validate]);
+	useImperativeHandle(ref, () => ({ validate }));
 
 	const onBlur = e => {
 		validate(true);
@@ -65,6 +68,7 @@ const Input = props => {
 			...prev,
 			error: !onBlur ? props.error || error : error
 		}));
+		return error;
 	};
 
 	const id = props.id || props.name;
@@ -77,17 +81,16 @@ const Input = props => {
 				inError={!!state.error}
 				onBlur={onBlur}
 				onChange={onChange}
-				ref={props.forwardRef}
+				ref={ref}
 			/>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && <S.Error>{state.error}</S.Error>}
 		</S.InputContainer>
 	);
-};
+});
 
 Input.propTypes = {
 	error: PropTypes.string,
-	forwardRef: PropTypes.any,
 	friendlyName: PropTypes.string,
 	id: PropTypes.string,
 	isRequired: PropTypes.bool,
@@ -100,7 +103,6 @@ Input.propTypes = {
 	pattern: PropTypes.any,
 	placeholder: PropTypes.string,
 	type: PropTypes.string,
-	validate: PropTypes.bool,
 	value: PropTypes.any
 };
 

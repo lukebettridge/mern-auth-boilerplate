@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -22,19 +22,18 @@ const AccountModal = props => {
 			password: "",
 			password2: "",
 			roles: []
-		},
-		validate: false
+		}
 	};
 	const [state, setState] = useState(initialState);
+	const refs = {};
+	["forename", "surname", "email", "password", "password2", "roles"].forEach(
+		name => (refs[name] = useRef())
+	);
 
 	useEffect(() => {
 		if (props.isOpen) setState({ ...initialState, new: !props.user });
 		else setState(prev => ({ ...prev, user: {} }));
 	}, [props.isOpen]);
-
-	useEffect(() => {
-		if (state.validate) setState(prev => ({ ...prev, validate: false }));
-	}, [state.validate]);
 
 	const onChange = e => {
 		let { name, value } = e.target;
@@ -53,8 +52,13 @@ const AccountModal = props => {
 	};
 
 	const saveUser = mutation => {
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [name, ref] of Object.entries(refs))
+			if (!["password", "password2"].includes(name) || state.new)
+				if (ref.current.validate().length) isValid = false;
 
+		if (!isValid) return;
 		mutation()
 			.then(() => {
 				props.onSuccess();
@@ -123,7 +127,7 @@ const AccountModal = props => {
 			sideModal={true}
 			title={state.new ? "New Account" : "Account Information"}
 		>
-			<form noValidate>
+			<form noValidate onSubmit={e => e.preventDefault()}>
 				<FlexBox>
 					<Input
 						error={state.errors.forename}
@@ -131,7 +135,7 @@ const AccountModal = props => {
 						label="Forename"
 						name="forename"
 						onChange={onChange}
-						validate={state.validate}
+						ref={refs.forename}
 						value={state.user.forename}
 					/>
 					<Input
@@ -140,7 +144,7 @@ const AccountModal = props => {
 						label="Surname"
 						name="surname"
 						onChange={onChange}
-						validate={state.validate}
+						ref={refs.surname}
 						value={state.user.surname}
 					/>
 				</FlexBox>
@@ -152,8 +156,8 @@ const AccountModal = props => {
 					name="email"
 					onChange={onChange}
 					pattern={pattern.email}
+					ref={refs.email}
 					type="email"
-					validate={state.validate}
 					value={state.user.email}
 				/>
 				{state.new && (
@@ -164,8 +168,8 @@ const AccountModal = props => {
 							label={"Password"}
 							name="password"
 							onChange={onChange}
+							ref={refs.password}
 							type="password"
-							validate={state.validate}
 							value={state.user.password}
 						/>
 						<Input
@@ -175,8 +179,8 @@ const AccountModal = props => {
 							label={"Confirm Password"}
 							name="password2"
 							onChange={onChange}
+							ref={refs.password2}
 							type="password"
-							validate={state.validate}
 							value={state.user.password2}
 						/>
 					</FlexBox>
@@ -188,7 +192,7 @@ const AccountModal = props => {
 					name="roles"
 					onChange={onChange}
 					options={options.roles}
-					validate={state.validate}
+					ref={refs.roles}
 					value={options.roles.filter(role => roles?.includes(role.value))}
 				/>
 				<Mutation

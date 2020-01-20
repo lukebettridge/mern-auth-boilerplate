@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
@@ -12,18 +12,15 @@ import Button from "components/form/button";
 const EditProfileModal = props => {
 	const initialState = {
 		...props.currentUser,
-		errors: {},
-		validate: false
+		errors: {}
 	};
 	const [state, setState] = useState(initialState);
+	const refs = {};
+	["forename", "surname", "email"].forEach(name => (refs[name] = useRef()));
 
 	useEffect(() => {
 		if (props.isOpen) setState(initialState);
 	}, [props.isOpen]);
-
-	useEffect(() => {
-		if (state.validate) setState(prev => ({ ...prev, validate: false }));
-	}, [state.validate]);
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -33,10 +30,13 @@ const EditProfileModal = props => {
 		}));
 	};
 
-	const onSubmit = (e, mutation) => {
-		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
+	const saveProfile = mutation => {
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
 
+		if (!isValid) return;
 		mutation()
 			.then(() => {
 				props.onSuccess();
@@ -55,50 +55,56 @@ const EditProfileModal = props => {
 			<Paragraph center mb="l">
 				Change your profile information by using the form below.
 			</Paragraph>
-			<Mutation
-				mutation={gql`
-					mutation updateCurrentUser($input: UpdateCurrentUserInput!) {
-						updateCurrentUser(input: $input)
-					}
-				`}
-				variables={{ input: { forename, surname, email } }}
-			>
-				{mutation => (
-					<form noValidate onSubmit={e => onSubmit(e, mutation)}>
-						<Input
-							error={state.errors.forename}
-							isRequired={true}
-							label="Forename"
-							name="forename"
-							onChange={onChange}
-							validate={state.validate}
-							value={state.forename}
-						/>
-						<Input
-							error={state.errors.surname}
-							isRequired={true}
-							label="Surname"
-							name="surname"
-							onChange={onChange}
-							validate={state.validate}
-							value={state.surname}
-						/>
-						<Input
-							error={state.errors.email}
-							isRequired={true}
-							label="Email Address"
-							mb="m"
-							name="email"
-							onChange={onChange}
-							pattern={pattern.email}
-							type="email"
-							validate={state.validate}
-							value={state.email}
-						/>
-						<Button type="submit">Save</Button>
-					</form>
-				)}
-			</Mutation>
+
+			<form noValidate onSubmit={e => e.preventDefault()}>
+				<Input
+					error={state.errors.forename}
+					isRequired={true}
+					label="Forename"
+					name="forename"
+					onChange={onChange}
+					ref={refs.forename}
+					value={state.forename}
+				/>
+				<Input
+					error={state.errors.surname}
+					isRequired={true}
+					label="Surname"
+					name="surname"
+					onChange={onChange}
+					ref={refs.surname}
+					value={state.surname}
+				/>
+				<Input
+					error={state.errors.email}
+					isRequired={true}
+					label="Email Address"
+					mb="m"
+					name="email"
+					onChange={onChange}
+					pattern={pattern.email}
+					ref={refs.email}
+					type="email"
+					value={state.email}
+				/>
+				<Mutation
+					mutation={gql`
+						mutation updateCurrentUser($input: UpdateCurrentUserInput!) {
+							updateCurrentUser(input: $input)
+						}
+					`}
+					variables={{ input: { forename, surname, email } }}
+				>
+					{(mutation, { loading }) => (
+						<Button
+							disabled={loading}
+							onClick={!loading ? () => saveProfile(mutation) : null}
+						>
+							Save
+						</Button>
+					)}
+				</Mutation>
+			</form>
 		</Modal>
 	);
 };

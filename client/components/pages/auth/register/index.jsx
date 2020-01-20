@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 
 import { pattern } from "utils";
@@ -15,15 +15,12 @@ const Register = () => {
 		password: "",
 		password2: "",
 		success: false,
-		surname: "",
-		validate: false
+		surname: ""
 	});
-
-	useEffect(() => {
-		if (state.validate) {
-			setState(prev => ({ ...prev, validate: false }));
-		}
-	}, [state.validate]);
+	const refs = {};
+	["email", "forename", "surname", "password", "password2"].forEach(
+		name => (refs[name] = useRef())
+	);
 
 	const onChange = e => {
 		const { name, value } = e.target;
@@ -35,8 +32,13 @@ const Register = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		setState(prev => ({ ...prev, errors: {}, validate: true }));
 
+		let isValid = true;
+		setState(prev => ({ ...prev, errors: {} }));
+		for (const [, ref] of Object.entries(refs))
+			if (ref.current.validate().length) isValid = false;
+
+		if (!isValid) return;
 		axios
 			.post(
 				`/api/auth/register`,
@@ -75,8 +77,8 @@ const Register = () => {
 						name="email"
 						onChange={onChange}
 						pattern={pattern.email}
+						ref={refs.email}
 						type="email"
-						validate={state.validate}
 						value={state.email}
 					/>
 					<Input
@@ -85,7 +87,7 @@ const Register = () => {
 						label="Forename"
 						name="forename"
 						onChange={onChange}
-						validate={state.validate}
+						ref={refs.forename}
 						value={state.forename}
 					/>
 					<Input
@@ -94,7 +96,7 @@ const Register = () => {
 						label="Surname"
 						name="surname"
 						onChange={onChange}
-						validate={state.validate}
+						ref={refs.surname}
 						value={state.surname}
 					/>
 					<Input
@@ -103,8 +105,8 @@ const Register = () => {
 						label={"Password"}
 						name="password"
 						onChange={onChange}
+						ref={refs.password}
 						type="password"
-						validate={state.validate}
 						value={state.password}
 					/>
 					<Input
@@ -115,8 +117,8 @@ const Register = () => {
 						mb="m"
 						name="password2"
 						onChange={onChange}
+						ref={refs.password2}
 						type="password"
-						validate={state.validate}
 						value={state.password2}
 					/>
 					<Button type="submit">Register</Button>
