@@ -1,12 +1,11 @@
 const Validator = require("validator");
-const isEmpty = require("is-empty");
 
 module.exports = data => {
 	const errors = {};
 
-	data.forename = !isEmpty(data.forename) ? data.forename : "";
-	data.surname = !isEmpty(data.surname) ? data.surname : "";
-	data.email = !isEmpty(data.email) ? data.email : "";
+	data.forename = data.forename.replace(/^\s+|\s+$/g, "");
+	data.surname = data.surname.replace(/^\s+|\s+$/g, "");
+	data.email = data.email.replace(/^\s+|\s+$/g, "");
 
 	if (Validator.isEmpty(data.forename)) {
 		errors.forename = "Forename field is required";
@@ -24,6 +23,6 @@ module.exports = data => {
 
 	return {
 		errors,
-		isValid: isEmpty(errors)
+		isValid: Object.entries(errors).length === 0
 	};
 };

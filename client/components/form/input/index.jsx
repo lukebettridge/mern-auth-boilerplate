@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 
+import * as utils from "./utils";
 import * as S from "./styles";
 
 const Input = forwardRef((props, ref) => {
@@ -31,39 +32,7 @@ const Input = forwardRef((props, ref) => {
 	};
 
 	const validate = (onBlur = false) => {
-		let error = "";
-		const { friendlyName, isRequired, max, min, name, pattern, value } = props;
-		const prefix = friendlyName || name || "This";
-
-		if (
-			isRequired &&
-			(!value || value.replace(/^\s+|\s+$/g, "").length === 0)
-		) {
-			error = `${prefix} field is required`;
-		} else if (pattern && !RegExp(pattern).test(value)) {
-			error = `${prefix} field is invalid`;
-		} else if (
-			typeof max === "number" &&
-			typeof min === "number" &&
-			(value < min || value > max)
-		) {
-			error = `${prefix} must be between ${min} and ${max}.`;
-		} else if (typeof max === "number" && value > max) {
-			error = `${prefix} must be smaller than ${max}.`;
-		} else if (typeof min === "number" && value < min) {
-			error = `${prefix} must be larger than ${min}.`;
-		} else if (
-			typeof max === "string" &&
-			typeof min === "string" &&
-			(value.length < min || value.length > max)
-		) {
-			error = `${prefix} must have a length between ${min} and ${max}.`;
-		} else if (typeof max === "string" && value.length > max) {
-			error = `${prefix} must have a length smaller than ${max}.`;
-		} else if (typeof min === "string" && value.length < min) {
-			error = `${prefix} must have a length larger than ${min}.`;
-		}
-
+		const error = utils.validate(props);
 		setState(prev => ({
 			...prev,
 			error: !onBlur ? props.error || error : error
