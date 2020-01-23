@@ -1,14 +1,13 @@
 const Validator = require("validator");
-const isEmpty = require("is-empty");
 
 module.exports = data => {
 	const errors = {};
 
-	data.forename = !isEmpty(data.forename) ? data.forename : "";
-	data.surname = !isEmpty(data.surname) ? data.surname : "";
-	data.email = !isEmpty(data.email) ? data.email : "";
-	data.password = !isEmpty(data.password) ? data.password : "";
-	data.password2 = !isEmpty(data.password2) ? data.password2 : "";
+	data.forename = data.forename.replace(/^\s+|\s+$/g, "");
+	data.surname = data.surname.replace(/^\s+|\s+$/g, "");
+	data.email = data.email.replace(/^\s+|\s+$/g, "");
+	data.password = data.password.replace(/^\s+|\s+$/g, "");
+	data.password2 = data.password2.replace(/^\s+|\s+$/g, "");
 
 	if (Validator.isEmpty(data.forename)) {
 		errors.forename = "Forename field is required";
@@ -26,22 +25,18 @@ module.exports = data => {
 
 	if (Validator.isEmpty(data.password)) {
 		errors.password = "Password field is required";
+	} else if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
+		errors.password = "Password must be at least 6 characters";
 	}
 
 	if (Validator.isEmpty(data.password2)) {
 		errors.password2 = "Confirm password field is required";
-	}
-
-	if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
-		errors.password = "Password must be at least 6 characters";
-	}
-
-	if (!Validator.equals(data.password, data.password2)) {
+	} else if (!Validator.equals(data.password, data.password2)) {
 		errors.password2 = "Passwords must match";
 	}
 
 	return {
 		errors,
-		isValid: isEmpty(errors)
+		isValid: Object.entries(errors).length === 0
 	};
 };

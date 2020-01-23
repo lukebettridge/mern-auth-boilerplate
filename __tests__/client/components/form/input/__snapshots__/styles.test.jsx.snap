@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input styles snapshot renders 1`] = `
+<styles__InputContainer>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "styles__InputContainer-sc-15a6ivy-2",
+          "isStatic": false,
+          "lastClassName": "gsnxdo",
+          "rules": Array [
+            "position:relative;width:100%;@media (min-width:",
+            "768px",
+            "){min-width:250px;}",
+            [Function],
+            " ",
+            [Function],
+          ],
+        },
+        "displayName": "styles__InputContainer",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "styles__InputContainer-sc-15a6ivy-2",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+  >
+    <div
+      className="gsnxdo"
+    >
+      <styles__Input>
+        <StyledComponent
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "styles__Input-sc-15a6ivy-1",
+                "isStatic": false,
+                "lastClassName": "gjnmqT",
+                "rules": Array [
+                  "background-color:transparent;border:0;border-bottom:1px solid #e9ecef;border-radius:0;box-shadow:none;font-size:11pt;font-weight:300;margin-bottom:8px;outline:none;padding:12px 10px;transition:border-color 100ms;width:100%;&:hover{border-color:#b3b3b3;}&:focus{border-color:#2684ff;}&:focus + label{font-size:75%;transform:translate3d(0,-100%,0);opacity:1;}",
+                  [Function],
+                  " ",
+                  [Function],
+                ],
+              },
+              "displayName": "styles__Input",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "styles__Input-sc-15a6ivy-1",
+              "target": "input",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
+        >
+          <input
+            className="gjnmqT"
+          />
+        </StyledComponent>
+      </styles__Input>
+    </div>
+  </StyledComponent>
+</styles__InputContainer>
+`;

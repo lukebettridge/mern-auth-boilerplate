@@ -1,11 +1,10 @@
 const Validator = require("validator");
-const isEmpty = require("is-empty");
 
 module.exports = data => {
 	const errors = {};
 
-	data.email = !isEmpty(data.email) ? data.email : "";
-	data.password = !isEmpty(data.password) ? data.password : "";
+	data.email = data.email.replace(/^\s+|\s+$/g, "");
+	data.password = data.password.replace(/^\s+|\s+$/g, "");
 
 	if (Validator.isEmpty(data.email)) {
 		errors.email = "Email field is required";
@@ -19,6 +18,6 @@ module.exports = data => {
 
 	return {
 		errors,
-		isValid: isEmpty(errors)
+		isValid: Object.entries(errors).length === 0
 	};
 };
