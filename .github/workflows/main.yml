@@ -23,7 +23,8 @@ jobs:
           CI: true
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == "#4/node-ci"
+    needs: build
+    if: github.ref == "refs/heads/#4/node-ci"
     steps:
       - name: run deployment script
         uses: appleboy/ssh-action@master
