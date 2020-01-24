@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component snapshot renders 1`] = `
+<styles__InputContainer
+  className="inputContainer"
+  placeholder=""
+  type="text"
+>
+  <styles__Input
+    inError={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    placeholder=""
+    type="text"
+    value=""
+  />
+</styles__InputContainer>
+`;

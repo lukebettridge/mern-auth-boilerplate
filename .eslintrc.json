@@ -1,0 +1,28 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true,
+		"jest": true
+	},
+	"parser": "babel-eslint",
+	"extends": ["eslint:recommended", "plugin:react/recommended"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2020,
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"rules": {
+		"no-mixed-spaces-and-tabs": 0,
+		"jsx-quotes": ["error", "prefer-double"],
+		"semi": ["error", "always"],
+		"no-console": "warn",
+		"react/prop-types": 1,
+		"react/sort-prop-types": 1,
+		"react/jsx-sort-props": 1,
+		"react/display-name": 0
+	}
+}
