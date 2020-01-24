@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 const OnRender = props => {
 	useEffect(() => {
-		props.method();
+		if (props.method) props.method();
 	}, []);
 	return null;
 };
 
 OnRender.propTypes = {
-	method: PropTypes.func.isRequired
+	method: PropTypes.func
 };
 
 export default OnRender;

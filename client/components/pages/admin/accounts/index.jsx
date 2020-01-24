@@ -94,23 +94,23 @@ const Accounts = props => {
 											<Table>
 												<thead>
 													<tr>
-														<th className="col-1">Status</th>
-														<th className="col-2">Surname</th>
-														<th className="col-2">Forename</th>
-														<th className="col-4">Email Address</th>
+														<th>Status</th>
+														<th>Surname</th>
+														<th>Forename</th>
+														<th>Email Address</th>
 													</tr>
 												</thead>
 												<tbody>
 													{data.users.map(user => (
 														<tr key={user.id} onClick={() => openModal(user)}>
-															<td className="col-1">
+															<td>
 																<Status success={user.active}>
 																	{user.active ? "Active" : "Inactive"}
 																</Status>
 															</td>
-															<td className="col-2">{user.surname}</td>
-															<td className="col-2">{user.forename}</td>
-															<td className="col-4">{user.email}</td>
+															<td>{user.surname}</td>
+															<td>{user.forename}</td>
+															<td>{user.email}</td>
 														</tr>
 													))}
 												</tbody>

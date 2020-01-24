@@ -87,13 +87,13 @@ const Home = props => {
 										<Table>
 											<thead>
 												<tr>
-													<th className="col-5">Description</th>
+													<th>Description</th>
 												</tr>
 											</thead>
 											<tbody>
 												{data.todos.map(item => (
 													<tr key={item.id} onClick={() => openModal(item)}>
-														<td className="col-5">{item.text}</td>
+														<td>{item.text}</td>
 													</tr>
 												))}
 											</tbody>
@@ -104,8 +104,8 @@ const Home = props => {
 												<Table>
 													<tbody>
 														<tr>
-															<th className="col-2">Description</th>
-															<td className="col-3">{item.text}</td>
+															<th>Description</th>
+															<td>{item.text}</td>
 														</tr>
 													</tbody>
 												</Table>

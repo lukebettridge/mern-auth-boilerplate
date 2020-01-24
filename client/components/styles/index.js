@@ -280,11 +280,6 @@ const Table = styled.table`
 		padding: 20px;
 		text-align: left;
 		vertical-align: middle;
-
-		${() =>
-			[...Array(5)]
-				.map((_, i) => `&.col-${i + 1} { grid-column: span ${i + 1}; }`)
-				.join(" ")}
 	}
 `;
 

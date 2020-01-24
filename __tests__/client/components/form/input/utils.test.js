@@ -4,147 +4,81 @@ const { validate } = require("components/form/input/utils");
 
 describe("input utility methods", () => {
 	describe("validate", () => {
-		it("no validation", () => {
-			const props = cloneDeep(baseProps);
-			props.isRequired = false;
-			props.value = "";
+		[
+			["no validation", { isRequired: false, value: "" }, ""],
+			["entry is empty", { value: "" }, "Forename field is required"],
+			[
+				"entry with name is empty",
+				{ friendlyName: "", name: "Forename", value: "" },
+				"Forename field is required"
+			],
+			[
+				"entry with no prefix is empty",
+				{ friendlyName: "", value: "" },
+				"This field is required"
+			],
+			[
+				"entry is invalid",
+				{ pattern: /^([^0-9]*)$/, value: "John1" },
+				"Forename field is invalid"
+			],
+			[
+				"entry is smaller than range",
+				{ friendlyName: "Age", max: 100, min: 1, value: "0" },
+				"Age must be between 1 and 100."
+			],
+			[
+				"entry is larger than range",
+				{ friendlyName: "Age", max: 100, min: 1, value: "101" },
+				"Age must be between 1 and 100."
+			],
+			[
+				"entry is too large",
+				{ friendlyName: "Age", max: 100, value: "101" },
+				"Age must be smaller than 100."
+			],
+			[
+				"entry is too small",
+				{ friendlyName: "Age", min: 10, value: "9" },
+				"Age must be larger than 10."
+			],
+			[
+				"entry length is small than range",
+				{ friendlyName: "Password", max: "12", min: "6", value: "foo" },
+				"Password must have a length between 6 and 12."
+			],
+			[
+				"entry length is larger than range",
+				{
+					friendlyName: "Password",
+					max: "12",
+					min: "6",
+					value: "foobarfoobarfoobar"
+				},
+				"Password must have a length between 6 and 12."
+			],
+			[
+				"entry length is larger than range",
+				{
+					friendlyName: "Password",
+					max: "12",
+					value: "foobarfoobarfoobar"
+				},
+				"Password must have a length smaller than 12."
+			],
+			[
+				"entry length is too small",
+				{ friendlyName: "Password", min: "6", value: "foo" },
+				"Password must have a length larger than 6."
+			]
+		].map(([scenario, props, expected]) =>
+			it(scenario, () => {
+				props = Object.assign(cloneDeep(baseProps), { ...props });
 
-			const output = validate(props);
-
-			expect(output).toEqual("");
-		});
-
-		it("entry is empty", () => {
-			const props = cloneDeep(baseProps);
-			props.value = "";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Forename field is required");
-		});
-
-		it("entry with name is empty", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "";
-			props.name = "Forename";
-			props.value = "";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Forename field is required");
-		});
-
-		it("entry with no prefix is empty", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "";
-			props.value = "";
-
-			const output = validate(props);
-
-			expect(output).toEqual("This field is required");
-		});
-
-		it("entry is invalid", () => {
-			const props = cloneDeep(baseProps);
-			props.pattern = /^([^0-9]*)$/;
-			props.value = "John1";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Forename field is invalid");
-		});
-
-		it("entry is smaller than range", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Age";
-			props.max = 100;
-			props.min = 1;
-			props.value = "0";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Age must be between 1 and 100.");
-		});
-
-		it("entry is larger than range", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Age";
-			props.max = 100;
-			props.min = 1;
-			props.value = "101";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Age must be between 1 and 100.");
-		});
-
-		it("entry is too large", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Age";
-			props.max = 100;
-			props.value = "101";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Age must be smaller than 100.");
-		});
-
-		it("entry is too small", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Age";
-			props.min = 10;
-			props.value = "9";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Age must be larger than 10.");
-		});
-
-		it("entry length is small than range", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Password";
-			props.max = "12";
-			props.min = "6";
-			props.value = "foo";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Password must have a length between 6 and 12.");
-		});
-
-		it("entry length is larger than range", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Password";
-			props.max = "12";
-			props.min = "6";
-			props.value = "foobarfoobarfoobar";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Password must have a length between 6 and 12.");
-		});
-
-		it("entry length is too large", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Password";
-			props.max = "12";
-			props.value = "foobarfoobarfoobar";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Password must have a length smaller than 12.");
-		});
-
-		it("entry length is too small", () => {
-			const props = cloneDeep(baseProps);
-			props.friendlyName = "Password";
-			props.min = "6";
-			props.value = "foo";
-
-			const output = validate(props);
-
-			expect(output).toEqual("Password must have a length larger than 6.");
-		});
+				const output = validate(props);
+				expect(output).toEqual(expected);
+			})
+		);
 
 		const baseProps = {
 			friendlyName: "Forename",
