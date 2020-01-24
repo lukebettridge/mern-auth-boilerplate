@@ -15,11 +15,13 @@ else
 fi
 
 # Install dependencies
-npm install --production
-npm prune --production
+npm install
 
 # Build application
-npm build
+npm run build
+
+# Remove dev dependencies
+npm prune --production
 
 # Restart app
 pm2 restart $PROCESS_NAME
