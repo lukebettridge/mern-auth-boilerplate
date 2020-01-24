@@ -11,7 +11,8 @@ import * as S from "./styles";
 
 const Input = forwardRef((props, ref) => {
 	const [state, setState] = useState({
-		error: props.error || ""
+		error: props.error || "",
+		value: props.value || ""
 	});
 
 	useEffect(() => {
@@ -19,7 +20,7 @@ const Input = forwardRef((props, ref) => {
 		setState(prev => ({ ...prev, error }));
 	}, [props.error]);
 
-	useImperativeHandle(ref, () => ({ validate }));
+	useImperativeHandle(ref, () => ({ validate, value: state.value }));
 
 	const onBlur = e => {
 		validate(true);
@@ -27,7 +28,8 @@ const Input = forwardRef((props, ref) => {
 	};
 
 	const onChange = e => {
-		setState(prev => ({ ...prev, error: "" }));
+		const value = e.target ? e.target.value : state.value;
+		setState(prev => ({ ...prev, error: "", value }));
 		if (props.onChange) props.onChange(e);
 	};
 
@@ -51,6 +53,7 @@ const Input = forwardRef((props, ref) => {
 				onBlur={onBlur}
 				onChange={onChange}
 				ref={ref}
+				value={state.value}
 			/>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && <S.Error>{state.error}</S.Error>}

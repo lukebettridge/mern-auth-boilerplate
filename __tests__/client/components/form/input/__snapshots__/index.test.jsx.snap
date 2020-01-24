@@ -12,6 +12,7 @@ exports[`Input component snapshot renders 1`] = `
     onChange={[Function]}
     placeholder=""
     type="text"
+    value=""
   />
 </styles__InputContainer>
 `;
