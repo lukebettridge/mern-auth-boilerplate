@@ -3,7 +3,7 @@ name: Node CI
 on:
   push:
     branches:
-      - '#4/node-ci'
+      - "#4/node-ci"
 
 jobs:
   build:
@@ -13,8 +13,8 @@ jobs:
       - name: Use Node.js 8.x
         uses: actions/setup-node@v1
         with:
-          node-version: '8.x'
-      - name: npm install, build, and test
+          node-version: "8.x"
+      - name: Install dependencies, build, and test
         run: |
           npm ci
           npm run build --if-present
@@ -26,7 +26,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/#4/node-ci'
     steps:
-      - name: run deployment script
+      - name: Run deployment script
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
