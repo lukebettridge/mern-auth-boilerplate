@@ -51,7 +51,7 @@ const Navigation = props => {
 						</span>
 					</S.Link>
 				</S.ListItem>
-				{props.currentUser.roles.includes("admin") && (
+				{props.currentUser.roles?.includes("admin") && (
 					<S.ListItem>
 						<S.Link to="/admin/accounts">
 							<span>

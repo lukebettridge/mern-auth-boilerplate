@@ -41,7 +41,7 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 						) : error ||
 						  !data.currentUser ||
 						  (roles &&
-								!data.currentUser.roles.some(role => roles.includes(role))) ? (
+								!data.currentUser.roles?.some(role => roles.includes(role))) ? (
 							redirect(props)
 						) : (
 							<Component
