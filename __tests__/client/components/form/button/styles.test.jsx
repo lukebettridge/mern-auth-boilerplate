@@ -1,16 +1,9 @@
 import React from "react";
 import { mount } from "enzyme";
-import toJSON from "enzyme-to-json";
 
 import { Button } from "components/form/button/styles";
 
 describe("Button styles", () => {
-	it("snapshot renders", () => {
-		const subject = mount(<Button />);
-
-		expect(toJSON(subject)).toMatchSnapshot();
-	});
-
 	it("secondary rules applied", () => {
 		const subject = mount(<Button secondary />);
 
