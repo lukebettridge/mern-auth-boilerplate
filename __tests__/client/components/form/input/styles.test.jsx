@@ -1,20 +1,9 @@
 import React from "react";
 import { mount } from "enzyme";
-import toJSON from "enzyme-to-json";
 
 import { Input, InputContainer } from "components/form/input/styles";
 
 describe("Input styles", () => {
-	it("snapshot renders", () => {
-		const subject = mount(
-			<InputContainer>
-				<Input />
-			</InputContainer>
-		);
-
-		expect(toJSON(subject)).toMatchSnapshot();
-	});
-
 	it("has value applied", () => {
 		const subject = mount(<Input readOnly value="foo" />);
 

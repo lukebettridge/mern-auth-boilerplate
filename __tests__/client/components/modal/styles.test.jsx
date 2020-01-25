@@ -1,27 +1,12 @@
 import React from "react";
 import { mount } from "enzyme";
-import toJSON from "enzyme-to-json";
 
 import breakpoints from "components/styles/breakpoints";
-import { Body, Close, Header, Heading, Modal } from "components/modal/styles";
+import { Body, Modal } from "components/modal/styles";
 
 jest.mock("react-modal", () => "div");
 
 describe("Modal styles", () => {
-	it("snapshot renders", () => {
-		const subject = mount(
-			<Modal>
-				<Header>
-					<Close />
-					<Heading />
-				</Header>
-				<Body />
-			</Modal>
-		);
-
-		expect(toJSON(subject)).toMatchSnapshot();
-	});
-
 	it("Body: omit align center for side modal", () => {
 		const subject = mount(<Body sideModal />);
 
