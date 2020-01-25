@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: /home/lukeb/paddl-portal/scripts/deploy.sh
+          script: bash /home/lukeb/paddl-portal/scripts/deploy.sh
