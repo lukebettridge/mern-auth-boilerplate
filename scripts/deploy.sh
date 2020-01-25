@@ -23,5 +23,8 @@ npm run build
 # Remove dev dependencies
 npm prune --production
 
+# Undo any local changes
+git reset --hard
+
 # Restart app
 pm2 restart $PROCESS_NAME

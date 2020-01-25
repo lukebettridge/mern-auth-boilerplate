@@ -51,7 +51,7 @@ const Navigation = props => {
 						</span>
 					</S.Link>
 				</S.ListItem>
-				{props.currentUser.roles.includes("admin") && (
+				{props.currentUser.roles?.includes("admin") && (
 					<S.ListItem>
 						<S.Link to="/admin/accounts">
 							<span>
@@ -70,7 +70,7 @@ Navigation.propTypes = {
 	changePassword: PropTypes.func.isRequired,
 	currentUser: PropTypes.shape({
 		forename: PropTypes.string.isRequired,
-		roles: PropTypes.array.isRequired
+		roles: PropTypes.array
 	}),
 	editProfile: PropTypes.func.isRequired
 };

@@ -19,7 +19,8 @@ const userSchema = mongoose.Schema({
 	},
 	roles: {
 		type: Array,
-		required: false
+		required: false,
+		default: []
 	},
 	active: {
 		type: Boolean,
