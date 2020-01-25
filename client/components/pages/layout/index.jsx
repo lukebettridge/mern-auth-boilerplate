@@ -77,7 +77,7 @@ Layout.propTypes = {
 		forename: PropTypes.string.isRequired,
 		surname: PropTypes.string.isRequired,
 		email: PropTypes.string.isRequired,
-		roles: PropTypes.array.isRequired,
+		roles: PropTypes.array,
 		active: PropTypes.bool
 	}),
 	refetchCurrentUser: PropTypes.func.isRequired

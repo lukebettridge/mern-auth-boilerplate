@@ -70,7 +70,7 @@ Navigation.propTypes = {
 	changePassword: PropTypes.func.isRequired,
 	currentUser: PropTypes.shape({
 		forename: PropTypes.string.isRequired,
-		roles: PropTypes.array.isRequired
+		roles: PropTypes.array
 	}),
 	editProfile: PropTypes.func.isRequired
 };
