@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component snapshot renders 1`] = `
+exports[`Auth Layout snapshot renders 1`] = `
 <styles__Container
   small={true}
 >

@@ -4,7 +4,7 @@ import toJSON from "enzyme-to-json";
 
 import Layout from "components/pages/auth/Layout";
 
-describe("Button component", () => {
+describe("Auth Layout", () => {
 	it("snapshot renders", () => {
 		const subject = shallow(<Layout />);
 
