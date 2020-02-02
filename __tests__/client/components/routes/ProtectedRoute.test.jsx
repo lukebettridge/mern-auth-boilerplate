@@ -56,7 +56,7 @@ describe("ProtectedRoute component", () => {
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
-	it("should render component", async () => {
+	it("renders component", async () => {
 		mountWrapper();
 
 		await updateSubject();
@@ -71,7 +71,7 @@ describe("ProtectedRoute component", () => {
 		);
 	});
 
-	it("should render loading", async () => {
+	it("renders loading", async () => {
 		const mocks = cloneDeep(defaultMocks);
 		Object.assign(mocks[0], { result: null });
 
@@ -83,7 +83,7 @@ describe("ProtectedRoute component", () => {
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
 
-	it("should not render component on error", async () => {
+	it("does not render component on error", async () => {
 		const mocks = cloneDeep(defaultMocks);
 		Object.assign(mocks[0], { result: null, error: new Error() });
 
@@ -94,7 +94,7 @@ describe("ProtectedRoute component", () => {
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
 
-	it("should not render component with no data", async () => {
+	it("does not render component with no data", async () => {
 		const mocks = cloneDeep(defaultMocks);
 		Object.assign(mocks[0].result.data, { currentUser: null });
 
@@ -105,7 +105,7 @@ describe("ProtectedRoute component", () => {
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
 
-	it("should not render component without correct roles", async () => {
+	it("does not render component without correct roles", async () => {
 		const mocks = cloneDeep(defaultMocks);
 		Object.assign(mocks[0].result.data.currentUser, { roles: [] });
 
