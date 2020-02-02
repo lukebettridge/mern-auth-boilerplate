@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollToTop component snapshot renders 1`] = `
+<ScrollToTop
+  history={
+    Object {
+      "listen": [MockFunction] {
+        "calls": Array [
+          Array [
+            [Function],
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": [MockFunction],
+          },
+        ],
+      },
+    }
+  }
+/>
+`;
