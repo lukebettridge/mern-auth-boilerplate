@@ -44,7 +44,7 @@ describe("ProtectedRoute component", () => {
 	});
 
 	afterEach(() => {
-		wrapper.unmount();
+		if (wrapper) wrapper.unmount();
 	});
 
 	it("snapshot renders", async () => {

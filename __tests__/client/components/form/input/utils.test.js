@@ -1,8 +1,8 @@
-const { cloneDeep } = require("lodash");
+import cloneDeep from "lodash/cloneDeep";
 
-const { validate } = require("components/form/input/utils");
+import { validate } from "components/form/input/utils";
 
-describe("input utility methods", () => {
+describe("Input utility methods", () => {
 	describe("validate", () => {
 		[
 			["no validation", { isRequired: false, value: "" }, ""],
