@@ -17,7 +17,6 @@
 				],
 				"alias": {
 					"components": "./client/components",
-					"utils": "./client/utils",
 					"client": "./client",
 					"server": "./server"
 				}

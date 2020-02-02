@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { pattern } from "utils";
+import { pattern } from "client/utils";
 import { Box, Link, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";

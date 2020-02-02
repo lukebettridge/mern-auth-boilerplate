@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-import { pattern } from "utils";
+import { pattern } from "client/utils";
 import { Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";

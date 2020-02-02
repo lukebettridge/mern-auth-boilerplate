@@ -6,7 +6,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 
-import { notification } from "utils";
+import { notification } from "client/utils";
 
 import Context from "./context";
 
