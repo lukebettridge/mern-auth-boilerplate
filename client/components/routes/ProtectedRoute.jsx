@@ -20,21 +20,7 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 		<Route
 			{...rest}
 			render={props => (
-				<Query
-					fetchPolicy={"no-cache"}
-					query={gql`
-						{
-							currentUser {
-								id
-								forename
-								surname
-								email
-								roles
-								active
-							}
-						}
-					`}
-				>
+				<Query fetchPolicy={"no-cache"} query={CURRENT_USER_QUERY}>
 					{({ loading, error, data, refetch }) =>
 						loading ? (
 							<Layout />
@@ -56,6 +42,19 @@ const ProtectedRoute = ({ component: Component, roles, ...rest }) => {
 		/>
 	);
 };
+
+export const CURRENT_USER_QUERY = gql`
+	{
+		currentUser {
+			id
+			forename
+			surname
+			email
+			roles
+			active
+		}
+	}
+`;
 
 ProtectedRoute.propTypes = {
 	component: PropTypes.any,
