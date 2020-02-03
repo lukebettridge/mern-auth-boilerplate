@@ -5,8 +5,8 @@ import { pattern } from "client/utils";
 import { Box, Link, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
-import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
+import { Error } from "components/form/input/styles";
 import ResetPasswordModal from "./ResetPasswordModal";
 
 import * as utils from "./utils";

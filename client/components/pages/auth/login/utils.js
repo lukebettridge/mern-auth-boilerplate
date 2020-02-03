@@ -14,4 +14,14 @@ const login = ({ email, password }, success, error) => {
 		.catch(error);
 };
 
-export { login };
+const resetPassword = (email, success, error) => {
+	axios
+		.get(`/api/auth/reset-password?email=${email}`, {
+			baseURL: process.env.BASE_URL,
+			withCredentials: true
+		})
+		.then(success)
+		.catch(error);
+};
+
+export { login, resetPassword };

@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 
 import { pattern } from "client/utils";
 import { Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
+import { Error } from "components/form/input/styles";
+
+import * as utils from "./utils";
 
 const ResetPasswordModal = props => {
 	const initialState = {
@@ -38,21 +40,21 @@ const ResetPasswordModal = props => {
 			if (ref.current.validate().length) isValid = false;
 
 		if (!isValid) return;
-		axios
-			.get(`/api/auth/reset-password?email=${state.email}`, {
-				baseURL: process.env.BASE_URL,
-				withCredentials: true
-			})
-			.then(() => {
+		utils.resetPassword(
+			state.email,
+			() => {
 				setState(prev => ({ ...prev, success: true }));
 				props.close();
-			})
-			.catch(err => {
-				setState(prev => ({
-					...prev,
-					errors: err.response.data
-				}));
-			});
+			},
+			err => {
+				if (err.response) {
+					setState(prev => ({
+						...prev,
+						errors: err.response.data
+					}));
+				}
+			}
+		);
 	};
 
 	return (
@@ -75,6 +77,7 @@ const ResetPasswordModal = props => {
 					value={state.email}
 				/>
 				<Button type="submit">Submit</Button>
+				{state.errors.error && <Error>{state.errors.error}</Error>}
 			</form>
 		</Modal>
 	);

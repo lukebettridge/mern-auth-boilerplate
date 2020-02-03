@@ -67,7 +67,7 @@ describe("Login component", () => {
 		expect(history.push).toHaveBeenCalledWith("/home");
 	});
 
-	it("presents error with catch response", () => {
+	it("catch error with response", () => {
 		mountWrapper();
 		populateForm();
 
@@ -83,7 +83,7 @@ describe("Login component", () => {
 		expect(subject.find(Error).text()).toEqual("foo");
 	});
 
-	it("presents error without catch response", () => {
+	it("catch error without response", () => {
 		mountWrapper();
 		populateForm();
 
