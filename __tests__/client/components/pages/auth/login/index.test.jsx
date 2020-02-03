@@ -75,7 +75,7 @@ describe("Login component", () => {
 		act(() => {
 			utils.login.mock.calls[0][2]({ response: { data: { error: "foo" } } });
 		});
-		updateWrapper();
+		updateSubject();
 
 		expect(formEvent.preventDefault).toHaveBeenCalled();
 
@@ -91,7 +91,7 @@ describe("Login component", () => {
 		act(() => {
 			utils.login.mock.calls[0][2]({ response: null });
 		});
-		updateWrapper();
+		updateSubject();
 
 		expect(formEvent.preventDefault).toHaveBeenCalled();
 
@@ -116,7 +116,7 @@ describe("Login component", () => {
 				.props()
 				.close();
 		});
-		updateWrapper();
+		updateSubject();
 
 		expect(subject.find(ResetPasswordModal).props().isOpen).toEqual(false);
 	});
@@ -131,7 +131,7 @@ const mountWrapper = () => {
 	subject = wrapper.find(Login);
 };
 
-const updateWrapper = () => {
+const updateSubject = () => {
 	wrapper.update();
 	subject = wrapper.find(Login);
 };
@@ -149,10 +149,10 @@ const populateForm = (email = "hello@example.com", password = "password") => {
 		.simulate("change", {
 			target: { name: "password", value: password }
 		});
-	updateWrapper();
+	updateSubject();
 };
 
 const clickResetPasswordLink = () => {
 	subject.find(Link).simulate("click");
-	updateWrapper();
+	updateSubject();
 };
