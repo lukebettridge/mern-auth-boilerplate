@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 
+import * as utils from "./utils";
 import * as S from "./styles";
 
 const Select = forwardRef((props, ref) => {
@@ -25,18 +26,21 @@ const Select = forwardRef((props, ref) => {
 		if (props.onBlur) props.onBlur(e);
 	};
 
-	const onChange = (value, { action, removedValue }) => {
+	const onChange = (value, options = null) => {
 		setState(prev => ({ ...prev, error: "" }));
-		switch (action) {
-			case "remove-value":
-			case "pop-value":
-				if (removedValue.isFixed) {
-					return;
-				}
-				break;
-			case "clear":
-				value = props.options?.filter(v => v.isFixed);
-				break;
+
+		if (options) {
+			const { action, removedValue } = options;
+			switch (action) {
+				case "pop-value":
+					if (removedValue.isFixed) {
+						return;
+					}
+					break;
+				case "clear":
+					value = props.options?.filter(v => v.isFixed);
+					break;
+			}
 		}
 		if (props.onChange)
 			props.onChange({
@@ -48,19 +52,7 @@ const Select = forwardRef((props, ref) => {
 	};
 
 	const validate = (onBlur = false) => {
-		let error = "";
-		const { friendlyName, isRequired, name, value } = props;
-		const prefix = friendlyName || name || "This";
-
-		if (
-			isRequired &&
-			(!value ||
-				(props.isMulti && value.length === 0) ||
-				(!props.isMulti && value.replace(/^\s+|\s+$/g, "").length === 0))
-		) {
-			error = `${prefix} field is required`;
-		}
-
+		const error = utils.validate(props);
 		setState(prev => ({
 			...prev,
 			error: !onBlur ? props.error || error : error
@@ -69,6 +61,7 @@ const Select = forwardRef((props, ref) => {
 	};
 
 	const orderOptions = values => {
+		if (!Array.isArray(values)) return values;
 		return values
 			?.filter(v => v.isFixed)
 			.concat(values?.filter(v => !v.isFixed));

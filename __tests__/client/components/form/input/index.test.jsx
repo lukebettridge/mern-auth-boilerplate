@@ -35,6 +35,14 @@ describe("Input component", () => {
 		expect(onBlurMock).toHaveBeenCalledWith("foo");
 	});
 
+	it("does not call onBlur prop", () => {
+		const subject = shallow(<Input />);
+
+		subject.find(S.Input).simulate("blur", "foo");
+
+		expect(subject.props().onBlur).toBeUndefined();
+	});
+
 	it("calls onChange prop", () => {
 		const onChangeMock = jest.fn();
 		const subject = shallow(<Input onChange={onChangeMock} />);
@@ -42,5 +50,13 @@ describe("Input component", () => {
 		subject.find(S.Input).simulate("change", "foo");
 
 		expect(onChangeMock).toHaveBeenCalledWith("foo");
+	});
+
+	it("does not call onChange prop", () => {
+		const subject = shallow(<Input />);
+
+		subject.find(S.Input).simulate("change", "foo");
+
+		expect(subject.props().onChange).toBeUndefined();
 	});
 });
