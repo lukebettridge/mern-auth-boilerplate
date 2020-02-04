@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Mutation } from "react-apollo";
 import { gql } from "apollo-boost";
 
-import { pattern } from "utils";
+import { pattern } from "client/utils";
 import { FlexBox, Link, Paragraph } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";

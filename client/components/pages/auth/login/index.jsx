@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
-import { pattern } from "utils";
+import { pattern } from "client/utils";
 import { Box, Link, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
-import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
+import { Error } from "components/form/input/styles";
 import ResetPasswordModal from "./ResetPasswordModal";
+
+import * as utils from "./utils";
 
 const Login = () => {
 	const history = useHistory();
@@ -38,29 +39,20 @@ const Login = () => {
 			if (ref.current.validate().length) isValid = false;
 
 		if (!isValid) return;
-		axios
-			.post(
-				`/api/auth/login`,
-				{
-					email: state.email,
-					password: state.password
-				},
-				{
-					baseURL: process.env.BASE_URL,
-					withCredentials: true
-				}
-			)
-			.then(() => {
+		utils.login(
+			{ email: state.email, password: state.password },
+			() => {
 				history.push("/home");
-			})
-			.catch(err => {
+			},
+			err => {
 				if (err.response) {
 					setState(prev => ({
 						...prev,
 						errors: err.response.data
 					}));
 				}
-			});
+			}
+		);
 	};
 
 	return (

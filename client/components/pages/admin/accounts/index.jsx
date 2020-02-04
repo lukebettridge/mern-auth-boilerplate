@@ -66,21 +66,7 @@ const Accounts = props => {
 					</FilterBody>
 				</FilterWrap>
 
-				<Query
-					fetchPolicy={"no-cache"}
-					query={gql`
-					{
-						users(query: "${state.query}") {
-							id
-							forename
-							surname
-							email
-							roles
-							active
-						}
-					}
-				`}
-				>
+				<Query fetchPolicy={"no-cache"} query={USERS_QUERY(state.query)}>
 					{({ loading, error, data, refetch }) => {
 						if (loading) return <p>Loading...</p>;
 						if (error) {
@@ -183,5 +169,18 @@ Accounts.propTypes = {
 	currentUser: PropTypes.object,
 	refetchCurrentUser: PropTypes.func
 };
+
+export const USERS_QUERY = (query = "") => gql`
+{
+	users(query: "${query}") {
+		id
+		forename
+		surname
+		email
+		roles
+		active
+	}
+}
+`;
 
 export default Accounts;

@@ -1,0 +1,2799 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accounts component snapshot renders 1`] = `
+.c11 {
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 32px 15px;
+  width: 100vw;
+  display: table-cell;
+}
+
+.c13 {
+  border: 1px solid #e9ecef;
+  margin-bottom: 30px;
+}
+
+.c14 {
+  background-color: #f4f6f7;
+  color: #546b81;
+  border-bottom: 1px solid #e9ecef;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.c15 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.c15 form {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-right: 5px;
+}
+
+.c15 form .inputContainer {
+  margin-right: 10px;
+}
+
+.c15 button {
+  height: 42px;
+}
+
+.c15 button,
+.c15 input {
+  margin-bottom: 0;
+}
+
+.c20 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #444444;
+  width: 100%;
+}
+
+.c20 thead tr {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.c20 thead tr th {
+  color: #7f90a0;
+  font-size: 9pt;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.c20 tbody tr {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.c20 tbody tr th {
+  color: #546b81;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.c20 tbody tr td {
+  background-color: inherit;
+}
+
+.c20 tr {
+  border-bottom: 0;
+  font-size: 10pt;
+  line-height: 20px;
+}
+
+.c20 th,
+.c20 td {
+  border: 0;
+  padding: 20px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.c21 {
+  display: inline-block;
+  line-height: 20px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.c21:before {
+  background-color: #d4dadf;
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 12px;
+  background-color: #18c96e;
+}
+
+.c22 {
+  display: inline-block;
+  line-height: 20px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.c22:before {
+  background-color: #d4dadf;
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 4px;
+  width: 12px;
+}
+
+.c12 {
+  font-size: 24pt;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.c18 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #1188e6;
+  border: 1px solid #1288e5;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 10pt;
+  font-weight: 300;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 11px;
+  outline-width: 3px;
+  padding: 10px 17px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  background-color: transparent;
+  border: 1px solid #a3cdf3;
+  color: #1a82e2;
+  width: unset;
+}
+
+.c18:disabled {
+  cursor: unset;
+  opacity: 0.4;
+}
+
+.c18:hover:not(:disabled) {
+  background-color: #e8f2fc;
+}
+
+.c19 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #1188e6;
+  border: 1px solid #1288e5;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 10pt;
+  font-weight: 300;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 11px;
+  outline-width: 3px;
+  padding: 10px 17px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  width: unset;
+}
+
+.c19:disabled {
+  cursor: unset;
+  opacity: 0.4;
+}
+
+.c25 {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  bottom: auto;
+  left: 50%;
+  max-width: 650px;
+  outline: none;
+  padding: 20px 20px 62px;
+  position: absolute;
+  right: auto;
+  top: 43%;
+  width: calc(100% - 20px);
+  border-radius: 2px;
+  padding-bottom: 62px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.c23 {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  bottom: auto;
+  left: 50%;
+  max-width: 650px;
+  outline: none;
+  padding: 20px 20px 62px;
+  position: absolute;
+  right: auto;
+  top: 43%;
+  width: calc(100% - 20px);
+  border: 0;
+  border-left: 1px solid #e9ecef;
+  bottom: 0;
+  left: auto;
+  max-width: 720px;
+  padding: 40px 20px;
+  right: -100%;
+  top: 0;
+  -webkit-transition: right 0.5s;
+  transition: right 0.5s;
+  width: 100%;
+  z-index: 2;
+}
+
+.c23.ReactModal__Content--after-open {
+  right: 0;
+}
+
+.c17 {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 11pt;
+  font-weight: 300;
+  margin-bottom: 8px;
+  outline: none;
+  padding: 12px 10px;
+  -webkit-transition: border-color 100ms;
+  transition: border-color 100ms;
+  width: 100%;
+}
+
+.c17:hover {
+  border-color: #b3b3b3;
+}
+
+.c17:focus {
+  border-color: #2684ff;
+}
+
+.c17:focus + label {
+  font-size: 75%;
+  -webkit-transform: translate3d(0,-100%,0);
+  -ms-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+  opacity: 1;
+}
+
+.c16 {
+  position: relative;
+  width: 100%;
+}
+
+.c5 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c5:hover {
+  opacity: 1;
+}
+
+.c5 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.c24 {
+  color: #cccccc;
+  font-size: 10pt;
+  font-weight: 300;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.c24 a {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c24 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c10:hover {
+  opacity: 1;
+}
+
+.c10 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c3 {
+  margin: 0;
+}
+
+.c4 {
+  margin-bottom: 40px;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fbfbfc;
+  border: 1px solid #e9ecef;
+  border-right: none;
+  color: #294661;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  z-index: 1;
+}
+
+.c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 11pt;
+  padding-left: 15px;
+}
+
+.c8:hover {
+  opacity: 1;
+}
+
+.c8 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 11pt;
+  padding-left: 15px;
+}
+
+.c9:hover {
+  opacity: 1;
+}
+
+.c9 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c6 {
+  margin-top: 15px;
+  max-height: 1000px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: 0;
+  max-height: 0;
+}
+
+.c7 {
+  margin-bottom: 8px;
+}
+
+.c2 {
+  background-color: #fbfbfc;
+  border-right: 1px solid #e9ecef;
+  display: none;
+  height: 100%;
+  max-width: 200px;
+  min-width: 200px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-top: 48px;
+  width: 200px;
+  z-index: 1;
+}
+
+@media (min-width:768px) {
+  .c11 {
+    max-width: calc(100vw - 200px);
+    padding: 32px 48px;
+  }
+}
+
+@media (min-width:768px) {
+  .c15 form {
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .c20 tbody tr {
+    cursor: pointer;
+  }
+
+  .c20 tbody tr:hover {
+    background-color: #f4f6f7;
+  }
+}
+
+@media (min-width:768px) {
+  .c23 {
+    padding: 60px;
+  }
+}
+
+@media (min-width:768px) {
+  .c16 {
+    min-width: 250px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    display: none;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    display: table-cell;
+    height: unset;
+    position: unset;
+  }
+}
+
+<Accounts
+  currentUser={
+    Object {
+      "active": true,
+      "email": "hello@example.com",
+      "forename": "John",
+      "id": 1,
+      "roles": Array [],
+      "surname": "Doe",
+    }
+  }
+  refetchCurrentUser={[MockFunction]}
+>
+  <Layout
+    currentUser={
+      Object {
+        "active": true,
+        "email": "hello@example.com",
+        "forename": "John",
+        "id": 1,
+        "roles": Array [],
+        "surname": "Doe",
+      }
+    }
+    refetchCurrentUser={[MockFunction]}
+  >
+    <styles__Slider
+      onClick={[Function]}
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "styles__Slider-sc-1fs86t6-6",
+              "isStatic": false,
+              "lastClassName": "c0",
+              "rules": Array [
+                "align-items:center;background-color:#fbfbfc;border:1px solid #e9ecef;border-right:none;color:#294661;display:flex;height:50px;justify-content:center;position:absolute;right:0;top:0;width:50px;z-index:1;@media (min-width:",
+                "768px",
+                "){display:none;}",
+              ],
+            },
+            "displayName": "styles__Slider",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "styles__Slider-sc-1fs86t6-6",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        onClick={[Function]}
+      >
+        <div
+          className="c0"
+          onClick={[Function]}
+        >
+          <FiMenu>
+            <IconBase
+              attr={
+                Object {
+                  "fill": "none",
+                  "stroke": "currentColor",
+                  "strokeLinecap": "round",
+                  "strokeLinejoin": "round",
+                  "strokeWidth": "2",
+                  "viewBox": "0 0 24 24",
+                }
+              }
+            >
+              <svg
+                fill="none"
+                height="1em"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  key="0"
+                  x1="3"
+                  x2="21"
+                  y1="12"
+                  y2="12"
+                />
+                <line
+                  key="1"
+                  x1="3"
+                  x2="21"
+                  y1="6"
+                  y2="6"
+                />
+                <line
+                  key="2"
+                  x1="3"
+                  x2="21"
+                  y1="18"
+                  y2="18"
+                />
+              </svg>
+            </IconBase>
+          </FiMenu>
+        </div>
+      </StyledComponent>
+    </styles__Slider>
+    <styles__Container>
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "styles__Container-sc-1fs86t6-1",
+              "isStatic": false,
+              "lastClassName": "c1",
+              "rules": Array [
+                "display:flex;height:100%;",
+              ],
+            },
+            "displayName": "styles__Container",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "styles__Container-sc-1fs86t6-1",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+      >
+        <div
+          className="c1"
+        >
+          <Navigation
+            active={false}
+            changePassword={[Function]}
+            currentUser={
+              Object {
+                "active": true,
+                "email": "hello@example.com",
+                "forename": "John",
+                "id": 1,
+                "roles": Array [],
+                "surname": "Doe",
+              }
+            }
+            editProfile={[Function]}
+          >
+            <styles__Navigation
+              active={false}
+              changePassword={[Function]}
+              currentUser={
+                Object {
+                  "active": true,
+                  "email": "hello@example.com",
+                  "forename": "John",
+                  "id": 1,
+                  "roles": Array [],
+                  "surname": "Doe",
+                }
+              }
+              editProfile={[Function]}
+            >
+              <StyledComponent
+                active={false}
+                changePassword={[Function]}
+                currentUser={
+                  Object {
+                    "active": true,
+                    "email": "hello@example.com",
+                    "forename": "John",
+                    "id": 1,
+                    "roles": Array [],
+                    "surname": "Doe",
+                  }
+                }
+                editProfile={[Function]}
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "styles__Navigation-sc-1fs86t6-11",
+                      "isStatic": false,
+                      "lastClassName": "c2",
+                      "rules": Array [
+                        "background-color:#fbfbfc;border-right:1px solid #e9ecef;display:none;height:100%;max-width:200px;min-width:200px;padding-left:15px;padding-right:10px;padding-top:48px;width:200px;z-index:1;",
+                        [Function],
+                        " @media (min-width:",
+                        "768px",
+                        "){display:table-cell;height:unset;position:unset;}",
+                      ],
+                    },
+                    "displayName": "styles__Navigation",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "styles__Navigation-sc-1fs86t6-11",
+                    "target": "div",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <div
+                  className="c2"
+                >
+                  <styles__List>
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "styles__List-sc-1fs86t6-4",
+                            "isStatic": false,
+                            "lastClassName": "c3",
+                            "rules": Array [
+                              "margin:0;",
+                            ],
+                          },
+                          "displayName": "styles__List",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "styles__List-sc-1fs86t6-4",
+                          "target": "ul",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                    >
+                      <ul
+                        className="c3"
+                      >
+                        <styles__ListItem>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "styles__ListItem-sc-1fs86t6-5",
+                                  "isStatic": false,
+                                  "lastClassName": "c4",
+                                  "rules": Array [
+                                    "margin-bottom:40px;",
+                                  ],
+                                },
+                                "displayName": "styles__ListItem",
+                                "foldedComponentIds": Array [],
+                                "render": [Function],
+                                "styledComponentId": "styles__ListItem-sc-1fs86t6-5",
+                                "target": "li",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <li
+                              className="c4"
+                            >
+                              <styles__Anchor
+                                active={false}
+                                onClick={[Function]}
+                              >
+                                <StyledComponent
+                                  active={false}
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "styles__Anchor-sc-1fs86t6-0",
+                                        "isStatic": false,
+                                        "lastClassName": "c5",
+                                        "rules": Array [
+                                          "
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+",
+                                          " ",
+                                          [Function],
+                                        ],
+                                      },
+                                      "displayName": "styles__Anchor",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "styles__Anchor-sc-1fs86t6-0",
+                                      "target": "a",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                  onClick={[Function]}
+                                >
+                                  <a
+                                    className="c5"
+                                    onClick={[Function]}
+                                  >
+                                    <span>
+                                      <FiUser>
+                                        <IconBase
+                                          attr={
+                                            Object {
+                                              "fill": "none",
+                                              "stroke": "currentColor",
+                                              "strokeLinecap": "round",
+                                              "strokeLinejoin": "round",
+                                              "strokeWidth": "2",
+                                              "viewBox": "0 0 24 24",
+                                            }
+                                          }
+                                        >
+                                          <svg
+                                            fill="none"
+                                            height="1em"
+                                            stroke="currentColor"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            style={
+                                              Object {
+                                                "color": undefined,
+                                              }
+                                            }
+                                            viewBox="0 0 24 24"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                              key="0"
+                                            />
+                                            <circle
+                                              cx="12"
+                                              cy="7"
+                                              key="1"
+                                              r="4"
+                                            />
+                                          </svg>
+                                        </IconBase>
+                                      </FiUser>
+                                      John
+                                    </span>
+                                    <FiChevronDown>
+                                      <IconBase
+                                        attr={
+                                          Object {
+                                            "fill": "none",
+                                            "stroke": "currentColor",
+                                            "strokeLinecap": "round",
+                                            "strokeLinejoin": "round",
+                                            "strokeWidth": "2",
+                                            "viewBox": "0 0 24 24",
+                                          }
+                                        }
+                                      >
+                                        <svg
+                                          fill="none"
+                                          height="1em"
+                                          stroke="currentColor"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth="2"
+                                          style={
+                                            Object {
+                                              "color": undefined,
+                                            }
+                                          }
+                                          viewBox="0 0 24 24"
+                                          width="1em"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polyline
+                                            key="0"
+                                            points="6 9 12 15 18 9"
+                                          />
+                                        </svg>
+                                      </IconBase>
+                                    </FiChevronDown>
+                                  </a>
+                                </StyledComponent>
+                              </styles__Anchor>
+                              <styles__SubList
+                                active={false}
+                              >
+                                <StyledComponent
+                                  active={false}
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "styles__SubList-sc-1fs86t6-9",
+                                        "isStatic": false,
+                                        "lastClassName": "c6",
+                                        "rules": Array [
+                                          "margin-top:15px;max-height:1000px;overflow:hidden;transition:all 0.3s;",
+                                          [Function],
+                                        ],
+                                      },
+                                      "displayName": "styles__SubList",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "styles__SubList-sc-1fs86t6-9",
+                                      "target": "ul",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                >
+                                  <ul
+                                    className="c6"
+                                  >
+                                    <styles__SubListItem>
+                                      <StyledComponent
+                                        forwardedComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "attrs": Array [],
+                                            "componentStyle": ComponentStyle {
+                                              "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                              "isStatic": false,
+                                              "lastClassName": "c7",
+                                              "rules": Array [
+                                                "margin-bottom:8px;",
+                                              ],
+                                            },
+                                            "displayName": "styles__SubListItem",
+                                            "foldedComponentIds": Array [],
+                                            "render": [Function],
+                                            "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                            "target": "li",
+                                            "toString": [Function],
+                                            "warnTooManyClasses": [Function],
+                                            "withComponent": [Function],
+                                          }
+                                        }
+                                        forwardedRef={null}
+                                      >
+                                        <li
+                                          className="c7"
+                                        >
+                                          <styles__SubAnchor
+                                            onClick={[Function]}
+                                          >
+                                            <StyledComponent
+                                              forwardedComponent={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "attrs": Array [],
+                                                  "componentStyle": ComponentStyle {
+                                                    "componentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                                    "isStatic": false,
+                                                    "lastClassName": "c8",
+                                                    "rules": Array [
+                                                      "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                                    ],
+                                                  },
+                                                  "displayName": "styles__SubAnchor",
+                                                  "foldedComponentIds": Array [],
+                                                  "render": [Function],
+                                                  "styledComponentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                                  "target": "a",
+                                                  "toString": [Function],
+                                                  "warnTooManyClasses": [Function],
+                                                  "withComponent": [Function],
+                                                }
+                                              }
+                                              forwardedRef={null}
+                                              onClick={[Function]}
+                                            >
+                                              <a
+                                                className="c8"
+                                                onClick={[Function]}
+                                              >
+                                                Edit Profile
+                                              </a>
+                                            </StyledComponent>
+                                          </styles__SubAnchor>
+                                        </li>
+                                      </StyledComponent>
+                                    </styles__SubListItem>
+                                    <styles__SubListItem>
+                                      <StyledComponent
+                                        forwardedComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "attrs": Array [],
+                                            "componentStyle": ComponentStyle {
+                                              "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                              "isStatic": false,
+                                              "lastClassName": "c7",
+                                              "rules": Array [
+                                                "margin-bottom:8px;",
+                                              ],
+                                            },
+                                            "displayName": "styles__SubListItem",
+                                            "foldedComponentIds": Array [],
+                                            "render": [Function],
+                                            "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                            "target": "li",
+                                            "toString": [Function],
+                                            "warnTooManyClasses": [Function],
+                                            "withComponent": [Function],
+                                          }
+                                        }
+                                        forwardedRef={null}
+                                      >
+                                        <li
+                                          className="c7"
+                                        >
+                                          <styles__SubAnchor
+                                            onClick={[Function]}
+                                          >
+                                            <StyledComponent
+                                              forwardedComponent={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "attrs": Array [],
+                                                  "componentStyle": ComponentStyle {
+                                                    "componentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                                    "isStatic": false,
+                                                    "lastClassName": "c8",
+                                                    "rules": Array [
+                                                      "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                                    ],
+                                                  },
+                                                  "displayName": "styles__SubAnchor",
+                                                  "foldedComponentIds": Array [],
+                                                  "render": [Function],
+                                                  "styledComponentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                                  "target": "a",
+                                                  "toString": [Function],
+                                                  "warnTooManyClasses": [Function],
+                                                  "withComponent": [Function],
+                                                }
+                                              }
+                                              forwardedRef={null}
+                                              onClick={[Function]}
+                                            >
+                                              <a
+                                                className="c8"
+                                                onClick={[Function]}
+                                              >
+                                                Change Password
+                                              </a>
+                                            </StyledComponent>
+                                          </styles__SubAnchor>
+                                        </li>
+                                      </StyledComponent>
+                                    </styles__SubListItem>
+                                    <styles__SubListItem>
+                                      <StyledComponent
+                                        forwardedComponent={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "attrs": Array [],
+                                            "componentStyle": ComponentStyle {
+                                              "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                              "isStatic": false,
+                                              "lastClassName": "c7",
+                                              "rules": Array [
+                                                "margin-bottom:8px;",
+                                              ],
+                                            },
+                                            "displayName": "styles__SubListItem",
+                                            "foldedComponentIds": Array [],
+                                            "render": [Function],
+                                            "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                            "target": "li",
+                                            "toString": [Function],
+                                            "warnTooManyClasses": [Function],
+                                            "withComponent": [Function],
+                                          }
+                                        }
+                                        forwardedRef={null}
+                                      >
+                                        <li
+                                          className="c7"
+                                        >
+                                          <styles__SubLink
+                                            to="/auth/logout"
+                                          >
+                                            <StyledComponent
+                                              forwardedComponent={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "attrs": Array [],
+                                                  "componentStyle": ComponentStyle {
+                                                    "componentId": "styles__SubLink-sc-1fs86t6-8",
+                                                    "isStatic": false,
+                                                    "lastClassName": "c9",
+                                                    "rules": Array [
+                                                      "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                                    ],
+                                                  },
+                                                  "displayName": "styles__SubLink",
+                                                  "foldedComponentIds": Array [],
+                                                  "propTypes": Object {
+                                                    "innerRef": [Function],
+                                                    "onClick": [Function],
+                                                    "replace": [Function],
+                                                    "target": [Function],
+                                                    "to": [Function],
+                                                  },
+                                                  "render": [Function],
+                                                  "styledComponentId": "styles__SubLink-sc-1fs86t6-8",
+                                                  "target": Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "displayName": "Link",
+                                                    "propTypes": Object {
+                                                      "innerRef": [Function],
+                                                      "onClick": [Function],
+                                                      "replace": [Function],
+                                                      "target": [Function],
+                                                      "to": [Function],
+                                                    },
+                                                    "render": [Function],
+                                                  },
+                                                  "toString": [Function],
+                                                  "warnTooManyClasses": [Function],
+                                                  "withComponent": [Function],
+                                                }
+                                              }
+                                              forwardedRef={null}
+                                              to="/auth/logout"
+                                            >
+                                              <Link
+                                                className="c9"
+                                                to="/auth/logout"
+                                              >
+                                                <LinkAnchor
+                                                  className="c9"
+                                                  href="/auth/logout"
+                                                  navigate={[Function]}
+                                                >
+                                                  <a
+                                                    className="c9"
+                                                    href="/auth/logout"
+                                                    onClick={[Function]}
+                                                  >
+                                                    Logout
+                                                  </a>
+                                                </LinkAnchor>
+                                              </Link>
+                                            </StyledComponent>
+                                          </styles__SubLink>
+                                        </li>
+                                      </StyledComponent>
+                                    </styles__SubListItem>
+                                  </ul>
+                                </StyledComponent>
+                              </styles__SubList>
+                            </li>
+                          </StyledComponent>
+                        </styles__ListItem>
+                        <styles__ListItem>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "styles__ListItem-sc-1fs86t6-5",
+                                  "isStatic": false,
+                                  "lastClassName": "c4",
+                                  "rules": Array [
+                                    "margin-bottom:40px;",
+                                  ],
+                                },
+                                "displayName": "styles__ListItem",
+                                "foldedComponentIds": Array [],
+                                "render": [Function],
+                                "styledComponentId": "styles__ListItem-sc-1fs86t6-5",
+                                "target": "li",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <li
+                              className="c4"
+                            >
+                              <styles__Link
+                                to="/"
+                              >
+                                <StyledComponent
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "styles__Link-sc-1fs86t6-3",
+                                        "isStatic": false,
+                                        "lastClassName": "c10",
+                                        "rules": Array [
+                                          "
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+",
+                                        ],
+                                      },
+                                      "displayName": "styles__Link",
+                                      "foldedComponentIds": Array [],
+                                      "propTypes": Object {
+                                        "innerRef": [Function],
+                                        "onClick": [Function],
+                                        "replace": [Function],
+                                        "target": [Function],
+                                        "to": [Function],
+                                      },
+                                      "render": [Function],
+                                      "styledComponentId": "styles__Link-sc-1fs86t6-3",
+                                      "target": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "displayName": "Link",
+                                        "propTypes": Object {
+                                          "innerRef": [Function],
+                                          "onClick": [Function],
+                                          "replace": [Function],
+                                          "target": [Function],
+                                          "to": [Function],
+                                        },
+                                        "render": [Function],
+                                      },
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                  to="/"
+                                >
+                                  <Link
+                                    className="c10"
+                                    to="/"
+                                  >
+                                    <LinkAnchor
+                                      className="c10"
+                                      href="/"
+                                      navigate={[Function]}
+                                    >
+                                      <a
+                                        className="c10"
+                                        href="/"
+                                        onClick={[Function]}
+                                      >
+                                        <span>
+                                          <FiCheckCircle>
+                                            <IconBase
+                                              attr={
+                                                Object {
+                                                  "fill": "none",
+                                                  "stroke": "currentColor",
+                                                  "strokeLinecap": "round",
+                                                  "strokeLinejoin": "round",
+                                                  "strokeWidth": "2",
+                                                  "viewBox": "0 0 24 24",
+                                                }
+                                              }
+                                            >
+                                              <svg
+                                                fill="none"
+                                                height="1em"
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                style={
+                                                  Object {
+                                                    "color": undefined,
+                                                  }
+                                                }
+                                                viewBox="0 0 24 24"
+                                                width="1em"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+                                                  key="0"
+                                                />
+                                                <polyline
+                                                  key="1"
+                                                  points="22 4 12 14.01 9 11.01"
+                                                />
+                                              </svg>
+                                            </IconBase>
+                                          </FiCheckCircle>
+                                          Todos
+                                        </span>
+                                      </a>
+                                    </LinkAnchor>
+                                  </Link>
+                                </StyledComponent>
+                              </styles__Link>
+                            </li>
+                          </StyledComponent>
+                        </styles__ListItem>
+                      </ul>
+                    </StyledComponent>
+                  </styles__List>
+                </div>
+              </StyledComponent>
+            </styles__Navigation>
+          </Navigation>
+          <styles__Container
+            inactive={false}
+            tableCell={true}
+          >
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Container-sc-1upuse9-1",
+                    "isStatic": false,
+                    "lastClassName": "c11",
+                    "rules": Array [
+                      "margin:0 auto;min-height:100vh;padding:32px 15px;width:100vw;@media (min-width:",
+                      "768px",
+                      "){max-width:calc(100vw - 200px);padding:32px 48px;}",
+                      [Function],
+                      " ",
+                      [Function],
+                      " ",
+                      [Function],
+                    ],
+                  },
+                  "displayName": "styles__Container",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Container-sc-1upuse9-1",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+              inactive={false}
+              tableCell={true}
+            >
+              <div
+                className="c11"
+              >
+                <styles__Subheading>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "styles__Subheading-sc-1upuse9-13",
+                          "isStatic": false,
+                          "lastClassName": "c12",
+                          "rules": Array [
+                            "font-size:24pt;font-weight:700;margin-top:0;margin-bottom:30px;",
+                          ],
+                        },
+                        "displayName": "styles__Subheading",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "styles__Subheading-sc-1upuse9-13",
+                        "target": "h2",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <h2
+                      className="c12"
+                    >
+                      Accounts
+                    </h2>
+                  </StyledComponent>
+                </styles__Subheading>
+                <styles__FilterWrap>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "styles__FilterWrap-sc-1upuse9-2",
+                          "isStatic": false,
+                          "lastClassName": "c13",
+                          "rules": Array [
+                            "border:1px solid #e9ecef;margin-bottom:30px;",
+                          ],
+                        },
+                        "displayName": "styles__FilterWrap",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "styles__FilterWrap-sc-1upuse9-2",
+                        "target": "div",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <div
+                      className="c13"
+                    >
+                      <styles__FilterHeader>
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "styles__FilterHeader-sc-1upuse9-3",
+                                "isStatic": false,
+                                "lastClassName": "c14",
+                                "rules": Array [
+                                  "background-color:#f4f6f7;color:#546b81;border-bottom:1px solid #e9ecef;display:flex;justify-content:space-between;padding:10px 20px;",
+                                ],
+                              },
+                              "displayName": "styles__FilterHeader",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "styles__FilterHeader-sc-1upuse9-3",
+                              "target": "div",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                        >
+                          <div
+                            className="c14"
+                          >
+                            <small>
+                              Filter your results
+                            </small>
+                          </div>
+                        </StyledComponent>
+                      </styles__FilterHeader>
+                      <styles__FilterBody>
+                        <StyledComponent
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "styles__FilterBody-sc-1upuse9-4",
+                                "isStatic": false,
+                                "lastClassName": "c15",
+                                "rules": Array [
+                                  "align-items:center;background-color:#ffffff;display:flex;justify-content:space-between;padding:20px;form{align-items:center;display:flex;flex-grow:1;margin-right:5px;.inputContainer{margin-right:10px;}@media (min-width:",
+                                  "768px",
+                                  "){flex-grow:0;}}button{height:42px;}button,input{margin-bottom:0;}",
+                                ],
+                              },
+                              "displayName": "styles__FilterBody",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "styles__FilterBody-sc-1upuse9-4",
+                              "target": "div",
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                        >
+                          <div
+                            className="c15"
+                          >
+                            <form
+                              noValidate={true}
+                              onSubmit={[Function]}
+                            >
+                              <ForwardRef
+                                placeholder="Search Term"
+                                secondary={true}
+                                type="text"
+                              >
+                                <styles__InputContainer
+                                  className="inputContainer"
+                                  placeholder="Search Term"
+                                  secondary={true}
+                                  type="text"
+                                >
+                                  <StyledComponent
+                                    className="inputContainer"
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__InputContainer-sc-223pk0-2",
+                                          "isStatic": false,
+                                          "lastClassName": "c16",
+                                          "rules": Array [
+                                            "position:relative;width:100%;@media (min-width:",
+                                            "768px",
+                                            "){min-width:250px;}",
+                                            [Function],
+                                            " ",
+                                            [Function],
+                                          ],
+                                        },
+                                        "displayName": "styles__InputContainer",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__InputContainer-sc-223pk0-2",
+                                        "target": "div",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    placeholder="Search Term"
+                                    secondary={true}
+                                    type="text"
+                                  >
+                                    <div
+                                      className="c16 inputContainer"
+                                      placeholder="Search Term"
+                                      type="text"
+                                    >
+                                      <styles__Input
+                                        inError={false}
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        placeholder="Search Term"
+                                        secondary={true}
+                                        type="text"
+                                        value=""
+                                      >
+                                        <StyledComponent
+                                          forwardedComponent={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "attrs": Array [],
+                                              "componentStyle": ComponentStyle {
+                                                "componentId": "styles__Input-sc-223pk0-1",
+                                                "isStatic": false,
+                                                "lastClassName": "c17",
+                                                "rules": Array [
+                                                  "background-color:transparent;border:0;border-bottom:1px solid #e9ecef;border-radius:0;box-shadow:none;font-size:11pt;font-weight:300;margin-bottom:8px;outline:none;padding:12px 10px;transition:border-color 100ms;width:100%;&:hover{border-color:#b3b3b3;}&:focus{border-color:#2684ff;}&:focus + label{font-size:75%;transform:translate3d(0,-100%,0);opacity:1;}",
+                                                  [Function],
+                                                  " ",
+                                                  [Function],
+                                                ],
+                                              },
+                                              "displayName": "styles__Input",
+                                              "foldedComponentIds": Array [],
+                                              "render": [Function],
+                                              "styledComponentId": "styles__Input-sc-223pk0-1",
+                                              "target": "input",
+                                              "toString": [Function],
+                                              "warnTooManyClasses": [Function],
+                                              "withComponent": [Function],
+                                            }
+                                          }
+                                          forwardedRef={
+                                            Object {
+                                              "current": Object {
+                                                "validate": [Function],
+                                                "value": "",
+                                              },
+                                            }
+                                          }
+                                          inError={false}
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          placeholder="Search Term"
+                                          secondary={true}
+                                          type="text"
+                                          value=""
+                                        >
+                                          <input
+                                            className="c17"
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            placeholder="Search Term"
+                                            type="text"
+                                            value=""
+                                          />
+                                        </StyledComponent>
+                                      </styles__Input>
+                                    </div>
+                                  </StyledComponent>
+                                </styles__InputContainer>
+                              </ForwardRef>
+                              <Button
+                                secondary={true}
+                                type="submit"
+                                width="unset"
+                              >
+                                <styles__Button
+                                  secondary={true}
+                                  type="submit"
+                                  width="unset"
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__Button-sc-1mykk3k-0",
+                                          "isStatic": false,
+                                          "lastClassName": "c19",
+                                          "rules": Array [
+                                            "align-items:center;background-color:#1188e6;border:1px solid #1288e5;border-radius:2px;color:#ffffff;cursor:pointer;display:flex;font-size:10pt;font-weight:300;justify-content:center;margin-bottom:11px;outline-width:3px;padding:10px 17px;transition:background-color 0.3s;&:disabled{cursor:unset;opacity:0.4;}",
+                                            [Function],
+                                            " ",
+                                            [Function],
+                                          ],
+                                        },
+                                        "displayName": "styles__Button",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__Button-sc-1mykk3k-0",
+                                        "target": "button",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    secondary={true}
+                                    type="submit"
+                                    width="unset"
+                                  >
+                                    <button
+                                      className="c18"
+                                      type="submit"
+                                      width="unset"
+                                    >
+                                      <FiSearch>
+                                        <IconBase
+                                          attr={
+                                            Object {
+                                              "fill": "none",
+                                              "stroke": "currentColor",
+                                              "strokeLinecap": "round",
+                                              "strokeLinejoin": "round",
+                                              "strokeWidth": "2",
+                                              "viewBox": "0 0 24 24",
+                                            }
+                                          }
+                                        >
+                                          <svg
+                                            fill="none"
+                                            height="1em"
+                                            stroke="currentColor"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            style={
+                                              Object {
+                                                "color": undefined,
+                                              }
+                                            }
+                                            viewBox="0 0 24 24"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <circle
+                                              cx="11"
+                                              cy="11"
+                                              key="0"
+                                              r="8"
+                                            />
+                                            <line
+                                              key="1"
+                                              x1="21"
+                                              x2="16.65"
+                                              y1="21"
+                                              y2="16.65"
+                                            />
+                                          </svg>
+                                        </IconBase>
+                                      </FiSearch>
+                                    </button>
+                                  </StyledComponent>
+                                </styles__Button>
+                              </Button>
+                            </form>
+                            <Button
+                              onClick={[Function]}
+                              type="button"
+                              width="unset"
+                            >
+                              <styles__Button
+                                onClick={[Function]}
+                                type="button"
+                                width="unset"
+                              >
+                                <StyledComponent
+                                  forwardedComponent={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "attrs": Array [],
+                                      "componentStyle": ComponentStyle {
+                                        "componentId": "styles__Button-sc-1mykk3k-0",
+                                        "isStatic": false,
+                                        "lastClassName": "c19",
+                                        "rules": Array [
+                                          "align-items:center;background-color:#1188e6;border:1px solid #1288e5;border-radius:2px;color:#ffffff;cursor:pointer;display:flex;font-size:10pt;font-weight:300;justify-content:center;margin-bottom:11px;outline-width:3px;padding:10px 17px;transition:background-color 0.3s;&:disabled{cursor:unset;opacity:0.4;}",
+                                          [Function],
+                                          " ",
+                                          [Function],
+                                        ],
+                                      },
+                                      "displayName": "styles__Button",
+                                      "foldedComponentIds": Array [],
+                                      "render": [Function],
+                                      "styledComponentId": "styles__Button-sc-1mykk3k-0",
+                                      "target": "button",
+                                      "toString": [Function],
+                                      "warnTooManyClasses": [Function],
+                                      "withComponent": [Function],
+                                    }
+                                  }
+                                  forwardedRef={null}
+                                  onClick={[Function]}
+                                  type="button"
+                                  width="unset"
+                                >
+                                  <button
+                                    className="c19"
+                                    onClick={[Function]}
+                                    type="button"
+                                    width="unset"
+                                  >
+                                    <MediaQuery
+                                      minWidth="768px"
+                                    >
+                                      New Account
+                                    </MediaQuery>
+                                  </button>
+                                </StyledComponent>
+                              </styles__Button>
+                            </Button>
+                          </div>
+                        </StyledComponent>
+                      </styles__FilterBody>
+                    </div>
+                  </StyledComponent>
+                </styles__FilterWrap>
+                <Query
+                  fetchPolicy="no-cache"
+                  query={
+                    Object {
+                      "definitions": Array [
+                        Object {
+                          "directives": Array [],
+                          "kind": "OperationDefinition",
+                          "name": undefined,
+                          "operation": "query",
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [
+                                  Object {
+                                    "kind": "Argument",
+                                    "name": Object {
+                                      "kind": "Name",
+                                      "value": "query",
+                                    },
+                                    "value": Object {
+                                      "block": false,
+                                      "kind": "StringValue",
+                                      "value": "",
+                                    },
+                                  },
+                                ],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "users",
+                                },
+                                "selectionSet": Object {
+                                  "kind": "SelectionSet",
+                                  "selections": Array [
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "id",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "forename",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "surname",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "email",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "roles",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                    Object {
+                                      "alias": undefined,
+                                      "arguments": Array [],
+                                      "directives": Array [],
+                                      "kind": "Field",
+                                      "name": Object {
+                                        "kind": "Name",
+                                        "value": "active",
+                                      },
+                                      "selectionSet": undefined,
+                                    },
+                                  ],
+                                },
+                              },
+                            ],
+                          },
+                          "variableDefinitions": Array [],
+                        },
+                      ],
+                      "kind": "Document",
+                      "loc": Object {
+                        "end": 79,
+                        "start": 0,
+                      },
+                    }
+                  }
+                >
+                  <MediaQuery
+                    minWidth="900px"
+                  >
+                    <styles__Table>
+                      <StyledComponent
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__Table-sc-1upuse9-10",
+                              "isStatic": false,
+                              "lastClassName": "c20",
+                              "rules": Array [
+                                "border-collapse:collapse;border-spacing:0;color:#444444;width:100%;thead{tr{background-color:transparent;border-color:transparent;th{color:#7f90a0;font-size:9pt;letter-spacing:1px;line-height:15px;text-transform:uppercase;}}}tbody{tr{background-color:#ffffff;border:1px solid #e9ecef;transition:background-color 0.3s;@media (min-width:",
+                                "768px",
+                                "){cursor:pointer;&:hover{background-color:#f4f6f7;}}th{color:#546b81;text-align:left;text-transform:uppercase;}td{background-color:inherit;}}}tr{border-bottom:0;font-size:10pt;line-height:20px;}th,td{border:0;padding:20px;text-align:left;vertical-align:middle;}",
+                              ],
+                            },
+                            "displayName": "styles__Table",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__Table-sc-1upuse9-10",
+                            "target": "table",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                      >
+                        <table
+                          className="c20"
+                        >
+                          <thead>
+                            <tr>
+                              <th>
+                                Status
+                              </th>
+                              <th>
+                                Surname
+                              </th>
+                              <th>
+                                Forename
+                              </th>
+                              <th>
+                                Email Address
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr
+                              key="1"
+                              onClick={[Function]}
+                            >
+                              <td>
+                                <styles__Status
+                                  success={true}
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__Status-sc-1upuse9-12",
+                                          "isStatic": false,
+                                          "lastClassName": "c22",
+                                          "rules": Array [
+                                            "display:inline-block;line-height:20px;padding-left:24px;position:relative;&:before{background-color:#d4dadf;border-radius:50%;content:\\"\\";height:12px;left:0;position:absolute;top:4px;width:12px;",
+                                            [Function],
+                                            "}",
+                                          ],
+                                        },
+                                        "displayName": "styles__Status",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__Status-sc-1upuse9-12",
+                                        "target": "span",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    success={true}
+                                  >
+                                    <span
+                                      className="c21"
+                                    >
+                                      Active
+                                    </span>
+                                  </StyledComponent>
+                                </styles__Status>
+                              </td>
+                              <td>
+                                Doe
+                              </td>
+                              <td>
+                                John
+                              </td>
+                              <td>
+                                john@example.com
+                              </td>
+                            </tr>
+                            <tr
+                              key="2"
+                              onClick={[Function]}
+                            >
+                              <td>
+                                <styles__Status
+                                  success={false}
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__Status-sc-1upuse9-12",
+                                          "isStatic": false,
+                                          "lastClassName": "c22",
+                                          "rules": Array [
+                                            "display:inline-block;line-height:20px;padding-left:24px;position:relative;&:before{background-color:#d4dadf;border-radius:50%;content:\\"\\";height:12px;left:0;position:absolute;top:4px;width:12px;",
+                                            [Function],
+                                            "}",
+                                          ],
+                                        },
+                                        "displayName": "styles__Status",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__Status-sc-1upuse9-12",
+                                        "target": "span",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    success={false}
+                                  >
+                                    <span
+                                      className="c22"
+                                    >
+                                      Inactive
+                                    </span>
+                                  </StyledComponent>
+                                </styles__Status>
+                              </td>
+                              <td>
+                                Doe
+                              </td>
+                              <td>
+                                Jane
+                              </td>
+                              <td>
+                                jane@example.com
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </StyledComponent>
+                    </styles__Table>
+                  </MediaQuery>
+                  <AccountModal
+                    close={[Function]}
+                    currentUser={
+                      Object {
+                        "active": true,
+                        "email": "hello@example.com",
+                        "forename": "John",
+                        "id": 1,
+                        "roles": Array [],
+                        "surname": "Doe",
+                      }
+                    }
+                    isOpen={false}
+                    onSuccess={[Function]}
+                    user={null}
+                  >
+                    <Modal
+                      close={[Function]}
+                      isOpen={false}
+                      sideModal={true}
+                      title="Account Information"
+                    >
+                      <styles__Modal
+                        ariaHideApp={false}
+                        isOpen={false}
+                        onRequestClose={[Function]}
+                        sideModal={true}
+                      >
+                        <StyledComponent
+                          ariaHideApp={false}
+                          forwardedComponent={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "attrs": Array [],
+                              "componentStyle": ComponentStyle {
+                                "componentId": "styles__Modal-sc-1wd5qfj-4",
+                                "isStatic": false,
+                                "lastClassName": "c23",
+                                "rules": Array [
+                                  "background-color:#ffffff;border:1px solid #e9ecef;bottom:auto;left:50%;max-width:650px;outline:none;padding:20px 20px 62px;position:absolute;right:auto;top:43%;width:calc(100% - 20px);",
+                                  [Function],
+                                ],
+                              },
+                              "defaultStyles": Object {
+                                "content": Object {
+                                  "WebkitOverflowScrolling": "touch",
+                                  "background": "#fff",
+                                  "border": "1px solid #ccc",
+                                  "borderRadius": "4px",
+                                  "bottom": "40px",
+                                  "left": "40px",
+                                  "outline": "none",
+                                  "overflow": "auto",
+                                  "padding": "20px",
+                                  "position": "absolute",
+                                  "right": "40px",
+                                  "top": "40px",
+                                },
+                                "overlay": Object {
+                                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                                  "bottom": 0,
+                                  "left": 0,
+                                  "position": "fixed",
+                                  "right": 0,
+                                  "top": 0,
+                                },
+                              },
+                              "displayName": "styles__Modal",
+                              "foldedComponentIds": Array [],
+                              "render": [Function],
+                              "styledComponentId": "styles__Modal-sc-1wd5qfj-4",
+                              "target": [Function],
+                              "toString": [Function],
+                              "warnTooManyClasses": [Function],
+                              "withComponent": [Function],
+                            }
+                          }
+                          forwardedRef={null}
+                          isOpen={false}
+                          onRequestClose={[Function]}
+                          sideModal={true}
+                        >
+                          <Modal
+                            ariaHideApp={false}
+                            bodyOpenClassName="ReactModal__Body--open"
+                            className="c23"
+                            closeTimeoutMS={0}
+                            isOpen={false}
+                            onRequestClose={[Function]}
+                            parentSelector={[Function]}
+                            portalClassName="ReactModalPortal"
+                            role="dialog"
+                            shouldCloseOnEsc={true}
+                            shouldCloseOnOverlayClick={true}
+                            shouldFocusAfterRender={true}
+                            shouldReturnFocusAfterClose={true}
+                            sideModal={true}
+                          >
+                            <Portal
+                              containerInfo={
+                                <div
+                                  class="ReactModalPortal"
+                                />
+                              }
+                            >
+                              <ModalPortal
+                                ariaHideApp={false}
+                                bodyOpenClassName="ReactModal__Body--open"
+                                className="c23"
+                                closeTimeoutMS={0}
+                                defaultStyles={
+                                  Object {
+                                    "content": Object {
+                                      "WebkitOverflowScrolling": "touch",
+                                      "background": "#fff",
+                                      "border": "1px solid #ccc",
+                                      "borderRadius": "4px",
+                                      "bottom": "40px",
+                                      "left": "40px",
+                                      "outline": "none",
+                                      "overflow": "auto",
+                                      "padding": "20px",
+                                      "position": "absolute",
+                                      "right": "40px",
+                                      "top": "40px",
+                                    },
+                                    "overlay": Object {
+                                      "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                                      "bottom": 0,
+                                      "left": 0,
+                                      "position": "fixed",
+                                      "right": 0,
+                                      "top": 0,
+                                    },
+                                  }
+                                }
+                                isOpen={false}
+                                onRequestClose={[Function]}
+                                parentSelector={[Function]}
+                                portalClassName="ReactModalPortal"
+                                role="dialog"
+                                shouldCloseOnEsc={true}
+                                shouldCloseOnOverlayClick={true}
+                                shouldFocusAfterRender={true}
+                                shouldReturnFocusAfterClose={true}
+                                sideModal={true}
+                                style={
+                                  Object {
+                                    "content": Object {},
+                                    "overlay": Object {},
+                                  }
+                                }
+                              />
+                            </Portal>
+                          </Modal>
+                        </StyledComponent>
+                      </styles__Modal>
+                    </Modal>
+                  </AccountModal>
+                </Query>
+                <styles__Footer>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "styles__Footer-sc-1fs86t6-2",
+                          "isStatic": false,
+                          "lastClassName": "c24",
+                          "rules": Array [
+                            "color:#cccccc;font-size:10pt;font-weight:300;margin-top:60px;text-align:center;a{color:inherit;text-decoration:none;&:hover{text-decoration underline;}}",
+                          ],
+                        },
+                        "displayName": "styles__Footer",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "styles__Footer-sc-1fs86t6-2",
+                        "target": "p",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <p
+                      className="c24"
+                    >
+                      Developed by
+                       
+                      <a
+                        href="https://paddl.co.uk/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Paddl
+                      </a>
+                      .
+                    </p>
+                  </StyledComponent>
+                </styles__Footer>
+              </div>
+            </StyledComponent>
+          </styles__Container>
+        </div>
+      </StyledComponent>
+    </styles__Container>
+    <ChangePasswordModal
+      close={[Function]}
+      isOpen={false}
+      onSuccess={[Function]}
+    >
+      <Modal
+        close={[Function]}
+        isOpen={false}
+      >
+        <styles__Modal
+          ariaHideApp={false}
+          isOpen={false}
+          onRequestClose={[Function]}
+        >
+          <StyledComponent
+            ariaHideApp={false}
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styles__Modal-sc-1wd5qfj-4",
+                  "isStatic": false,
+                  "lastClassName": "c23",
+                  "rules": Array [
+                    "background-color:#ffffff;border:1px solid #e9ecef;bottom:auto;left:50%;max-width:650px;outline:none;padding:20px 20px 62px;position:absolute;right:auto;top:43%;width:calc(100% - 20px);",
+                    [Function],
+                  ],
+                },
+                "defaultStyles": Object {
+                  "content": Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "background": "#fff",
+                    "border": "1px solid #ccc",
+                    "borderRadius": "4px",
+                    "bottom": "40px",
+                    "left": "40px",
+                    "outline": "none",
+                    "overflow": "auto",
+                    "padding": "20px",
+                    "position": "absolute",
+                    "right": "40px",
+                    "top": "40px",
+                  },
+                  "overlay": Object {
+                    "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "fixed",
+                    "right": 0,
+                    "top": 0,
+                  },
+                },
+                "displayName": "styles__Modal",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "styles__Modal-sc-1wd5qfj-4",
+                "target": [Function],
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            isOpen={false}
+            onRequestClose={[Function]}
+          >
+            <Modal
+              ariaHideApp={false}
+              bodyOpenClassName="ReactModal__Body--open"
+              className="c25"
+              closeTimeoutMS={0}
+              isOpen={false}
+              onRequestClose={[Function]}
+              parentSelector={[Function]}
+              portalClassName="ReactModalPortal"
+              role="dialog"
+              shouldCloseOnEsc={true}
+              shouldCloseOnOverlayClick={true}
+              shouldFocusAfterRender={true}
+              shouldReturnFocusAfterClose={true}
+            >
+              <Portal
+                containerInfo={
+                  <div
+                    class="ReactModalPortal"
+                  />
+                }
+              >
+                <ModalPortal
+                  ariaHideApp={false}
+                  bodyOpenClassName="ReactModal__Body--open"
+                  className="c25"
+                  closeTimeoutMS={0}
+                  defaultStyles={
+                    Object {
+                      "content": Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "background": "#fff",
+                        "border": "1px solid #ccc",
+                        "borderRadius": "4px",
+                        "bottom": "40px",
+                        "left": "40px",
+                        "outline": "none",
+                        "overflow": "auto",
+                        "padding": "20px",
+                        "position": "absolute",
+                        "right": "40px",
+                        "top": "40px",
+                      },
+                      "overlay": Object {
+                        "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "fixed",
+                        "right": 0,
+                        "top": 0,
+                      },
+                    }
+                  }
+                  isOpen={false}
+                  onRequestClose={[Function]}
+                  parentSelector={[Function]}
+                  portalClassName="ReactModalPortal"
+                  role="dialog"
+                  shouldCloseOnEsc={true}
+                  shouldCloseOnOverlayClick={true}
+                  shouldFocusAfterRender={true}
+                  shouldReturnFocusAfterClose={true}
+                  style={
+                    Object {
+                      "content": Object {},
+                      "overlay": Object {},
+                    }
+                  }
+                />
+              </Portal>
+            </Modal>
+          </StyledComponent>
+        </styles__Modal>
+      </Modal>
+    </ChangePasswordModal>
+    <EditProfileModal
+      close={[Function]}
+      currentUser={
+        Object {
+          "active": true,
+          "email": "hello@example.com",
+          "forename": "John",
+          "id": 1,
+          "roles": Array [],
+          "surname": "Doe",
+        }
+      }
+      isOpen={false}
+      onSuccess={[Function]}
+    >
+      <Modal
+        close={[Function]}
+        isOpen={false}
+      >
+        <styles__Modal
+          ariaHideApp={false}
+          isOpen={false}
+          onRequestClose={[Function]}
+        >
+          <StyledComponent
+            ariaHideApp={false}
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styles__Modal-sc-1wd5qfj-4",
+                  "isStatic": false,
+                  "lastClassName": "c23",
+                  "rules": Array [
+                    "background-color:#ffffff;border:1px solid #e9ecef;bottom:auto;left:50%;max-width:650px;outline:none;padding:20px 20px 62px;position:absolute;right:auto;top:43%;width:calc(100% - 20px);",
+                    [Function],
+                  ],
+                },
+                "defaultStyles": Object {
+                  "content": Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "background": "#fff",
+                    "border": "1px solid #ccc",
+                    "borderRadius": "4px",
+                    "bottom": "40px",
+                    "left": "40px",
+                    "outline": "none",
+                    "overflow": "auto",
+                    "padding": "20px",
+                    "position": "absolute",
+                    "right": "40px",
+                    "top": "40px",
+                  },
+                  "overlay": Object {
+                    "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "fixed",
+                    "right": 0,
+                    "top": 0,
+                  },
+                },
+                "displayName": "styles__Modal",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "styles__Modal-sc-1wd5qfj-4",
+                "target": [Function],
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+            isOpen={false}
+            onRequestClose={[Function]}
+          >
+            <Modal
+              ariaHideApp={false}
+              bodyOpenClassName="ReactModal__Body--open"
+              className="c25"
+              closeTimeoutMS={0}
+              isOpen={false}
+              onRequestClose={[Function]}
+              parentSelector={[Function]}
+              portalClassName="ReactModalPortal"
+              role="dialog"
+              shouldCloseOnEsc={true}
+              shouldCloseOnOverlayClick={true}
+              shouldFocusAfterRender={true}
+              shouldReturnFocusAfterClose={true}
+            >
+              <Portal
+                containerInfo={
+                  <div
+                    class="ReactModalPortal"
+                  />
+                }
+              >
+                <ModalPortal
+                  ariaHideApp={false}
+                  bodyOpenClassName="ReactModal__Body--open"
+                  className="c25"
+                  closeTimeoutMS={0}
+                  defaultStyles={
+                    Object {
+                      "content": Object {
+                        "WebkitOverflowScrolling": "touch",
+                        "background": "#fff",
+                        "border": "1px solid #ccc",
+                        "borderRadius": "4px",
+                        "bottom": "40px",
+                        "left": "40px",
+                        "outline": "none",
+                        "overflow": "auto",
+                        "padding": "20px",
+                        "position": "absolute",
+                        "right": "40px",
+                        "top": "40px",
+                      },
+                      "overlay": Object {
+                        "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "fixed",
+                        "right": 0,
+                        "top": 0,
+                      },
+                    }
+                  }
+                  isOpen={false}
+                  onRequestClose={[Function]}
+                  parentSelector={[Function]}
+                  portalClassName="ReactModalPortal"
+                  role="dialog"
+                  shouldCloseOnEsc={true}
+                  shouldCloseOnOverlayClick={true}
+                  shouldFocusAfterRender={true}
+                  shouldReturnFocusAfterClose={true}
+                  style={
+                    Object {
+                      "content": Object {},
+                      "overlay": Object {},
+                    }
+                  }
+                />
+              </Portal>
+            </Modal>
+          </StyledComponent>
+        </styles__Modal>
+      </Modal>
+    </EditProfileModal>
+  </Layout>
+</Accounts>
+`;

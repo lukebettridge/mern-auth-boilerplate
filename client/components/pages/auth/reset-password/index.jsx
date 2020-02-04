@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 
 import Layout from "../Layout";
 import { Box, Paragraph, RouterLink } from "components/styles";
 import Input from "components/form/input";
 import { Error } from "components/form/input/styles";
 import Button from "components/form/button";
+
+import * as utils from "./utils";
 
 const ResetPassword = props => {
 	const [state, setState] = useState({
@@ -35,25 +36,24 @@ const ResetPassword = props => {
 			if (ref.current.validate().length) isValid = false;
 
 		if (!isValid) return;
-		axios
-			.post(
-				`/api/auth/reset-password`,
-				{
-					resetKey: props.match.params.resetKey,
-					newPassword: state.newPassword,
-					newPassword2: state.newPassword2
-				},
-				{ baseURL: process.env.BASE_URL }
-			)
-			.then(() => {
+		utils.resetPassword(
+			{
+				resetKey: props.match.params.resetKey,
+				newPassword: state.newPassword,
+				newPassword2: state.newPassword2
+			},
+			() => {
 				setState(prev => ({ ...prev, success: true }));
-			})
-			.catch(err => {
-				setState(prev => ({
-					...prev,
-					errors: err.response.data
-				}));
-			});
+			},
+			err => {
+				if (err.response) {
+					setState(prev => ({
+						...prev,
+						errors: err.response.data
+					}));
+				}
+			}
+		);
 	};
 
 	return (

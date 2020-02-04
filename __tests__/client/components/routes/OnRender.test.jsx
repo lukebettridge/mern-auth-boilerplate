@@ -16,6 +16,11 @@ describe("OnRender component", () => {
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
+	it("renders without method", () => {
+		const subject = mount(<OnRender />);
+		expect(subject).toEqual({});
+	});
+
 	it("calls method prop on mount", () => {
 		const subject = mount(<OnRender method={method} />);
 		expect(method).toHaveBeenCalled();

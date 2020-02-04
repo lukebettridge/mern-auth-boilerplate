@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component snapshot renders 1`] = `
+<styles__SelectContainer
+  className="selectContainer"
+  options={Array []}
+  placeholder=""
+>
+  <styles__Select
+    classNamePrefix="react-select"
+    inError={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    options={Array []}
+    placeholder=""
+    styles={
+      Object {
+        "multiValue": [Function],
+        "multiValueLabel": [Function],
+        "multiValueRemove": [Function],
+      }
+    }
+  />
+</styles__SelectContainer>
+`;

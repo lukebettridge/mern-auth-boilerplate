@@ -11,13 +11,7 @@ const Logout = () => {
 	return (
 		<Layout>
 			<Box>
-				<Mutation
-					mutation={gql`
-						mutation addToken {
-							addToken
-						}
-					`}
-				>
+				<Mutation mutation={ADD_TOKEN_MUTATION}>
 					{(mutation, { loading, error, data }) => {
 						if (loading) return null;
 						if (error)
@@ -42,5 +36,11 @@ const Logout = () => {
 		</Layout>
 	);
 };
+
+export const ADD_TOKEN_MUTATION = gql`
+	mutation addToken {
+		addToken
+	}
+`;
 
 export default Logout;

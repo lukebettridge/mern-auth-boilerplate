@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logout component snapshot renders 1`] = `
+.c2 {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  margin-bottom: 20px;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.c0 {
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 32px 15px;
+  width: 100vw;
+  max-width: 540px;
+}
+
+.c1 {
+  color: #212529;
+  font-size: 30pt;
+  font-weight: 900;
+  -webkit-letter-spacing: -1px;
+  -moz-letter-spacing: -1px;
+  -ms-letter-spacing: -1px;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.c3 {
+  color: #666666;
+  font-weight: 300;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #cccccc;
+  font-size: 10pt;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.c3 a {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    padding: 54px 80px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: calc(100vw - 200px);
+    padding: 32px 48px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 700px;
+  }
+}
+
+<Logout>
+  <Layout>
+    <styles__Container
+      small={true}
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "styles__Container-sc-1upuse9-1",
+              "isStatic": false,
+              "lastClassName": "c0",
+              "rules": Array [
+                "margin:0 auto;min-height:100vh;padding:32px 15px;width:100vw;@media (min-width:",
+                "768px",
+                "){max-width:calc(100vw - 200px);padding:32px 48px;}",
+                [Function],
+                " ",
+                [Function],
+                " ",
+                [Function],
+              ],
+            },
+            "displayName": "styles__Container",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "styles__Container-sc-1upuse9-1",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        small={true}
+      >
+        <div
+          className="c0"
+        >
+          <styles__Heading>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Heading-sc-1upuse9-6",
+                    "isStatic": false,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "color:#212529;font-size:30pt;font-weight:900;letter-spacing:-1px;margin-top:0;margin-bottom:32px;",
+                    ],
+                  },
+                  "displayName": "styles__Heading",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Heading-sc-1upuse9-6",
+                  "target": "h1",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <h1
+                className="c1"
+              >
+                Webapp
+              </h1>
+            </StyledComponent>
+          </styles__Heading>
+          <styles__Box>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Box-sc-1upuse9-0",
+                    "isStatic": false,
+                    "lastClassName": "c2",
+                    "rules": Array [
+                      "background-color:#ffffff;border:1px solid #e9ecef;margin-bottom:20px;padding:40px 30px;text-align:center;@media (min-width:",
+                      "768px",
+                      "){padding:54px 80px;padding-bottom:50px;}",
+                      [Function],
+                    ],
+                  },
+                  "displayName": "styles__Box",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Box-sc-1upuse9-0",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="c2"
+              >
+                <Mutation
+                  mutation={
+                    Object {
+                      "definitions": Array [
+                        Object {
+                          "directives": Array [],
+                          "kind": "OperationDefinition",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "addToken",
+                          },
+                          "operation": "mutation",
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "addToken",
+                                },
+                                "selectionSet": undefined,
+                              },
+                            ],
+                          },
+                          "variableDefinitions": Array [],
+                        },
+                      ],
+                      "kind": "Document",
+                      "loc": Object {
+                        "end": 36,
+                        "start": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </StyledComponent>
+          </styles__Box>
+          <styles__Paragraph
+            center={true}
+            light={true}
+          >
+            <StyledComponent
+              center={true}
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Paragraph-sc-1upuse9-8",
+                    "isStatic": false,
+                    "lastClassName": "c3",
+                    "rules": Array [
+                      "color:#666666;font-weight:300;line-height:1.9;margin-top:0;margin-bottom:16px;",
+                      [Function],
+                      " ",
+                      [Function],
+                      " a{color:inherit;text-decoration:none;&:hover{text-decoration underline;}}",
+                    ],
+                  },
+                  "displayName": "styles__Paragraph",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Paragraph-sc-1upuse9-8",
+                  "target": "p",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+              light={true}
+            >
+              <p
+                className="c3"
+              >
+                Developed by
+                 
+                <a
+                  href="https://paddl.co.uk/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Paddl
+                </a>
+                <br />
+                . A limited company registered in England and Wales. Registered number: 11992253.
+              </p>
+            </StyledComponent>
+          </styles__Paragraph>
+        </div>
+      </StyledComponent>
+    </styles__Container>
+  </Layout>
+</Logout>
+`;

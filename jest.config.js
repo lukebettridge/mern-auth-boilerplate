@@ -1,10 +1,16 @@
 module.exports = {
 	setupFiles: ["<rootDir>/__tests__/setup.js"],
 	setupFilesAfterEnv: ["<rootDir>/__tests__/setup-after-env.js"],
-	testPathIgnorePatterns: ["setup.js", "setup-after-env.js", ".ignore.test"],
+	testPathIgnorePatterns: [
+		"setup.js",
+		"setup-after-env.js",
+		"test-utils.js",
+		".ignore.test"
+	],
 	coveragePathIgnorePatterns: [
 		"setup.js",
 		"setup-after-env.js",
+		"test-utils.js",
 		".ignore.test"
 	],
 	coverageThreshold: {
