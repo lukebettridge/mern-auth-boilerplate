@@ -14,7 +14,7 @@ const defaultMocks = [
 			query: ADD_TOKEN_MUTATION
 		},
 		result: {
-			data: true
+			data: { addToken: true }
 		}
 	}
 ];
@@ -30,12 +30,12 @@ describe("Logout component", () => {
 		if (wrapper) wrapper.unmount();
 	});
 
-	it("snapshot renders", async () => {
+	it("snapshot renders", () => {
 		mountWrapper();
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
-	it("renders content", async () => {
+	it("renders content", () => {
 		mountWrapper();
 		expect(subject.find(Paragraph).length).toEqual(1);
 	});
