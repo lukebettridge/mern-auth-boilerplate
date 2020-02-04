@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
 
 import { pattern } from "client/utils";
 import { Box, Paragraph, RouterLink } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
 import Button from "components/form/button";
+import { Error } from "components/form/input/styles";
+
+import * as utils from "./utils";
 
 const Register = () => {
 	const [state, setState] = useState({
@@ -39,27 +41,26 @@ const Register = () => {
 			if (ref.current.validate().length) isValid = false;
 
 		if (!isValid) return;
-		axios
-			.post(
-				`/api/auth/register`,
-				{
-					forename: state.forename,
-					surname: state.surname,
-					email: state.email,
-					password: state.password,
-					password2: state.password2
-				},
-				{ baseURL: process.env.BASE_URL }
-			)
-			.then(() => {
+		utils.register(
+			{
+				forename: state.forename,
+				surname: state.surname,
+				email: state.email,
+				password: state.password,
+				password2: state.password2
+			},
+			() => {
 				setState(prev => ({ ...prev, success: true }));
-			})
-			.catch(err => {
-				setState(prev => ({
-					...prev,
-					errors: err.response.data
-				}));
-			});
+			},
+			err => {
+				if (err.response) {
+					setState(prev => ({
+						...prev,
+						errors: err.response.data
+					}));
+				}
+			}
+		);
 	};
 
 	return (
@@ -122,6 +123,7 @@ const Register = () => {
 						value={state.password2}
 					/>
 					<Button type="submit">Register</Button>
+					{state.errors.error && <Error>{state.errors.error}</Error>}
 				</form>
 				<RouterLink to="/auth/login">Go back to login</RouterLink>
 			</Box>

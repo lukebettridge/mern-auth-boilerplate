@@ -2,31 +2,23 @@ import React from "react";
 import { act } from "react-dom/test-utils";
 import { mount } from "enzyme";
 import toJSON from "enzyme-to-json";
-import { MemoryRouter, useHistory } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
-import { Link } from "components/styles";
 import { Error } from "components/form/input/styles";
-import * as utils from "components/pages/auth/login/utils";
-import ResetPasswordModal from "components/pages/auth/login/ResetPasswordModal";
+import * as utils from "components/pages/auth/register/utils";
 
-import Login from "components/pages/auth/login";
+import Register from "components/pages/auth/register";
 
 let wrapper;
 let subject;
-const history = { push: jest.fn() };
 const formEvent = { preventDefault: jest.fn() };
-jest.mock("components/pages/auth/login/utils", () => ({
-	login: jest.fn()
-}));
-jest.mock("react-router-dom", () => ({
-	...jest.requireActual("react-router-dom"),
-	useHistory: jest.fn()
+jest.mock("components/pages/auth/register/utils", () => ({
+	register: jest.fn()
 }));
 
-describe("Login component", () => {
+describe("Register component", () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
-		useHistory.mockReturnValue(history);
 	});
 
 	afterEach(() => {
@@ -44,7 +36,7 @@ describe("Login component", () => {
 		subject.find("form").simulate("submit", formEvent);
 
 		expect(formEvent.preventDefault).toHaveBeenCalled();
-		expect(utils.login).not.toHaveBeenCalled();
+		expect(utils.register).not.toHaveBeenCalled();
 	});
 
 	it("allows submission of valid form", () => {
@@ -52,19 +44,22 @@ describe("Login component", () => {
 		populateForm();
 
 		subject.find("form").simulate("submit", formEvent);
-		utils.login.mock.calls[0][1]();
+		act(() => {
+			utils.register.mock.calls[0][1]();
+		});
 
 		expect(formEvent.preventDefault).toHaveBeenCalled();
-		expect(utils.login).toHaveBeenCalledWith(
+		expect(utils.register).toHaveBeenCalledWith(
 			{
+				forename: "John",
+				surname: "Doe",
 				email: "hello@example.com",
-				password: "password"
+				password: "password",
+				password2: "password"
 			},
 			expect.any(Function),
 			expect.any(Function)
 		);
-
-		expect(history.push).toHaveBeenCalledWith("/home");
 	});
 
 	it("catch error with response", () => {
@@ -73,7 +68,7 @@ describe("Login component", () => {
 
 		subject.find("form").simulate("submit", formEvent);
 		act(() => {
-			utils.login.mock.calls[0][2]({ response: { data: { error: "foo" } } });
+			utils.register.mock.calls[0][2]({ response: { data: { error: "foo" } } });
 		});
 		updateSubject();
 
@@ -89,7 +84,7 @@ describe("Login component", () => {
 
 		subject.find("form").simulate("submit", formEvent);
 		act(() => {
-			utils.login.mock.calls[0][2]({ response: null });
+			utils.register.mock.calls[0][2]({ response: null });
 		});
 		updateSubject();
 
@@ -97,62 +92,52 @@ describe("Login component", () => {
 
 		expect(subject.find(Error).length).toEqual(0);
 	});
-
-	it("opens the reset password modal", () => {
-		mountWrapper();
-
-		clickResetPasswordLink();
-
-		expect(subject.find(ResetPasswordModal).props().isOpen).toEqual(true);
-	});
-
-	it("closes the reset password modal", () => {
-		mountWrapper();
-		clickResetPasswordLink();
-
-		act(() => {
-			subject
-				.find(ResetPasswordModal)
-				.props()
-				.close();
-		});
-		updateSubject();
-
-		expect(subject.find(ResetPasswordModal).props().isOpen).toEqual(false);
-	});
 });
 
 const mountWrapper = () => {
 	wrapper = mount(
 		<MemoryRouter>
-			<Login />
+			<Register />
 		</MemoryRouter>
 	);
-	subject = wrapper.find(Login);
+	subject = wrapper.find(Register);
 };
 
 const updateSubject = () => {
 	wrapper.update();
-	subject = wrapper.find(Login);
+	subject = wrapper.find(Register);
 };
 
-const populateForm = (email = "hello@example.com", password = "password") => {
+const populateForm = () => {
 	subject
 		.find("input")
 		.at(0)
 		.simulate("change", {
-			target: { name: "email", value: email }
+			target: { name: "email", value: "hello@example.com" }
 		});
 	subject
 		.find("input")
 		.at(1)
 		.simulate("change", {
-			target: { name: "password", value: password }
+			target: { name: "forename", value: "John" }
 		});
-	updateSubject();
-};
-
-const clickResetPasswordLink = () => {
-	subject.find(Link).simulate("click");
+	subject
+		.find("input")
+		.at(2)
+		.simulate("change", {
+			target: { name: "surname", value: "Doe" }
+		});
+	subject
+		.find("input")
+		.at(3)
+		.simulate("change", {
+			target: { name: "password", value: "password" }
+		});
+	subject
+		.find("input")
+		.at(4)
+		.simulate("change", {
+			target: { name: "password2", value: "password" }
+		});
 	updateSubject();
 };
