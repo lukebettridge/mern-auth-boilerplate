@@ -16,9 +16,7 @@ import * as S from "components/pages/layout/styles";
 import Context from "components/context";
 import Layout from "components/pages/layout";
 
-const context = {
-	notification: { success: jest.fn() }
-};
+const context = { notification: { success: jest.fn() } };
 let wrapper;
 let subject;
 

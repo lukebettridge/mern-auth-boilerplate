@@ -5,7 +5,7 @@ import cloneDeep from "lodash/cloneDeep";
 import { MemoryRouter } from "react-router-dom";
 import { MockedProvider } from "@apollo/react-testing";
 
-import { actAwait, updateWrapper } from "tests/test-utils";
+import { updateWrapper } from "tests/test-utils";
 
 import Layout from "components/pages/layout";
 
@@ -35,6 +35,7 @@ const defaultMocks = [
 	}
 ];
 const MockComponent = () => <div />;
+const context = { notification: { success: jest.fn() } };
 let wrapper;
 let subject;
 
@@ -72,24 +73,18 @@ describe("ProtectedRoute component", () => {
 	});
 
 	it("renders loading", async () => {
-		const mocks = cloneDeep(defaultMocks);
-		Object.assign(mocks[0], { result: null });
-
-		mountWrapper(mocks);
-
-		await actAwait();
-
+		mountWrapper();
 		expect(subject.find(Layout).length).toEqual(1);
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
 
 	it("does not render component on error", async () => {
 		const mocks = cloneDeep(defaultMocks);
-		Object.assign(mocks[0], { result: null, error: new Error() });
+		Object.assign(mocks[0], { error: new Error() });
 
 		mountWrapper(mocks);
 
-		await actAwait();
+		await updateSubject();
 
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
@@ -100,7 +95,7 @@ describe("ProtectedRoute component", () => {
 
 		mountWrapper(mocks);
 
-		await actAwait();
+		await updateSubject();
 
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
@@ -111,17 +106,13 @@ describe("ProtectedRoute component", () => {
 
 		mountWrapper(mocks);
 
-		await actAwait();
+		await updateSubject();
 
 		expect(subject.find(MockComponent).length).toEqual(0);
 	});
 });
 
 const mountWrapper = (mocks = defaultMocks) => {
-	const context = {
-		notification: { success: jest.fn() }
-	};
-
 	wrapper = mount(
 		<MockedProvider addTypename={false} mocks={mocks}>
 			<MemoryRouter initialEntries={[{ pathname: "/path", key: "key" }]}>
