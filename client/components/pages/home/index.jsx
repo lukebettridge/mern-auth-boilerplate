@@ -63,17 +63,7 @@ const Home = props => {
 				</FilterBody>
 			</FilterWrap>
 
-			<Query
-				fetchPolicy={"no-cache"}
-				query={gql`
-					{
-						todos(query: "${state.query}") {
-							id
-							text
-						}
-					}
-				`}
-			>
+			<Query fetchPolicy={"no-cache"} query={TODOS_QUERY(state.query)}>
 				{({ loading, error, data, refetch }) => {
 					if (loading) return <p>Loading...</p>;
 					if (error) {
@@ -139,5 +129,14 @@ const Home = props => {
 		</Layout>
 	);
 };
+
+export const TODOS_QUERY = (query = "") => gql`
+{
+	todos(query: "${query}") {
+		id
+		text
+	}
+}
+`;
 
 export default Home;
