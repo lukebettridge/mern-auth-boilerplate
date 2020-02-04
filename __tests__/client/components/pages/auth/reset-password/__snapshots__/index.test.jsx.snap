@@ -1,0 +1,907 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResetPassword component snapshot renders 1`] = `
+.c5 {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 11pt;
+  font-weight: 300;
+  margin-bottom: 8px;
+  outline: none;
+  padding: 12px 10px;
+  -webkit-transition: border-color 100ms;
+  transition: border-color 100ms;
+  width: 100%;
+}
+
+.c5:hover {
+  border-color: #b3b3b3;
+}
+
+.c5:focus {
+  border-color: #2684ff;
+}
+
+.c5:focus + label {
+  font-size: 75%;
+  -webkit-transform: translate3d(0,-100%,0);
+  -ms-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+  opacity: 1;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.c7 {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.c6 {
+  left: 0;
+  opacity: 0.5;
+  font-weight: 300;
+  padding-left: 10px;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.c2 {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  margin-bottom: 20px;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.c0 {
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 32px 15px;
+  width: 100vw;
+  max-width: 540px;
+}
+
+.c1 {
+  color: #212529;
+  font-size: 30pt;
+  font-weight: 900;
+  -webkit-letter-spacing: -1px;
+  -moz-letter-spacing: -1px;
+  -ms-letter-spacing: -1px;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.c3 {
+  color: #666666;
+  font-weight: 300;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.c3 a {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c10 {
+  color: #666666;
+  font-weight: 300;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #cccccc;
+  font-size: 10pt;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.c10 a {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c10 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c9 {
+  color: #489be8;
+  display: block;
+  font-size: 11pt;
+  font-weight: 300;
+  margin-bottom: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.c9:last-child {
+  margin-bottom: 0;
+}
+
+.c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #1188e6;
+  border: 1px solid #1288e5;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 10pt;
+  font-weight: 300;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 11px;
+  outline-width: 3px;
+  padding: 10px 17px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.c8:disabled {
+  cursor: unset;
+  opacity: 0.4;
+}
+
+@media (min-width:768px) {
+  .c4 {
+    min-width: 250px;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    min-width: 250px;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    padding: 54px 80px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: calc(100vw - 200px);
+    padding: 32px 48px;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    max-width: 700px;
+  }
+}
+
+<ResetPassword
+  match={
+    Object {
+      "params": Object {
+        "resetKey": "foo",
+      },
+    }
+  }
+>
+  <Layout>
+    <styles__Container
+      small={true}
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "styles__Container-sc-1upuse9-1",
+              "isStatic": false,
+              "lastClassName": "c0",
+              "rules": Array [
+                "margin:0 auto;min-height:100vh;padding:32px 15px;width:100vw;@media (min-width:",
+                "768px",
+                "){max-width:calc(100vw - 200px);padding:32px 48px;}",
+                [Function],
+                " ",
+                [Function],
+                " ",
+                [Function],
+              ],
+            },
+            "displayName": "styles__Container",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "styles__Container-sc-1upuse9-1",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        small={true}
+      >
+        <div
+          className="c0"
+        >
+          <styles__Heading>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Heading-sc-1upuse9-6",
+                    "isStatic": false,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "color:#212529;font-size:30pt;font-weight:900;letter-spacing:-1px;margin-top:0;margin-bottom:32px;",
+                    ],
+                  },
+                  "displayName": "styles__Heading",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Heading-sc-1upuse9-6",
+                  "target": "h1",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <h1
+                className="c1"
+              >
+                Webapp
+              </h1>
+            </StyledComponent>
+          </styles__Heading>
+          <styles__Box>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Box-sc-1upuse9-0",
+                    "isStatic": false,
+                    "lastClassName": "c2",
+                    "rules": Array [
+                      "background-color:#ffffff;border:1px solid #e9ecef;margin-bottom:20px;padding:40px 30px;text-align:center;@media (min-width:",
+                      "768px",
+                      "){padding:54px 80px;padding-bottom:50px;}",
+                      [Function],
+                    ],
+                  },
+                  "displayName": "styles__Box",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Box-sc-1upuse9-0",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="c2"
+              >
+                <styles__Paragraph
+                  mb="l"
+                >
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "styles__Paragraph-sc-1upuse9-8",
+                          "isStatic": false,
+                          "lastClassName": "c10",
+                          "rules": Array [
+                            "color:#666666;font-weight:300;line-height:1.9;margin-top:0;margin-bottom:16px;",
+                            [Function],
+                            " ",
+                            [Function],
+                            " a{color:inherit;text-decoration:none;&:hover{text-decoration underline;}}",
+                          ],
+                        },
+                        "displayName": "styles__Paragraph",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "styles__Paragraph-sc-1upuse9-8",
+                        "target": "p",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                    mb="l"
+                  >
+                    <p
+                      className="c3"
+                    >
+                      Fill out the form below and click submit to reset your password.
+                    </p>
+                  </StyledComponent>
+                </styles__Paragraph>
+                <form
+                  noValidate={true}
+                  onSubmit={[Function]}
+                >
+                  <ForwardRef
+                    isRequired={true}
+                    label="New Password"
+                    name="newPassword"
+                    onChange={[Function]}
+                    placeholder=""
+                    type="password"
+                    value=""
+                  >
+                    <styles__InputContainer
+                      className="inputContainer"
+                      isRequired={true}
+                      label="New Password"
+                      name="newPassword"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                      value=""
+                    >
+                      <StyledComponent
+                        className="inputContainer"
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__InputContainer-sc-223pk0-2",
+                              "isStatic": false,
+                              "lastClassName": "c7",
+                              "rules": Array [
+                                "position:relative;width:100%;@media (min-width:",
+                                "768px",
+                                "){min-width:250px;}",
+                                [Function],
+                                " ",
+                                [Function],
+                              ],
+                            },
+                            "displayName": "styles__InputContainer",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__InputContainer-sc-223pk0-2",
+                            "target": "div",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                        isRequired={true}
+                        label="New Password"
+                        name="newPassword"
+                        onChange={[Function]}
+                        placeholder=""
+                        type="password"
+                        value=""
+                      >
+                        <div
+                          className="c4 inputContainer"
+                          label="New Password"
+                          name="newPassword"
+                          onChange={[Function]}
+                          placeholder=""
+                          type="password"
+                          value=""
+                        >
+                          <styles__Input
+                            id="newPassword"
+                            inError={false}
+                            isRequired={true}
+                            label="New Password"
+                            name="newPassword"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder=""
+                            type="password"
+                            value=""
+                          >
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__Input-sc-223pk0-1",
+                                    "isStatic": false,
+                                    "lastClassName": "c5",
+                                    "rules": Array [
+                                      "background-color:transparent;border:0;border-bottom:1px solid #e9ecef;border-radius:0;box-shadow:none;font-size:11pt;font-weight:300;margin-bottom:8px;outline:none;padding:12px 10px;transition:border-color 100ms;width:100%;&:hover{border-color:#b3b3b3;}&:focus{border-color:#2684ff;}&:focus + label{font-size:75%;transform:translate3d(0,-100%,0);opacity:1;}",
+                                      [Function],
+                                      " ",
+                                      [Function],
+                                    ],
+                                  },
+                                  "displayName": "styles__Input",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__Input-sc-223pk0-1",
+                                  "target": "input",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={
+                                Object {
+                                  "current": Object {
+                                    "validate": [Function],
+                                    "value": "",
+                                  },
+                                }
+                              }
+                              id="newPassword"
+                              inError={false}
+                              isRequired={true}
+                              label="New Password"
+                              name="newPassword"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder=""
+                              type="password"
+                              value=""
+                            >
+                              <input
+                                className="c5"
+                                id="newPassword"
+                                label="New Password"
+                                name="newPassword"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder=""
+                                type="password"
+                                value=""
+                              />
+                            </StyledComponent>
+                          </styles__Input>
+                          <styles__Label
+                            htmlFor="newPassword"
+                          >
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__Label-sc-223pk0-3",
+                                    "isStatic": false,
+                                    "lastClassName": "c6",
+                                    "rules": Array [
+                                      "left:0;opacity:0.5;font-weight:300;padding-left:10px;padding-top:10px;position:absolute;top:0;transition:all 200ms;",
+                                    ],
+                                  },
+                                  "displayName": "styles__Label",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__Label-sc-223pk0-3",
+                                  "target": "label",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={null}
+                              htmlFor="newPassword"
+                            >
+                              <label
+                                className="c6"
+                                htmlFor="newPassword"
+                              >
+                                New Password
+                              </label>
+                            </StyledComponent>
+                          </styles__Label>
+                        </div>
+                      </StyledComponent>
+                    </styles__InputContainer>
+                  </ForwardRef>
+                  <ForwardRef
+                    friendlyName="Confirm new password"
+                    isRequired={true}
+                    label="Confirm New Password"
+                    mb="m"
+                    name="newPassword2"
+                    onChange={[Function]}
+                    placeholder=""
+                    type="password"
+                    value=""
+                  >
+                    <styles__InputContainer
+                      className="inputContainer"
+                      friendlyName="Confirm new password"
+                      isRequired={true}
+                      label="Confirm New Password"
+                      mb="m"
+                      name="newPassword2"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="password"
+                      value=""
+                    >
+                      <StyledComponent
+                        className="inputContainer"
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__InputContainer-sc-223pk0-2",
+                              "isStatic": false,
+                              "lastClassName": "c7",
+                              "rules": Array [
+                                "position:relative;width:100%;@media (min-width:",
+                                "768px",
+                                "){min-width:250px;}",
+                                [Function],
+                                " ",
+                                [Function],
+                              ],
+                            },
+                            "displayName": "styles__InputContainer",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__InputContainer-sc-223pk0-2",
+                            "target": "div",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                        friendlyName="Confirm new password"
+                        isRequired={true}
+                        label="Confirm New Password"
+                        mb="m"
+                        name="newPassword2"
+                        onChange={[Function]}
+                        placeholder=""
+                        type="password"
+                        value=""
+                      >
+                        <div
+                          className="c7 inputContainer"
+                          label="Confirm New Password"
+                          name="newPassword2"
+                          onChange={[Function]}
+                          placeholder=""
+                          type="password"
+                          value=""
+                        >
+                          <styles__Input
+                            friendlyName="Confirm new password"
+                            id="newPassword2"
+                            inError={false}
+                            isRequired={true}
+                            label="Confirm New Password"
+                            mb="m"
+                            name="newPassword2"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            placeholder=""
+                            type="password"
+                            value=""
+                          >
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__Input-sc-223pk0-1",
+                                    "isStatic": false,
+                                    "lastClassName": "c5",
+                                    "rules": Array [
+                                      "background-color:transparent;border:0;border-bottom:1px solid #e9ecef;border-radius:0;box-shadow:none;font-size:11pt;font-weight:300;margin-bottom:8px;outline:none;padding:12px 10px;transition:border-color 100ms;width:100%;&:hover{border-color:#b3b3b3;}&:focus{border-color:#2684ff;}&:focus + label{font-size:75%;transform:translate3d(0,-100%,0);opacity:1;}",
+                                      [Function],
+                                      " ",
+                                      [Function],
+                                    ],
+                                  },
+                                  "displayName": "styles__Input",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__Input-sc-223pk0-1",
+                                  "target": "input",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={
+                                Object {
+                                  "current": Object {
+                                    "validate": [Function],
+                                    "value": "",
+                                  },
+                                }
+                              }
+                              friendlyName="Confirm new password"
+                              id="newPassword2"
+                              inError={false}
+                              isRequired={true}
+                              label="Confirm New Password"
+                              mb="m"
+                              name="newPassword2"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              placeholder=""
+                              type="password"
+                              value=""
+                            >
+                              <input
+                                className="c5"
+                                id="newPassword2"
+                                label="Confirm New Password"
+                                name="newPassword2"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                placeholder=""
+                                type="password"
+                                value=""
+                              />
+                            </StyledComponent>
+                          </styles__Input>
+                          <styles__Label
+                            htmlFor="newPassword2"
+                          >
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__Label-sc-223pk0-3",
+                                    "isStatic": false,
+                                    "lastClassName": "c6",
+                                    "rules": Array [
+                                      "left:0;opacity:0.5;font-weight:300;padding-left:10px;padding-top:10px;position:absolute;top:0;transition:all 200ms;",
+                                    ],
+                                  },
+                                  "displayName": "styles__Label",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__Label-sc-223pk0-3",
+                                  "target": "label",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={null}
+                              htmlFor="newPassword2"
+                            >
+                              <label
+                                className="c6"
+                                htmlFor="newPassword2"
+                              >
+                                Confirm New Password
+                              </label>
+                            </StyledComponent>
+                          </styles__Label>
+                        </div>
+                      </StyledComponent>
+                    </styles__InputContainer>
+                  </ForwardRef>
+                  <Button
+                    type="submit"
+                  >
+                    <styles__Button
+                      type="submit"
+                    >
+                      <StyledComponent
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__Button-sc-1mykk3k-0",
+                              "isStatic": false,
+                              "lastClassName": "c8",
+                              "rules": Array [
+                                "align-items:center;background-color:#1188e6;border:1px solid #1288e5;border-radius:2px;color:#ffffff;cursor:pointer;display:flex;font-size:10pt;font-weight:300;justify-content:center;margin-bottom:11px;outline-width:3px;padding:10px 17px;transition:background-color 0.3s;&:disabled{cursor:unset;opacity:0.4;}",
+                                [Function],
+                                " ",
+                                [Function],
+                              ],
+                            },
+                            "displayName": "styles__Button",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__Button-sc-1mykk3k-0",
+                            "target": "button",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                        type="submit"
+                      >
+                        <button
+                          className="c8"
+                          type="submit"
+                        >
+                          Submit
+                        </button>
+                      </StyledComponent>
+                    </styles__Button>
+                  </Button>
+                </form>
+                <styles__RouterLink
+                  to="/auth/login"
+                >
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "styles__RouterLink-sc-1upuse9-9",
+                          "isStatic": false,
+                          "lastClassName": "c9",
+                          "rules": Array [
+                            [Function],
+                          ],
+                        },
+                        "displayName": "styles__RouterLink",
+                        "foldedComponentIds": Array [],
+                        "propTypes": Object {
+                          "innerRef": [Function],
+                          "onClick": [Function],
+                          "replace": [Function],
+                          "target": [Function],
+                          "to": [Function],
+                        },
+                        "render": [Function],
+                        "styledComponentId": "styles__RouterLink-sc-1upuse9-9",
+                        "target": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "displayName": "Link",
+                          "propTypes": Object {
+                            "innerRef": [Function],
+                            "onClick": [Function],
+                            "replace": [Function],
+                            "target": [Function],
+                            "to": [Function],
+                          },
+                          "render": [Function],
+                        },
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                    to="/auth/login"
+                  >
+                    <Link
+                      className="c9"
+                      to="/auth/login"
+                    >
+                      <LinkAnchor
+                        className="c9"
+                        href="/auth/login"
+                        navigate={[Function]}
+                      >
+                        <a
+                          className="c9"
+                          href="/auth/login"
+                          onClick={[Function]}
+                        >
+                          Go back to login
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </StyledComponent>
+                </styles__RouterLink>
+              </div>
+            </StyledComponent>
+          </styles__Box>
+          <styles__Paragraph
+            center={true}
+            light={true}
+          >
+            <StyledComponent
+              center={true}
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "styles__Paragraph-sc-1upuse9-8",
+                    "isStatic": false,
+                    "lastClassName": "c10",
+                    "rules": Array [
+                      "color:#666666;font-weight:300;line-height:1.9;margin-top:0;margin-bottom:16px;",
+                      [Function],
+                      " ",
+                      [Function],
+                      " a{color:inherit;text-decoration:none;&:hover{text-decoration underline;}}",
+                    ],
+                  },
+                  "displayName": "styles__Paragraph",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "styles__Paragraph-sc-1upuse9-8",
+                  "target": "p",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+              light={true}
+            >
+              <p
+                className="c10"
+              >
+                Developed by
+                 
+                <a
+                  href="https://paddl.co.uk/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Paddl
+                </a>
+                <br />
+                . A limited company registered in England and Wales. Registered number: 11992253.
+              </p>
+            </StyledComponent>
+          </styles__Paragraph>
+        </div>
+      </StyledComponent>
+    </styles__Container>
+  </Layout>
+</ResetPassword>
+`;
