@@ -1,17 +1,21 @@
 #!/bin/bash
 set -e
 
-PROCESS_NAME=portal
-APP_DIR=/home/lukeb/paddl-portal
-GIT_URL=git@github.com:lukebettridge/mern-auth-boilerplate.git
+PROCESS_NAME=$1
+APP_DIR=$2
+GIT_URL=$3
 
 set -x
 if [[ -e $APP_DIR ]]; then
   cd $APP_DIR
   git pull
 else
-  git clone $GIT_URL $APP_DIR
-  cd $APP_DIR
+  if [[ -n $APP_URL ]]; then
+    git clone $GIT_URL $APP_DIR
+    cd $APP_DIR
+  else
+    exit 1
+  fi
 fi
 
 # Install dependencies
