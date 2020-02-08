@@ -12,4 +12,4 @@ jobs:
           build: npm run build
           start: npm start
           wait-on: http://localhost:5000
-          env: apiUrl=http://localhost:5000,baseUrl=http://localhost:5000
+          env: apiUrl=http://localhost:5000,baseUrl=http://localhost:5000,MONGO_URI=${{ secrets.MONGO_URI }},SECRET_OR_KEY=${{ secrets.SECRET }}
