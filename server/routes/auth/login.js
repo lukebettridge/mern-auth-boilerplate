@@ -34,7 +34,7 @@ module.exports = (req, res) => {
 					(_, token) => {
 						res.cookie("jwt", token, {
 							httpOnly: true,
-							secure: process.env.NODE_ENV === "production"
+							secure: process.env.HAS_SSL === "true"
 						});
 						res.json({ success: true });
 					}
