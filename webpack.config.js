@@ -58,9 +58,7 @@ module.exports = {
 			React: "react"
 		}),
 		new webpack.DefinePlugin({
-			"process.env.BASE_URL": JSON.stringify(
-				env.BASE_URL || "http://localhost:5000"
-			)
+			"process.env.BASE_URL": JSON.stringify(env.BASE_URL)
 		}),
 		new HtmlWebpackPlugin({
 			template: "client/index.html",
