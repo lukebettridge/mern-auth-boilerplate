@@ -8,6 +8,7 @@
     "build": "rm -rf build && NODE_ENV=production webpack -p --progress",
     "client": "webpack-dev-server --port 3000",
     "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "jest",
     "prettier": "prettier --write client/**/* server/**/*",

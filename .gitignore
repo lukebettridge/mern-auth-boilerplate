@@ -1,7 +1,14 @@
-build
-node_modules
 .DS_Store
 .env
+build
+
+# dependencies
+node_modules
+
+# test coverage
 coverage
+
+# cypress
 cypress.env.json
+cypress/screenshots
 cypress/videos
