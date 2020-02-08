@@ -917,7 +917,9 @@ exports[`Home component snapshot renders 1`] = `
                                     className="c5"
                                     onClick={[Function]}
                                   >
-                                    <span>
+                                    <span
+                                      data-cy="user"
+                                    >
                                       <FiUser>
                                         <IconBase
                                           attr={

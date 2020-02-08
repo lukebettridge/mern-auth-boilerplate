@@ -21,7 +21,7 @@ const Navigation = props => {
 			<S.List>
 				<S.ListItem>
 					<S.Anchor active={state.user} onClick={() => updateState("user")}>
-						<span>
+						<span data-cy="user">
 							<FiUser />
 							{props.currentUser.forename}
 						</span>

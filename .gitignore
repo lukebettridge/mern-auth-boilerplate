@@ -3,3 +3,5 @@ node_modules
 .DS_Store
 .env
 coverage
+cypress.env.json
+cypress/videos
