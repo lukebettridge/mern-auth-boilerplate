@@ -105,7 +105,8 @@ const AccountModal = props => {
 				label: "Administrator",
 				isFixed: props.currentUser.id === state.user.id
 			},
-			{ value: "user", label: "Guest" }
+			{ value: "user", label: "Guest" },
+			{ value: "test", label: "Testing", isFixed: true }
 		]
 	};
 

@@ -56,7 +56,11 @@ const Input = forwardRef((props, ref) => {
 				value={state.value}
 			/>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
-			{!!state.error && <S.Error>{state.error}</S.Error>}
+			{!!state.error && (
+				<S.Error data-cy="error" htmlFor={id}>
+					{state.error}
+				</S.Error>
+			)}
 		</S.InputContainer>
 	);
 });

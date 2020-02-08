@@ -5,13 +5,15 @@ module.exports = {
 		"setup.js",
 		"setup-after-env.js",
 		"test-utils.js",
-		".ignore.test"
+		".ignore.test",
+		"cypress/"
 	],
 	coveragePathIgnorePatterns: [
 		"setup.js",
 		"setup-after-env.js",
 		"test-utils.js",
-		".ignore.test"
+		".ignore.test",
+		"cypress/"
 	],
 	coverageThreshold: {
 		global: {
