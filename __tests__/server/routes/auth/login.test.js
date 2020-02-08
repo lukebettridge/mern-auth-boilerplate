@@ -32,7 +32,8 @@ const res = {
 
 global.process.env = {
 	NODE_ENV: "production",
-	SECRET_OR_KEY: "secret"
+	SECRET_OR_KEY: "secret",
+	HAS_SSL: "true"
 };
 
 describe("routes login", () => {
