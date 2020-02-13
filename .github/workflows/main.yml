@@ -18,29 +18,3 @@ jobs:
           npm test
         env:
           CI: true
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - name: Run deployment script
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: bash ~/portal/scripts/deploy.sh portal ~/portal
-  deploy_stg:
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/staging'
-    steps:
-      - name: Run deployment script
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: bash ~/portal_staging/scripts/deploy.sh portal_staging ~/portal_staging
