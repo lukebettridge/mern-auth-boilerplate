@@ -87,7 +87,7 @@ describe("Home component", () => {
 		).toContain("<tr><td>bar</td></tr>");
 	});
 
-	it("renders users on mobile", async () => {
+	it("renders todos on mobile", async () => {
 		MediaQuery.mockImplementation(({ children }) => children(false));
 		mountWrapper();
 		await updateSubject();

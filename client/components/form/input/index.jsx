@@ -12,6 +12,7 @@ import * as S from "./styles";
 const Input = forwardRef((props, ref) => {
 	const [state, setState] = useState({
 		error: props.error || "",
+		focused: false,
 		value: props.value || ""
 	});
 
@@ -23,6 +24,7 @@ const Input = forwardRef((props, ref) => {
 	useImperativeHandle(ref, () => ({ validate, value: state.value }));
 
 	const onBlur = e => {
+		setState(prev => ({ ...prev, focused: false }));
 		validate(true);
 		if (props.onBlur) props.onBlur(e);
 	};
@@ -31,6 +33,11 @@ const Input = forwardRef((props, ref) => {
 		const value = e.target ? e.target.value : state.value;
 		setState(prev => ({ ...prev, error: "", value }));
 		if (props.onChange) props.onChange(e);
+	};
+
+	const onFocus = e => {
+		setState(prev => ({ ...prev, focused: true }));
+		if (props.onFocus) props.onFocus(e);
 	};
 
 	const validate = (onBlur = false) => {
@@ -52,6 +59,14 @@ const Input = forwardRef((props, ref) => {
 				inError={!!state.error}
 				onBlur={onBlur}
 				onChange={onChange}
+				onFocus={onFocus}
+				placeholder={
+					props.label
+						? state.focused
+							? props.placeholder
+							: ""
+						: props.placeholder
+				}
 				ref={ref}
 				value={state.value}
 			/>
@@ -76,6 +91,7 @@ Input.propTypes = {
 	name: PropTypes.string,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
 	pattern: PropTypes.any,
 	placeholder: PropTypes.string,
 	type: PropTypes.string,
