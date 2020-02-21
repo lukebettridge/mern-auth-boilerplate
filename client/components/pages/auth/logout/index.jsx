@@ -11,7 +11,7 @@ const Logout = () => {
 	return (
 		<Layout>
 			<Box>
-				<Mutation mutation={ADD_TOKEN_MUTATION}>
+				<Mutation mutation={ADD_TOKEN_MUTATION} onError={() => {}}>
 					{(mutation, { loading, error, data }) => {
 						if (loading) return null;
 						if (error)

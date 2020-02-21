@@ -216,6 +216,7 @@ exports[`Logout component snapshot renders 1`] = `
                       },
                     }
                   }
+                  onError={[Function]}
                 />
               </div>
             </StyledComponent>
@@ -233,7 +234,7 @@ exports[`Logout component snapshot renders 1`] = `
                   "componentStyle": ComponentStyle {
                     "componentId": "styles__Paragraph-sc-1upuse9-8",
                     "isStatic": false,
-                    "lastClassName": "c3",
+                    "lastClassName": "bQhQRy",
                     "rules": Array [
                       "color:#666666;font-weight:300;line-height:1.9;margin-top:0;margin-bottom:16px;",
                       [Function],
