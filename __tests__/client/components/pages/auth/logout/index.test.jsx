@@ -37,7 +37,7 @@ describe("Logout component", () => {
 	it("snapshot renders", async () => {
 		mountWrapper();
 
-		await updateSubject();
+		await updateSubject(100);
 
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
