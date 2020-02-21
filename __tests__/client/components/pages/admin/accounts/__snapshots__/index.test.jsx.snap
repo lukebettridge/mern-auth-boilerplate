@@ -282,6 +282,7 @@ exports[`Accounts component snapshot renders 1`] = `
   bottom: 0;
   left: auto;
   max-width: 720px;
+  overflow-y: auto;
   padding: 40px 20px;
   right: -100%;
   top: 0;
@@ -1791,6 +1792,7 @@ exports[`Accounts component snapshot renders 1`] = `
                                         inError={false}
                                         onBlur={[Function]}
                                         onChange={[Function]}
+                                        onFocus={[Function]}
                                         placeholder="Search Term"
                                         secondary={true}
                                         type="text"
@@ -1833,6 +1835,7 @@ exports[`Accounts component snapshot renders 1`] = `
                                           inError={false}
                                           onBlur={[Function]}
                                           onChange={[Function]}
+                                          onFocus={[Function]}
                                           placeholder="Search Term"
                                           secondary={true}
                                           type="text"
@@ -1842,6 +1845,7 @@ exports[`Accounts component snapshot renders 1`] = `
                                             className="c17"
                                             onBlur={[Function]}
                                             onChange={[Function]}
+                                            onFocus={[Function]}
                                             placeholder="Search Term"
                                             type="text"
                                             value=""

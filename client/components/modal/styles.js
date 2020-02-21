@@ -82,6 +82,7 @@ const Modal = styled(ReactModal)`
 					bottom: 0;
 					left: auto;
 					max-width: 720px;
+					overflow-y: auto;
 					padding: 40px 20px;
 					right: -100%;
 					top: 0;

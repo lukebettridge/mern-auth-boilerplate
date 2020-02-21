@@ -23,6 +23,7 @@ const Select = styled(ReactSelect)`
 	${props =>
 		props.value &&
 		props.value.length > 0 &&
+		(!Array.isArray(props.value) || props.value.length > 0) &&
 		css`
 			& + label {
 				font-size: 75%;
@@ -48,7 +49,7 @@ const Select = styled(ReactSelect)`
 		box-shadow: none;
 		font-size: 12pt;
 		font-weight: 300;
-		height: 42px;
+		min-height: 42px;
 		margin-bottom: 8px;
 		outline: none;
 		width: 100%;
