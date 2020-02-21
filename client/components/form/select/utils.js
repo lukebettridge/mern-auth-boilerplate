@@ -2,7 +2,7 @@ const validate = ({ friendlyName, isMulti, isRequired, name, value }) => {
 	let error = "";
 	const prefix = friendlyName || name || "This";
 
-	if (typeof value === "object") value = value.value;
+	if (typeof value === "object" && !isMulti) value = value.value;
 
 	if (
 		isRequired &&

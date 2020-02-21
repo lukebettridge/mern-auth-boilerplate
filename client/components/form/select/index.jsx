@@ -119,7 +119,6 @@ Select.propTypes = {
 	onChange: PropTypes.func,
 	options: PropTypes.array.isRequired,
 	placeholder: PropTypes.string,
-	validate: PropTypes.bool,
 	value: PropTypes.any
 };
 
