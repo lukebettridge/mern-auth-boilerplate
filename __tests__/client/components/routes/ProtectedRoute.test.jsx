@@ -52,7 +52,6 @@ describe("ProtectedRoute component", () => {
 		mountWrapper();
 
 		await updateSubject();
-		subject = wrapper.find(ProtectedRoute);
 
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
@@ -61,7 +60,6 @@ describe("ProtectedRoute component", () => {
 		mountWrapper();
 
 		await updateSubject();
-		subject = wrapper.find(ProtectedRoute);
 
 		expect(subject.find(MockComponent).length).toEqual(1);
 		expect(subject.find(MockComponent).props().currentUser).toEqual(

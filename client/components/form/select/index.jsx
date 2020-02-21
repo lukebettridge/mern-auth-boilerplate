@@ -109,15 +109,16 @@ Select.propTypes = {
 	forwardRef: PropTypes.any,
 	friendlyName: PropTypes.string,
 	id: PropTypes.string,
+	isClearable: PropTypes.bool,
 	isMulti: PropTypes.bool,
 	isRequired: PropTypes.bool,
+	isSearchable: PropTypes.bool,
 	label: PropTypes.string,
 	name: PropTypes.string,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
 	options: PropTypes.array.isRequired,
 	placeholder: PropTypes.string,
-	validate: PropTypes.bool,
 	value: PropTypes.any
 };
 

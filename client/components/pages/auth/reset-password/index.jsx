@@ -42,9 +42,7 @@ const ResetPassword = props => {
 				newPassword: state.newPassword,
 				newPassword2: state.newPassword2
 			},
-			() => {
-				setState(prev => ({ ...prev, success: true }));
-			},
+			() => {},
 			err => {
 				if (err.response) {
 					setState(prev => ({

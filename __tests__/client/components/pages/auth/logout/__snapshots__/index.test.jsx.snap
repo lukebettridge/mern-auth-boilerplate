@@ -29,7 +29,7 @@ exports[`Logout component snapshot renders 1`] = `
   margin-bottom: 32px;
 }
 
-.c3 {
+.c5 {
   color: #666666;
   font-weight: 300;
   line-height: 1.9;
@@ -41,6 +41,25 @@ exports[`Logout component snapshot renders 1`] = `
   text-align: center;
 }
 
+.c5 a {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5 a:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c3 {
+  color: #666666;
+  font-weight: 300;
+  line-height: 1.9;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
 .c3 a {
   color: inherit;
   -webkit-text-decoration: none;
@@ -50,6 +69,23 @@ exports[`Logout component snapshot renders 1`] = `
 .c3 a:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
+}
+
+.c4 {
+  color: #489be8;
+  display: block;
+  font-size: 11pt;
+  font-weight: 300;
+  margin-bottom: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.c4:last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width:768px) {
@@ -216,7 +252,113 @@ exports[`Logout component snapshot renders 1`] = `
                       },
                     }
                   }
-                />
+                  onError={[Function]}
+                >
+                  <styles__Paragraph>
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "styles__Paragraph-sc-1upuse9-8",
+                            "isStatic": false,
+                            "lastClassName": "c3",
+                            "rules": Array [
+                              "color:#666666;font-weight:300;line-height:1.9;margin-top:0;margin-bottom:16px;",
+                              [Function],
+                              " ",
+                              [Function],
+                              " a{color:inherit;text-decoration:none;&:hover{text-decoration underline;}}",
+                            ],
+                          },
+                          "displayName": "styles__Paragraph",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "styles__Paragraph-sc-1upuse9-8",
+                          "target": "p",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                    >
+                      <p
+                        className="c3"
+                      >
+                        You have been logged out successfully.
+                      </p>
+                    </StyledComponent>
+                  </styles__Paragraph>
+                  <styles__RouterLink
+                    to="/auth/login"
+                  >
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "styles__RouterLink-sc-1upuse9-9",
+                            "isStatic": false,
+                            "lastClassName": "c4",
+                            "rules": Array [
+                              [Function],
+                            ],
+                          },
+                          "displayName": "styles__RouterLink",
+                          "foldedComponentIds": Array [],
+                          "propTypes": Object {
+                            "innerRef": [Function],
+                            "onClick": [Function],
+                            "replace": [Function],
+                            "target": [Function],
+                            "to": [Function],
+                          },
+                          "render": [Function],
+                          "styledComponentId": "styles__RouterLink-sc-1upuse9-9",
+                          "target": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "displayName": "Link",
+                            "propTypes": Object {
+                              "innerRef": [Function],
+                              "onClick": [Function],
+                              "replace": [Function],
+                              "target": [Function],
+                              "to": [Function],
+                            },
+                            "render": [Function],
+                          },
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                      to="/auth/login"
+                    >
+                      <Link
+                        className="c4"
+                        to="/auth/login"
+                      >
+                        <LinkAnchor
+                          className="c4"
+                          href="/auth/login"
+                          navigate={[Function]}
+                        >
+                          <a
+                            className="c4"
+                            href="/auth/login"
+                            onClick={[Function]}
+                          >
+                            Go back to login
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </StyledComponent>
+                  </styles__RouterLink>
+                </Mutation>
               </div>
             </StyledComponent>
           </styles__Box>
@@ -256,7 +398,7 @@ exports[`Logout component snapshot renders 1`] = `
               light={true}
             >
               <p
-                className="c3"
+                className="c5"
               >
                 Developed by
                  

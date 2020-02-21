@@ -26,7 +26,14 @@ describe("Select utility methods", () => {
 				"multiple entry is empty",
 				{ isMulti: true, value: [] },
 				"Roles field is required"
-			]
+			],
+			["multiple entry is not empty", { isMulti: true, value: ["foo"] }, ""],
+			[
+				"object entry is empty",
+				{ value: { value: "" } },
+				"Roles field is required"
+			],
+			["object entry is not empty", { value: { value: "foo" } }, ""]
 		].map(([scenario, props, expected]) =>
 			it(scenario, () => {
 				props = Object.assign(cloneDeep(baseProps), { ...props });

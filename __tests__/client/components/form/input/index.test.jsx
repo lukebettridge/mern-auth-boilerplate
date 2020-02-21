@@ -59,4 +59,39 @@ describe("Input component", () => {
 
 		expect(subject.props().onChange).toBeUndefined();
 	});
+
+	it("calls onFocus prop", () => {
+		const onFocusMock = jest.fn();
+		const subject = shallow(<Input onFocus={onFocusMock} />);
+
+		subject.find(S.Input).simulate("focus", "foo");
+
+		expect(onFocusMock).toHaveBeenCalledWith("foo");
+	});
+
+	it("does not call onFocus prop", () => {
+		const subject = shallow(<Input />);
+
+		subject.find(S.Input).simulate("focus", "foo");
+
+		expect(subject.props().onFocus).toBeUndefined();
+	});
+
+	it("sets placeholder", () => {
+		const subject = shallow(<Input placeholder="foo" />);
+		expect(subject.find(S.Input).props().placeholder).toEqual("foo");
+	});
+
+	it("sets placeholder with label", () => {
+		const subject = shallow(<Input label="bar" placeholder="foo" />);
+		expect(subject.find(S.Input).props().placeholder).toEqual("");
+	});
+
+	it("sets placeholder with label on focus", () => {
+		const subject = shallow(<Input label="bar" placeholder="foo" />);
+
+		subject.find(S.Input).simulate("focus", "foo");
+
+		expect(subject.find(S.Input).props().placeholder).toEqual("foo");
+	});
 });

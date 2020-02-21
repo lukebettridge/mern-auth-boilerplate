@@ -1,0 +1,979 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component snapshot renders 1`] = `
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c3:hover {
+  opacity: 1;
+}
+
+.c3 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c8:hover {
+  opacity: 1;
+}
+
+.c8 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c1 {
+  margin: 0;
+}
+
+.c2 {
+  margin-bottom: 40px;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 11pt;
+  padding-left: 15px;
+}
+
+.c6:hover {
+  opacity: 1;
+}
+
+.c6 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #294661;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12pt;
+  font-weight: 300;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  opacity: 0.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 11pt;
+  padding-left: 15px;
+}
+
+.c7:hover {
+  opacity: 1;
+}
+
+.c7 span svg {
+  font-size: 18pt;
+  margin-right: 6px;
+  padding-bottom: 3px;
+  vertical-align: middle;
+}
+
+.c4 {
+  margin-top: 15px;
+  max-height: 1000px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: 0;
+  max-height: 0;
+}
+
+.c5 {
+  margin-bottom: 8px;
+}
+
+.c0 {
+  background-color: #fbfbfc;
+  border-right: 1px solid #e9ecef;
+  display: none;
+  height: 100%;
+  max-width: 200px;
+  min-width: 200px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-top: 48px;
+  width: 200px;
+  z-index: 1;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    display: table-cell;
+    height: unset;
+    position: unset;
+  }
+}
+
+<Navigation
+  changePassword={[MockFunction]}
+  currentUser={
+    Object {
+      "forename": "John",
+      "roles": Array [],
+    }
+  }
+  editProfile={[MockFunction]}
+>
+  <styles__Navigation
+    changePassword={[MockFunction]}
+    currentUser={
+      Object {
+        "forename": "John",
+        "roles": Array [],
+      }
+    }
+    editProfile={[MockFunction]}
+  >
+    <StyledComponent
+      changePassword={[MockFunction]}
+      currentUser={
+        Object {
+          "forename": "John",
+          "roles": Array [],
+        }
+      }
+      editProfile={[MockFunction]}
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "styles__Navigation-sc-1fs86t6-11",
+            "isStatic": false,
+            "lastClassName": "c0",
+            "rules": Array [
+              "background-color:#fbfbfc;border-right:1px solid #e9ecef;display:none;height:100%;max-width:200px;min-width:200px;padding-left:15px;padding-right:10px;padding-top:48px;width:200px;z-index:1;",
+              [Function],
+              " @media (min-width:",
+              "768px",
+              "){display:table-cell;height:unset;position:unset;}",
+            ],
+          },
+          "displayName": "styles__Navigation",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "styles__Navigation-sc-1fs86t6-11",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <div
+        className="c0"
+      >
+        <styles__List>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styles__List-sc-1fs86t6-4",
+                  "isStatic": false,
+                  "lastClassName": "c1",
+                  "rules": Array [
+                    "margin:0;",
+                  ],
+                },
+                "displayName": "styles__List",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "styles__List-sc-1fs86t6-4",
+                "target": "ul",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <ul
+              className="c1"
+            >
+              <styles__ListItem>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "styles__ListItem-sc-1fs86t6-5",
+                        "isStatic": false,
+                        "lastClassName": "c2",
+                        "rules": Array [
+                          "margin-bottom:40px;",
+                        ],
+                      },
+                      "displayName": "styles__ListItem",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "styles__ListItem-sc-1fs86t6-5",
+                      "target": "li",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <li
+                    className="c2"
+                  >
+                    <styles__Anchor
+                      active={false}
+                      onClick={[Function]}
+                    >
+                      <StyledComponent
+                        active={false}
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__Anchor-sc-1fs86t6-0",
+                              "isStatic": false,
+                              "lastClassName": "c3",
+                              "rules": Array [
+                                "
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+",
+                                " ",
+                                [Function],
+                              ],
+                            },
+                            "displayName": "styles__Anchor",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__Anchor-sc-1fs86t6-0",
+                            "target": "a",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                        onClick={[Function]}
+                      >
+                        <a
+                          className="c3"
+                          onClick={[Function]}
+                        >
+                          <span
+                            data-cy="user"
+                          >
+                            <FiUser>
+                              <IconBase
+                                attr={
+                                  Object {
+                                    "fill": "none",
+                                    "stroke": "currentColor",
+                                    "strokeLinecap": "round",
+                                    "strokeLinejoin": "round",
+                                    "strokeWidth": "2",
+                                    "viewBox": "0 0 24 24",
+                                  }
+                                }
+                              >
+                                <svg
+                                  fill="none"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  style={
+                                    Object {
+                                      "color": undefined,
+                                    }
+                                  }
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                    key="0"
+                                  />
+                                  <circle
+                                    cx="12"
+                                    cy="7"
+                                    key="1"
+                                    r="4"
+                                  />
+                                </svg>
+                              </IconBase>
+                            </FiUser>
+                            John
+                          </span>
+                          <FiChevronDown>
+                            <IconBase
+                              attr={
+                                Object {
+                                  "fill": "none",
+                                  "stroke": "currentColor",
+                                  "strokeLinecap": "round",
+                                  "strokeLinejoin": "round",
+                                  "strokeWidth": "2",
+                                  "viewBox": "0 0 24 24",
+                                }
+                              }
+                            >
+                              <svg
+                                fill="none"
+                                height="1em"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                style={
+                                  Object {
+                                    "color": undefined,
+                                  }
+                                }
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <polyline
+                                  key="0"
+                                  points="6 9 12 15 18 9"
+                                />
+                              </svg>
+                            </IconBase>
+                          </FiChevronDown>
+                        </a>
+                      </StyledComponent>
+                    </styles__Anchor>
+                    <styles__SubList
+                      active={false}
+                    >
+                      <StyledComponent
+                        active={false}
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__SubList-sc-1fs86t6-9",
+                              "isStatic": false,
+                              "lastClassName": "c4",
+                              "rules": Array [
+                                "margin-top:15px;max-height:1000px;overflow:hidden;transition:all 0.3s;",
+                                [Function],
+                              ],
+                            },
+                            "displayName": "styles__SubList",
+                            "foldedComponentIds": Array [],
+                            "render": [Function],
+                            "styledComponentId": "styles__SubList-sc-1fs86t6-9",
+                            "target": "ul",
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                      >
+                        <ul
+                          className="c4"
+                        >
+                          <styles__SubListItem>
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                    "isStatic": false,
+                                    "lastClassName": "c5",
+                                    "rules": Array [
+                                      "margin-bottom:8px;",
+                                    ],
+                                  },
+                                  "displayName": "styles__SubListItem",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                  "target": "li",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={null}
+                            >
+                              <li
+                                className="c5"
+                              >
+                                <styles__SubAnchor
+                                  onClick={[MockFunction]}
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                          "isStatic": false,
+                                          "lastClassName": "c6",
+                                          "rules": Array [
+                                            "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                          ],
+                                        },
+                                        "displayName": "styles__SubAnchor",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                        "target": "a",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    onClick={[MockFunction]}
+                                  >
+                                    <a
+                                      className="c6"
+                                      onClick={[MockFunction]}
+                                    >
+                                      Edit Profile
+                                    </a>
+                                  </StyledComponent>
+                                </styles__SubAnchor>
+                              </li>
+                            </StyledComponent>
+                          </styles__SubListItem>
+                          <styles__SubListItem>
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                    "isStatic": false,
+                                    "lastClassName": "c5",
+                                    "rules": Array [
+                                      "margin-bottom:8px;",
+                                    ],
+                                  },
+                                  "displayName": "styles__SubListItem",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                  "target": "li",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={null}
+                            >
+                              <li
+                                className="c5"
+                              >
+                                <styles__SubAnchor
+                                  onClick={[MockFunction]}
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                          "isStatic": false,
+                                          "lastClassName": "c6",
+                                          "rules": Array [
+                                            "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                          ],
+                                        },
+                                        "displayName": "styles__SubAnchor",
+                                        "foldedComponentIds": Array [],
+                                        "render": [Function],
+                                        "styledComponentId": "styles__SubAnchor-sc-1fs86t6-7",
+                                        "target": "a",
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    onClick={[MockFunction]}
+                                  >
+                                    <a
+                                      className="c6"
+                                      onClick={[MockFunction]}
+                                    >
+                                      Change Password
+                                    </a>
+                                  </StyledComponent>
+                                </styles__SubAnchor>
+                              </li>
+                            </StyledComponent>
+                          </styles__SubListItem>
+                          <styles__SubListItem>
+                            <StyledComponent
+                              forwardedComponent={
+                                Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "attrs": Array [],
+                                  "componentStyle": ComponentStyle {
+                                    "componentId": "styles__SubListItem-sc-1fs86t6-10",
+                                    "isStatic": false,
+                                    "lastClassName": "c5",
+                                    "rules": Array [
+                                      "margin-bottom:8px;",
+                                    ],
+                                  },
+                                  "displayName": "styles__SubListItem",
+                                  "foldedComponentIds": Array [],
+                                  "render": [Function],
+                                  "styledComponentId": "styles__SubListItem-sc-1fs86t6-10",
+                                  "target": "li",
+                                  "toString": [Function],
+                                  "warnTooManyClasses": [Function],
+                                  "withComponent": [Function],
+                                }
+                              }
+                              forwardedRef={null}
+                            >
+                              <li
+                                className="c5"
+                              >
+                                <styles__SubLink
+                                  to="/auth/logout"
+                                >
+                                  <StyledComponent
+                                    forwardedComponent={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "attrs": Array [],
+                                        "componentStyle": ComponentStyle {
+                                          "componentId": "styles__SubLink-sc-1fs86t6-8",
+                                          "isStatic": false,
+                                          "lastClassName": "c7",
+                                          "rules": Array [
+                                            "
+	
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+
+	font-size: 11pt;
+	padding-left: 15px;
+",
+                                          ],
+                                        },
+                                        "displayName": "styles__SubLink",
+                                        "foldedComponentIds": Array [],
+                                        "propTypes": Object {
+                                          "innerRef": [Function],
+                                          "onClick": [Function],
+                                          "replace": [Function],
+                                          "target": [Function],
+                                          "to": [Function],
+                                        },
+                                        "render": [Function],
+                                        "styledComponentId": "styles__SubLink-sc-1fs86t6-8",
+                                        "target": Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "displayName": "Link",
+                                          "propTypes": Object {
+                                            "innerRef": [Function],
+                                            "onClick": [Function],
+                                            "replace": [Function],
+                                            "target": [Function],
+                                            "to": [Function],
+                                          },
+                                          "render": [Function],
+                                        },
+                                        "toString": [Function],
+                                        "warnTooManyClasses": [Function],
+                                        "withComponent": [Function],
+                                      }
+                                    }
+                                    forwardedRef={null}
+                                    to="/auth/logout"
+                                  >
+                                    <Link
+                                      className="c7"
+                                      to="/auth/logout"
+                                    >
+                                      <LinkAnchor
+                                        className="c7"
+                                        href="/auth/logout"
+                                        navigate={[Function]}
+                                      >
+                                        <a
+                                          className="c7"
+                                          href="/auth/logout"
+                                          onClick={[Function]}
+                                        >
+                                          Logout
+                                        </a>
+                                      </LinkAnchor>
+                                    </Link>
+                                  </StyledComponent>
+                                </styles__SubLink>
+                              </li>
+                            </StyledComponent>
+                          </styles__SubListItem>
+                        </ul>
+                      </StyledComponent>
+                    </styles__SubList>
+                  </li>
+                </StyledComponent>
+              </styles__ListItem>
+              <styles__ListItem>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "styles__ListItem-sc-1fs86t6-5",
+                        "isStatic": false,
+                        "lastClassName": "c2",
+                        "rules": Array [
+                          "margin-bottom:40px;",
+                        ],
+                      },
+                      "displayName": "styles__ListItem",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "styles__ListItem-sc-1fs86t6-5",
+                      "target": "li",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <li
+                    className="c2"
+                  >
+                    <styles__Link
+                      to="/"
+                    >
+                      <StyledComponent
+                        forwardedComponent={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "attrs": Array [],
+                            "componentStyle": ComponentStyle {
+                              "componentId": "styles__Link-sc-1fs86t6-3",
+                              "isStatic": false,
+                              "lastClassName": "c8",
+                              "rules": Array [
+                                "
+	align-items: center;
+	color: #294661;
+	cursor: pointer;
+	display: flex;
+	font-size: 12pt;
+	font-weight: 300;
+	justify-content: space-between;
+	opacity: 0.6;
+	text-decoration: none;
+	transition: opacity 0.3s;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	span svg {
+		font-size: 18pt;
+		margin-right: 6px;
+		padding-bottom: 3px;
+		vertical-align: middle;
+	}
+",
+                              ],
+                            },
+                            "displayName": "styles__Link",
+                            "foldedComponentIds": Array [],
+                            "propTypes": Object {
+                              "innerRef": [Function],
+                              "onClick": [Function],
+                              "replace": [Function],
+                              "target": [Function],
+                              "to": [Function],
+                            },
+                            "render": [Function],
+                            "styledComponentId": "styles__Link-sc-1fs86t6-3",
+                            "target": Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "Link",
+                              "propTypes": Object {
+                                "innerRef": [Function],
+                                "onClick": [Function],
+                                "replace": [Function],
+                                "target": [Function],
+                                "to": [Function],
+                              },
+                              "render": [Function],
+                            },
+                            "toString": [Function],
+                            "warnTooManyClasses": [Function],
+                            "withComponent": [Function],
+                          }
+                        }
+                        forwardedRef={null}
+                        to="/"
+                      >
+                        <Link
+                          className="c8"
+                          to="/"
+                        >
+                          <LinkAnchor
+                            className="c8"
+                            href="/"
+                            navigate={[Function]}
+                          >
+                            <a
+                              className="c8"
+                              href="/"
+                              onClick={[Function]}
+                            >
+                              <span>
+                                <FiCheckCircle>
+                                  <IconBase
+                                    attr={
+                                      Object {
+                                        "fill": "none",
+                                        "stroke": "currentColor",
+                                        "strokeLinecap": "round",
+                                        "strokeLinejoin": "round",
+                                        "strokeWidth": "2",
+                                        "viewBox": "0 0 24 24",
+                                      }
+                                    }
+                                  >
+                                    <svg
+                                      fill="none"
+                                      height="1em"
+                                      stroke="currentColor"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth="2"
+                                      style={
+                                        Object {
+                                          "color": undefined,
+                                        }
+                                      }
+                                      viewBox="0 0 24 24"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+                                        key="0"
+                                      />
+                                      <polyline
+                                        key="1"
+                                        points="22 4 12 14.01 9 11.01"
+                                      />
+                                    </svg>
+                                  </IconBase>
+                                </FiCheckCircle>
+                                Todos
+                              </span>
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </StyledComponent>
+                    </styles__Link>
+                  </li>
+                </StyledComponent>
+              </styles__ListItem>
+            </ul>
+          </StyledComponent>
+        </styles__List>
+      </div>
+    </StyledComponent>
+  </styles__Navigation>
+</Navigation>
+`;
