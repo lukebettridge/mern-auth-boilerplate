@@ -56,7 +56,8 @@ const AccountModal = props => {
 		setState(prev => ({ ...prev, errors: {} }));
 		for (const [name, ref] of Object.entries(refs))
 			if (!["password", "password2"].includes(name) || state.new)
-				if (ref.current.validate().length) isValid = false;
+				if ((ref.current.wrappedInstance || ref.current).validate().length)
+					isValid = false;
 
 		if (!isValid) return;
 		mutation()
