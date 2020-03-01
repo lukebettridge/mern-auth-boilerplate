@@ -13,7 +13,7 @@ const validate = ({
 
 	if (isRequired && (!value || value.replace(/^\s+|\s+$/g, "").length === 0)) {
 		error = `${prefix} field is required`;
-	} else if (pattern && !RegExp(pattern).test(value)) {
+	} else if (value && pattern && !RegExp(pattern).test(value)) {
 		error = `${prefix} field is invalid`;
 	} else if (
 		typeof max === "number" &&
