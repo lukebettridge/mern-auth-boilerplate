@@ -108,4 +108,18 @@ describe("register validation", () => {
 			expect(output).toEqual(expected);
 		});
 	});
+
+	it("email to lowercase", () => {
+		const input = {
+			forename: "John",
+			surname: "Doe",
+			email: "HELLO@EXAMPLE.COM",
+			password: "password",
+			password2: "password"
+		};
+
+		const output = validate(input);
+		expect(output).toEqual({ errors: {}, isValid: true });
+		expect(input.email).toEqual("hello@example.com");
+	});
 });

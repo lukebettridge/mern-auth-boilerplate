@@ -5,7 +5,7 @@ module.exports = data => {
 
 	data.forename = data.forename.replace(/^\s+|\s+$/g, "");
 	data.surname = data.surname.replace(/^\s+|\s+$/g, "");
-	data.email = data.email.replace(/^\s+|\s+$/g, "");
+	data.email = data.email.replace(/^\s+|\s+$/g, "").toLowerCase();
 	data.password = data.password.replace(/^\s+|\s+$/g, "");
 	data.password2 = data.password2.replace(/^\s+|\s+$/g, "");
 
