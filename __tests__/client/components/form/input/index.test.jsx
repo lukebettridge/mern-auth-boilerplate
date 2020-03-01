@@ -47,15 +47,15 @@ describe("Input component", () => {
 		const onChangeMock = jest.fn();
 		const subject = shallow(<Input onChange={onChangeMock} />);
 
-		subject.find(S.Input).simulate("change", "foo");
+		subject.find(S.Input).simulate("change", { target: { value: "foo" } });
 
-		expect(onChangeMock).toHaveBeenCalledWith("foo");
+		expect(onChangeMock).toHaveBeenCalledWith({ target: { value: "foo" } });
 	});
 
 	it("does not call onChange prop", () => {
 		const subject = shallow(<Input />);
 
-		subject.find(S.Input).simulate("change", "foo");
+		subject.find(S.Input).simulate("change", { target: { value: "foo" } });
 
 		expect(subject.props().onChange).toBeUndefined();
 	});

@@ -3,6 +3,7 @@ import { act } from "react-dom/test-utils";
 import { mount } from "enzyme";
 import toJSON from "enzyme-to-json";
 
+import { Success } from "components/styles";
 import { Error } from "components/form/input/styles";
 import * as utils from "components/pages/auth/login/utils";
 
@@ -55,7 +56,10 @@ describe("ResetPasswordModal component", () => {
 			expect.any(Function)
 		);
 
-		expect(baseProps.close).toHaveBeenCalled();
+		expect(subject.find(Success).length).toEqual(1);
+		expect(subject.find(Success).text()).toEqual(
+			"Your password reset request was successful!"
+		);
 	});
 
 	it("catch error with response", () => {

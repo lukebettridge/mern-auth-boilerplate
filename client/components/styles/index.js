@@ -343,6 +343,14 @@ const Subheading = styled.h2`
 	margin-bottom: 30px;
 `;
 
+const Success = styled.p`
+	color: #248552;
+	font-size: 10pt;
+	font-weight: 300;
+	margin-bottom: 16px;
+	margin-top: 0;
+`;
+
 export {
 	Box,
 	Container,
@@ -357,5 +365,6 @@ export {
 	Table,
 	TableAction,
 	Status,
-	Subheading
+	Subheading,
+	Success
 };

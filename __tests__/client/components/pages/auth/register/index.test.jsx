@@ -4,6 +4,7 @@ import { mount } from "enzyme";
 import toJSON from "enzyme-to-json";
 import { MemoryRouter } from "react-router-dom";
 
+import { Success } from "components/styles";
 import { Error } from "components/form/input/styles";
 import * as utils from "components/pages/auth/register/utils";
 
@@ -59,6 +60,13 @@ describe("Register component", () => {
 			},
 			expect.any(Function),
 			expect.any(Function)
+		);
+
+		updateSubject();
+
+		expect(subject.find(Success).length).toEqual(1);
+		expect(subject.find(Success).text()).toEqual(
+			"Your account registration was successful!"
 		);
 	});
 

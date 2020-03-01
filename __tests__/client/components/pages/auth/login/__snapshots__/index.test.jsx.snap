@@ -516,7 +516,6 @@ exports[`Login component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -702,7 +701,6 @@ exports[`Login component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }

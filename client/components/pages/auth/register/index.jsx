@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import { pattern } from "client/utils";
-import { Box, Paragraph, RouterLink } from "components/styles";
+import { Box, Paragraph, RouterLink, Success } from "components/styles";
 import Layout from "../Layout";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -10,7 +10,7 @@ import { Error } from "components/form/input/styles";
 import * as utils from "./utils";
 
 const Register = () => {
-	const [state, setState] = useState({
+	const initialState = {
 		email: "",
 		errors: {},
 		forename: "",
@@ -18,8 +18,9 @@ const Register = () => {
 		password2: "",
 		success: false,
 		surname: ""
-	});
+	};
 	const refs = {};
+	const [state, setState] = useState(initialState);
 	["email", "forename", "surname", "password", "password2"].forEach(
 		name => (refs[name] = useRef())
 	);
@@ -50,7 +51,7 @@ const Register = () => {
 				password2: state.password2
 			},
 			() => {
-				setState(prev => ({ ...prev, success: true }));
+				setState(() => ({ ...initialState, success: true }));
 			},
 			err => {
 				if (err.response) {
@@ -124,6 +125,9 @@ const Register = () => {
 					/>
 					<Button type="submit">Register</Button>
 					{state.errors.error && <Error>{state.errors.error}</Error>}
+					{state.success && (
+						<Success>Your account registration was successful!</Success>
+					)}
 				</form>
 				<RouterLink to="/auth/login">Go back to login</RouterLink>
 			</Box>
