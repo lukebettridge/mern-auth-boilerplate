@@ -226,6 +226,7 @@ const Table = styled.table`
 	border-collapse: collapse;
 	border-spacing: 0;
 	color: #444444;
+	table-layout: fixed;
 	width: 100%;
 
 	thead {
@@ -272,6 +273,15 @@ const Table = styled.table`
 		border-bottom: 0;
 		font-size: 10pt;
 		line-height: 20px;
+	}
+
+	th {
+		width: 150px;
+	}
+
+	td {
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 
 	th,

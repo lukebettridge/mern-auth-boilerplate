@@ -79,6 +79,7 @@ exports[`Accounts component snapshot renders 1`] = `
   border-collapse: collapse;
   border-spacing: 0;
   color: #444444;
+  table-layout: fixed;
   width: 100%;
 }
 
@@ -119,6 +120,15 @@ exports[`Accounts component snapshot renders 1`] = `
   border-bottom: 0;
   font-size: 10pt;
   line-height: 20px;
+}
+
+.c20 th {
+  width: 150px;
+}
+
+.c20 td {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .c20 th,
@@ -2148,9 +2158,9 @@ exports[`Accounts component snapshot renders 1`] = `
                               "isStatic": false,
                               "lastClassName": "c20",
                               "rules": Array [
-                                "border-collapse:collapse;border-spacing:0;color:#444444;width:100%;thead{tr{background-color:transparent;border-color:transparent;th{color:#7f90a0;font-size:9pt;letter-spacing:1px;line-height:15px;text-transform:uppercase;}}}tbody{tr{background-color:#ffffff;border:1px solid #e9ecef;transition:background-color 0.3s;@media (min-width:",
+                                "border-collapse:collapse;border-spacing:0;color:#444444;table-layout:fixed;width:100%;thead{tr{background-color:transparent;border-color:transparent;th{color:#7f90a0;font-size:9pt;letter-spacing:1px;line-height:15px;text-transform:uppercase;}}}tbody{tr{background-color:#ffffff;border:1px solid #e9ecef;transition:background-color 0.3s;@media (min-width:",
                                 "768px",
-                                "){cursor:pointer;&:hover{background-color:#f4f6f7;}}th{color:#546b81;text-align:left;text-transform:uppercase;}td{background-color:inherit;}}}tr{border-bottom:0;font-size:10pt;line-height:20px;}th,td{border:0;padding:20px;text-align:left;vertical-align:middle;}",
+                                "){cursor:pointer;&:hover{background-color:#f4f6f7;}}th{color:#546b81;text-align:left;text-transform:uppercase;}td{background-color:inherit;}}}tr{border-bottom:0;font-size:10pt;line-height:20px;}th{width:150px;}td{text-overflow:ellipsis;overflow:hidden;}th,td{border:0;padding:20px;text-align:left;vertical-align:middle;}",
                               ],
                             },
                             "displayName": "styles__Table",
