@@ -1,16 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select component snapshot renders 1`] = `
-<styles__SelectContainer
-  className="selectContainer"
+<styles__Container
+  classNamePrefix="react-select"
+  inError={false}
+  isCreatable={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
   options={Array []}
   placeholder=""
+  styles={
+    Object {
+      "multiValue": [Function],
+      "multiValueLabel": [Function],
+      "multiValueRemove": [Function],
+    }
+  }
 >
-  <styles__Select
+  <styles__SelectContainer
     classNamePrefix="react-select"
     inError={false}
+    isCreatable={false}
     onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     options={Array []}
     placeholder=""
     styles={
@@ -20,6 +34,24 @@ exports[`Select component snapshot renders 1`] = `
         "multiValueRemove": [Function],
       }
     }
-  />
-</styles__SelectContainer>
+  >
+    <styles__Select
+      classNamePrefix="react-select"
+      inError={false}
+      isCreatable={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      options={Array []}
+      placeholder=""
+      styles={
+        Object {
+          "multiValue": [Function],
+          "multiValueLabel": [Function],
+          "multiValueRemove": [Function],
+        }
+      }
+    />
+  </styles__SelectContainer>
+</styles__Container>
 `;
