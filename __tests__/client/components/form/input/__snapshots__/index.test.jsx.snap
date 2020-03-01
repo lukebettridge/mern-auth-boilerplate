@@ -13,7 +13,6 @@ exports[`Input component snapshot renders 1`] = `
     onFocus={[Function]}
     placeholder=""
     type="text"
-    value=""
   />
 </styles__InputContainer>
 `;

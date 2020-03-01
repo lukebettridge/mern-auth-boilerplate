@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import { pattern } from "client/utils";
-import { Paragraph } from "components/styles";
+import { Paragraph, Success } from "components/styles";
 import Modal from "components/modal";
 import Input from "components/form/input";
 import Button from "components/form/button";
@@ -43,8 +43,7 @@ const ResetPasswordModal = props => {
 		utils.resetPassword(
 			state.email,
 			() => {
-				setState(prev => ({ ...prev, success: true }));
-				props.close();
+				setState(() => ({ ...initialState, success: true }));
 			},
 			err => {
 				if (err.response) {
@@ -78,6 +77,9 @@ const ResetPasswordModal = props => {
 				/>
 				<Button type="submit">Submit</Button>
 				{state.errors.error && <Error>{state.errors.error}</Error>}
+				{state.success && (
+					<Success>Your password reset request was successful!</Success>
+				)}
 			</form>
 		</Modal>
 	);

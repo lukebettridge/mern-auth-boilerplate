@@ -12,8 +12,7 @@ import * as S from "./styles";
 const Input = forwardRef((props, ref) => {
 	const [state, setState] = useState({
 		error: props.error || "",
-		focused: false,
-		value: props.value || ""
+		focused: false
 	});
 
 	useEffect(() => {
@@ -21,7 +20,7 @@ const Input = forwardRef((props, ref) => {
 		setState(prev => ({ ...prev, error }));
 	}, [props.error]);
 
-	useImperativeHandle(ref, () => ({ validate, value: state.value }));
+	useImperativeHandle(ref, () => ({ validate }));
 
 	const onBlur = e => {
 		setState(prev => ({ ...prev, focused: false }));
@@ -30,7 +29,7 @@ const Input = forwardRef((props, ref) => {
 	};
 
 	const onChange = e => {
-		const value = e.target ? e.target.value : state.value;
+		const { value } = e.target;
 		setState(prev => ({ ...prev, error: "", value }));
 		if (props.onChange) props.onChange(e);
 	};
@@ -68,7 +67,7 @@ const Input = forwardRef((props, ref) => {
 						: props.placeholder
 				}
 				ref={ref}
-				value={state.value}
+				value={props.value}
 			/>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && (

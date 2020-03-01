@@ -1,63 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Register component snapshot renders 1`] = `
-.c5 {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 1px solid #e9ecef;
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 11pt;
-  font-weight: 300;
-  margin-bottom: 8px;
-  outline: none;
-  padding: 12px 10px;
-  -webkit-transition: border-color 100ms;
-  transition: border-color 100ms;
-  width: 100%;
-}
-
-.c5:hover {
-  border-color: #b3b3b3;
-}
-
-.c5:focus {
-  border-color: #2684ff;
-}
-
-.c5:focus + label {
-  font-size: 75%;
-  -webkit-transform: translate3d(0,-100%,0);
-  -ms-transform: translate3d(0,-100%,0);
-  transform: translate3d(0,-100%,0);
-  opacity: 1;
-}
-
-.c4 {
-  position: relative;
-  width: 100%;
-  margin-top: 30px;
-}
-
-.c7 {
-  position: relative;
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.c6 {
-  left: 0;
-  opacity: 0.5;
-  font-weight: 300;
-  padding-left: 10px;
-  padding-top: 10px;
-  position: absolute;
-  top: 0;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
-}
-
 .c2 {
   background-color: #ffffff;
   border: 1px solid #e9ecef;
@@ -145,6 +88,63 @@ exports[`Register component snapshot renders 1`] = `
   margin-bottom: 0;
 }
 
+.c5 {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #e9ecef;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 11pt;
+  font-weight: 300;
+  margin-bottom: 8px;
+  outline: none;
+  padding: 12px 10px;
+  -webkit-transition: border-color 100ms;
+  transition: border-color 100ms;
+  width: 100%;
+}
+
+.c5:hover {
+  border-color: #b3b3b3;
+}
+
+.c5:focus {
+  border-color: #2684ff;
+}
+
+.c5:focus + label {
+  font-size: 75%;
+  -webkit-transform: translate3d(0,-100%,0);
+  -ms-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+  opacity: 1;
+}
+
+.c4 {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.c7 {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.c6 {
+  left: 0;
+  opacity: 0.5;
+  font-weight: 300;
+  padding-left: 10px;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
 .c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -179,18 +179,6 @@ exports[`Register component snapshot renders 1`] = `
 }
 
 @media (min-width:768px) {
-  .c4 {
-    min-width: 250px;
-  }
-}
-
-@media (min-width:768px) {
-  .c7 {
-    min-width: 250px;
-  }
-}
-
-@media (min-width:768px) {
   .c2 {
     padding: 54px 80px;
     padding-bottom: 50px;
@@ -207,6 +195,18 @@ exports[`Register component snapshot renders 1`] = `
 @media (min-width:768px) {
   .c0 {
     max-width: 700px;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    min-width: 250px;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    min-width: 250px;
   }
 }
 
@@ -474,7 +474,6 @@ exports[`Register component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -656,7 +655,6 @@ exports[`Register component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -836,7 +834,6 @@ exports[`Register component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -1016,7 +1013,6 @@ exports[`Register component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -1204,7 +1200,6 @@ exports[`Register component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
