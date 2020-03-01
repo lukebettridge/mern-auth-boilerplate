@@ -1796,7 +1796,6 @@ exports[`Accounts component snapshot renders 1`] = `
                                         placeholder="Search Term"
                                         secondary={true}
                                         type="text"
-                                        value=""
                                       >
                                         <StyledComponent
                                           forwardedComponent={
@@ -1828,7 +1827,6 @@ exports[`Accounts component snapshot renders 1`] = `
                                             Object {
                                               "current": Object {
                                                 "validate": [Function],
-                                                "value": "",
                                               },
                                             }
                                           }
@@ -1839,7 +1837,6 @@ exports[`Accounts component snapshot renders 1`] = `
                                           placeholder="Search Term"
                                           secondary={true}
                                           type="text"
-                                          value=""
                                         >
                                           <input
                                             className="c17"
@@ -1848,7 +1845,6 @@ exports[`Accounts component snapshot renders 1`] = `
                                             onFocus={[Function]}
                                             placeholder="Search Term"
                                             type="text"
-                                            value=""
                                           />
                                         </StyledComponent>
                                       </styles__Input>

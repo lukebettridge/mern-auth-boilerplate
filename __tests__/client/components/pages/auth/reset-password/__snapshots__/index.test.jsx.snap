@@ -477,7 +477,6 @@ exports[`ResetPassword component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
@@ -665,7 +664,6 @@ exports[`ResetPassword component snapshot renders 1`] = `
                                 Object {
                                   "current": Object {
                                     "validate": [Function],
-                                    "value": "",
                                   },
                                 }
                               }
