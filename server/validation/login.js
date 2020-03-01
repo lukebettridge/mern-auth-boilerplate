@@ -3,7 +3,7 @@ const Validator = require("validator");
 module.exports = data => {
 	const errors = {};
 
-	data.email = data.email.replace(/^\s+|\s+$/g, "");
+	data.email = data.email.replace(/^\s+|\s+$/g, "").toLowerCase();
 	data.password = data.password.replace(/^\s+|\s+$/g, "");
 
 	if (Validator.isEmpty(data.email)) {

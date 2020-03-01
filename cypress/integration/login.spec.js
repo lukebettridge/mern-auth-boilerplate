@@ -90,6 +90,13 @@ describe("Login", () => {
 	});
 
 	context("Reusable 'login' custom command", () => {
+		it("can login with uppercase email", () => {
+			cy.login(user.email.toUpperCase(), user.password);
+			cy.visit(`${Cypress.env("baseUrl")}/home`);
+
+			cy.get("[data-cy=user]").should("contain", user.forename);
+		});
+
 		it("can visit /home", () => {
 			cy.login(user.email, user.password);
 			cy.visit(`${Cypress.env("baseUrl")}/home`);

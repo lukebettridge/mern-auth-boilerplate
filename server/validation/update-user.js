@@ -5,7 +5,7 @@ module.exports = data => {
 
 	data.forename = data.forename.replace(/^\s+|\s+$/g, "");
 	data.surname = data.surname.replace(/^\s+|\s+$/g, "");
-	data.email = data.email.replace(/^\s+|\s+$/g, "");
+	data.email = data.email.replace(/^\s+|\s+$/g, "").toLowerCase();
 
 	if (Validator.isEmpty(data.forename)) {
 		errors.forename = "Forename field is required";

@@ -50,4 +50,15 @@ describe("login validation", () => {
 			expect(output).toEqual(expected);
 		});
 	});
+
+	it("email to lowercase", () => {
+		const input = {
+			email: "HELLO@EXAMPLE.COM",
+			password: "password"
+		};
+
+		const output = validate(input);
+		expect(output).toEqual({ errors: {}, isValid: true });
+		expect(input.email).toEqual("hello@example.com");
+	});
 });
