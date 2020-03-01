@@ -22,6 +22,12 @@ describe("Input utility methods", () => {
 				{ pattern: /^([^0-9]*)$/, value: "John1" },
 				"Forename field is invalid"
 			],
+			["entry is valid", { pattern: /^([^0-9]*)$/, value: "John" }, ""],
+			[
+				"entry is empty but valid",
+				{ isRequired: false, pattern: /^([^0-9]*)$/, value: "" },
+				""
+			],
 			[
 				"entry is smaller than range",
 				{ friendlyName: "Age", max: 100, min: 1, value: "0" },
