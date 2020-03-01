@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import toJSON from "enzyme-to-json";
 
 import * as S from "components/form/select/styles";
-import Select from "components/form/select";
+import { Select } from "components/form/select";
 
 describe("Select component", () => {
 	it("snapshot renders", () => {
@@ -26,6 +26,60 @@ describe("Select component", () => {
 		expect(subject.find(S.Error).text()).toEqual("foo");
 	});
 
+	it("renders creatable", () => {
+		const subject = shallow(<Select isCreatable />);
+
+		expect(subject.find(S.CreatableSelect).length).toEqual(1);
+	});
+
+	it("calls handleCreate", () => {
+		const client = {
+			mutate: jest.fn(),
+			then: jest.fn()
+		};
+		const mutation = jest.fn();
+		const onChange = jest.fn();
+		client.mutate.mockReturnValue(client);
+		mutation.mockReturnValue("bar");
+		const subject = shallow(
+			<Select
+				client={client}
+				isCreatable
+				mutation={mutation}
+				name="creatable-select"
+				onChange={onChange}
+			/>
+		);
+
+		subject
+			.find(S.CreatableSelect)
+			.props()
+			.onCreateOption("foo");
+		client.then.mock.calls[0][0]({ data: { a: "value" } });
+
+		expect(mutation).toHaveBeenCalledWith("foo");
+		expect(client.mutate).toHaveBeenCalledWith("bar");
+		expect(client.then).toHaveBeenCalledWith(expect.any(Function));
+
+		expect(onChange).toHaveBeenCalledWith({
+			target: { name: "creatable-select", value: "value" }
+		});
+	});
+
+	it("doesn't call mutate with no mutation prop", () => {
+		const client = {
+			mutate: jest.fn()
+		};
+		const subject = shallow(<Select client={client} isCreatable />);
+
+		subject
+			.find(S.CreatableSelect)
+			.props()
+			.onCreateOption("foo");
+
+		expect(client.mutate).not.toHaveBeenCalled();
+	});
+
 	it("calls onBlur prop", () => {
 		const onBlurMock = jest.fn();
 		const subject = shallow(<Select onBlur={onBlurMock} />);
@@ -33,14 +87,6 @@ describe("Select component", () => {
 		subject.find(S.Select).simulate("blur", "foo");
 
 		expect(onBlurMock).toHaveBeenCalledWith("foo");
-	});
-
-	it("does not call onBlur prop", () => {
-		const subject = shallow(<Select />);
-
-		subject.find(S.Select).simulate("blur", "foo");
-
-		expect(subject.props().onBlur).toBeUndefined();
 	});
 
 	it("calls onChange prop", () => {
@@ -119,14 +165,6 @@ describe("Select component", () => {
 				value: [{ isFixed: true, value: "bar" }]
 			}
 		});
-	});
-
-	it("does not call onChange prop", () => {
-		const subject = shallow(<Select name="foo" />);
-
-		subject.find(S.Select).simulate("change", "bar");
-
-		expect(subject.props().onChange).toBeUndefined();
 	});
 
 	describe("react-select styles prop", () => {

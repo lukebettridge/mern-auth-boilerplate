@@ -5,13 +5,16 @@ import React, {
 	useState
 } from "react";
 import PropTypes from "prop-types";
+import { withApollo } from "react-apollo";
 
 import * as utils from "./utils";
 import * as S from "./styles";
 
 const Select = forwardRef((props, ref) => {
 	const [state, setState] = useState({
-		error: props.error || ""
+		error: props.error || "",
+		focused: false,
+		isLoading: false
 	});
 
 	useEffect(() => {
@@ -51,6 +54,11 @@ const Select = forwardRef((props, ref) => {
 			});
 	};
 
+	const onFocus = e => {
+		setState(prev => ({ ...prev, focused: true }));
+		if (props.onFocus) props.onFocus(e);
+	};
+
 	const validate = (onBlur = false) => {
 		const error = utils.validate(props);
 		setState(prev => ({
@@ -65,6 +73,15 @@ const Select = forwardRef((props, ref) => {
 		return values
 			?.filter(v => v.isFixed)
 			.concat(values?.filter(v => !v.isFixed));
+	};
+
+	const handleCreate = value => {
+		if (!props.mutation) return;
+		setState(prev => ({ ...prev, isLoading: true }));
+		props.client.mutate(props.mutation(value)).then(result => {
+			onChange(result.data[Object.keys(result.data)[0]]);
+			setState(prev => ({ ...prev, isLoading: false }));
+		});
 	};
 
 	const styles = {
@@ -84,47 +101,66 @@ const Select = forwardRef((props, ref) => {
 	};
 
 	const id = props.id || props.name;
+	const selectProps = {
+		...props,
+		classNamePrefix: "react-select",
+		id,
+		inError: !!state.error,
+		onBlur,
+		onChange,
+		onFocus,
+		options: orderOptions(props.options),
+		ref,
+		styles
+	};
 
 	return (
-		<S.SelectContainer className="selectContainer" {...props}>
-			<S.Select
-				{...props}
-				classNamePrefix="react-select"
-				id={id}
-				inError={!!state.error}
-				onBlur={onBlur}
-				onChange={onChange}
-				options={orderOptions(props.options)}
-				ref={ref}
-				styles={styles}
-			/>
+		<S.Container {...selectProps}>
+			<S.SelectContainer {...selectProps}>
+				{props.isCreatable ? (
+					<S.CreatableSelect
+						isClearable
+						isLoading={state.isLoading}
+						onCreateOption={handleCreate}
+						{...selectProps}
+					/>
+				) : (
+					<S.Select {...selectProps} />
+				)}
+			</S.SelectContainer>
 			{props.label && <S.Label htmlFor={id}>{props.label}</S.Label>}
 			{!!state.error && <S.Error>{state.error}</S.Error>}
-		</S.SelectContainer>
+		</S.Container>
 	);
 });
 
 Select.propTypes = {
+	client: PropTypes.object,
 	error: PropTypes.string,
-	forwardRef: PropTypes.any,
 	friendlyName: PropTypes.string,
 	id: PropTypes.string,
 	isClearable: PropTypes.bool,
+	isCreatable: PropTypes.bool,
 	isMulti: PropTypes.bool,
 	isRequired: PropTypes.bool,
 	isSearchable: PropTypes.bool,
 	label: PropTypes.string,
+	mutation: PropTypes.func,
 	name: PropTypes.string,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
 	options: PropTypes.array.isRequired,
 	placeholder: PropTypes.string,
 	value: PropTypes.any
 };
 
 Select.defaultProps = {
+	isCreatable: false,
 	options: [],
 	placeholder: ""
 };
 
-export default Select;
+export { Select };
+
+export default withApollo(Select, { withRef: true });
