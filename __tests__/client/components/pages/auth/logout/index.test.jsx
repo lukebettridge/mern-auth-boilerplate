@@ -42,7 +42,7 @@ describe("Logout component", () => {
 		expect(toJSON(subject)).toMatchSnapshot();
 	});
 
-	it("renders component", async () => {
+	it.skip("renders component", async () => {
 		mountWrapper();
 
 		await updateSubject();
