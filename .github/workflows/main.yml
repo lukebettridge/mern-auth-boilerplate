@@ -36,7 +36,7 @@ jobs:
           args: kubernetes cluster kubeconfig show k8s-1-16-6-do-0-lon1-1584220776791 > $GITHUB_WORKSPACE/.kubeconfig
 
       - name: Deploy to cluster
-        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/config/deployment.yml
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/config/deployment.yml -n stg
 
       - name: Verify deployment
-        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout status deployment/static-example
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout status deployment/mern-auth-boilerplate-nodeapp -n stg
