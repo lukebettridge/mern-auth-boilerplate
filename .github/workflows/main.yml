@@ -1,4 +1,4 @@
-name: Node CI
+name: K8S CI
 
 on: [push]
 
@@ -7,14 +7,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 8.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: "8.x"
-      - name: Install dependencies, build, and test
-        run: |
-          npm ci
-          npm run build --if-present
-          npm test
+
+      - name: Build container image
+        run: docker build -t registry.paddl.co.uk/mern-auth-boilerplate:$(echo $GITHUB_SHA | head -c7) .
+
+      - name: Registry authentication
         env:
-          CI: true
+          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+        run: docker login -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD registry.paddl.co.uk
+
+      - name: Push image
+        run: docker push registry.paddl.co.uk/mern-auth-boilerplate
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Update deployment file
+        run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.paddl.co.uk/mern-auth-boilerplate:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
+
+      - name: Save DigitalOcean kubeconfig
+        uses: digitalocean/action-doctl@master
+        env:
+          DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DO_ACCESS_TOKEN }}
+        with:
+          args: kubernetes cluster kubeconfig show k8s-1-16-6-do-0-lon1-1584220776791 > $GITHUB_WORKSPACE/.kubeconfig
+
+      - name: Deploy to cluster
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/config/deployment.yml
+
+      - name: Verify deployment
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout status deployment/static-example
