@@ -12,7 +12,6 @@ metadata:
     app.kubernetes.io/version: "1.0"
     helm.sh/chart: nodeapp-0.1.0
   name: mern-auth-boilerplate-nodeapp
-  selfLink: /apis/apps/v1/namespaces/stg/deployments/mern-auth-boilerplate-nodeapp
 spec:
   progressDeadlineSeconds: 600
   replicas: 1

@@ -1,6 +1,8 @@
-name: K8S CI
+name: K8S PROD
 
-on: [push]
+on:
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -9,7 +11,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build container image
-        run: docker build -t registry.paddl.co.uk/mern-auth-boilerplate:$(echo $GITHUB_SHA | head -c7) .
+        run: docker build -t registry.paddl.co.uk/mern-auth-boilerplate:$GITHUB_REF .
 
       - name: Registry authentication
         env:
@@ -26,7 +28,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Update deployment file
-        run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.paddl.co.uk/mern-auth-boilerplate:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
+        run: sed -i 's|<IMAGE>|registry.paddl.co.uk/mern-auth-boilerplate:$GITHUB_REF|' $GITHUB_WORKSPACE/config/deployment.yml
 
       - name: Save DigitalOcean kubeconfig
         uses: digitalocean/action-doctl@master
@@ -36,7 +38,7 @@ jobs:
           args: kubernetes cluster kubeconfig show k8s-1-16-6-do-0-lon1-1584220776791 > $GITHUB_WORKSPACE/.kubeconfig
 
       - name: Deploy to cluster
-        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/config/deployment.yml -n stg
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/config/deployment.yml -n prod
 
       - name: Verify deployment
-        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout status deployment/mern-auth-boilerplate-nodeapp -n stg
+        run: kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout status deployment/mern-auth-boilerplate-nodeapp -n prod
