@@ -1,0 +1,25 @@
+.DS_Store
+.env
+
+# logs
+logs
+*.log
+npm-debug.log.*
+
+# dependencies
+node_modules
+
+# test coverage
+coverage
+
+# cypress
+cypress
+cypress.env.json
+
+# git
+.git
+.gitignore
+
+# docker
+Dockerfile
+.dockerignore

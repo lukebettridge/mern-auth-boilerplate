@@ -1,3 +1,5 @@
+const url = require("url");
+
 const { mail, passwordHash, randomString } = require("../../utils");
 const validate = require("../../validation/reset-password");
 const User = require("../../src/models/User");
@@ -26,13 +28,17 @@ module.exports = {
 			user
 				.updateOne({ resetKey })
 				.then(() => {
-					const url = `${process.env.BASE_URL}/auth/reset-password/${resetKey}`;
+					const baseUrl = url.format({
+						protocol: req.protocol,
+						host: req.get("host")
+					});
+					const path = `${baseUrl}/auth/reset-password/${resetKey}`;
 					mail({
 						to: email,
 						subject: `${process.env.APP_NAME} - Your password reset request`,
 						text: `Hello ${user.forename},
 
-So, you've forgotten your password... no biggie, follow this link to set a new one: ${url}
+So, you've forgotten your password... no biggie, follow this link to set a new one: ${path}
 
 Thanks,
 The ${process.env.APP_NAME} Team`

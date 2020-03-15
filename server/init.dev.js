@@ -7,12 +7,7 @@ const { graphiqlExpress } = require("graphql-server-express");
 const compiler = webpack(config);
 
 module.exports = app => {
-	app.use(
-		cors({
-			origin: process.env.CORS_ORIGIN || process.env.BASE_URL,
-			credentials: true
-		})
-	);
+	app.use(cors({ origin: true, credentials: true }));
 	app.use(
 		"/graphiql",
 		graphiqlExpress({

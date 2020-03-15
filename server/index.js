@@ -8,6 +8,7 @@ const router = express.Router();
 
 require("dotenv").config();
 
+const db = require("./config/db");
 const routes = {
 	auth: require("./routes/auth")
 };
@@ -19,10 +20,7 @@ const typeDefs = require("./src/types");
 const PORT = process.env.PORT || 5000;
 
 mongoose
-	.connect(process.env.MONGO_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
+	.connect(db.url, db.options)
 	.then(() => console.log("MongoDB successfully connected"))
 	.catch(err => console.log(err));
 

@@ -1,13 +1,6 @@
-const fs = require("fs");
-const dotenv = require("dotenv");
-
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-let env = {};
-if (fs.existsSync(`${__dirname}/.env`))
-	env = dotenv.parse(fs.readFileSync(`${__dirname}/.env`));
 
 module.exports = {
 	entry: {
@@ -60,9 +53,6 @@ module.exports = {
 	plugins: [
 		new webpack.ProvidePlugin({
 			React: "react"
-		}),
-		new webpack.DefinePlugin({
-			"process.env.BASE_URL": JSON.stringify(env.BASE_URL)
 		}),
 		new HtmlWebpackPlugin({
 			template: "client/index.html",
