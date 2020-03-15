@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v1
+
       - name: Update deployment file
         run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.paddl.co.uk/mern-auth-boilerplate:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
