@@ -47,7 +47,7 @@ npm run dev
 Which can now be viewed in the browser at:
 
 ```
-http://localhost:3000/
+http://localhost:5000/
 ```
 
 ## Testing

@@ -6,7 +6,6 @@ const login = ({ email, password }, success, error) => {
 			"/api/auth/login",
 			{ email, password },
 			{
-				baseURL: process.env.BASE_URL,
 				withCredentials: true
 			}
 		)
@@ -17,7 +16,6 @@ const login = ({ email, password }, success, error) => {
 const resetPassword = (email, success, error) => {
 	axios
 		.get(`/api/auth/reset-password?email=${email}`, {
-			baseURL: process.env.BASE_URL,
 			withCredentials: true
 		})
 		.then(success)

@@ -8,9 +8,6 @@ jest.mock("axios", () => ({
 	catch: jest.fn()
 }));
 
-global.process.env = {
-	BASE_URL: "foo"
-};
 const success = jest.fn();
 const error = jest.fn();
 
@@ -33,15 +30,11 @@ describe("ResetPassword utility methods", () => {
 				error
 			);
 
-			expect(axios.post).toHaveBeenCalledWith(
-				"/api/auth/reset-password",
-				{
-					resetKey: "bar",
-					newPassword: "password",
-					newPassword2: "password"
-				},
-				{ baseURL: "foo" }
-			);
+			expect(axios.post).toHaveBeenCalledWith("/api/auth/reset-password", {
+				resetKey: "bar",
+				newPassword: "password",
+				newPassword2: "password"
+			});
 			expect(axios.then).toHaveBeenCalledWith(success);
 			expect(axios.catch).toHaveBeenCalledWith(error);
 		});

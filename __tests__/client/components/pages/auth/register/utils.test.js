@@ -8,9 +8,6 @@ jest.mock("axios", () => ({
 	catch: jest.fn()
 }));
 
-global.process.env = {
-	BASE_URL: "foo"
-};
 const success = jest.fn();
 const error = jest.fn();
 
@@ -35,17 +32,13 @@ describe("Register utility methods", () => {
 				error
 			);
 
-			expect(axios.post).toHaveBeenCalledWith(
-				"/api/auth/register",
-				{
-					forename: "John",
-					surname: "Doe",
-					email: "hello@example.com",
-					password: "password",
-					password2: "password"
-				},
-				{ baseURL: "foo" }
-			);
+			expect(axios.post).toHaveBeenCalledWith("/api/auth/register", {
+				forename: "John",
+				surname: "Doe",
+				email: "hello@example.com",
+				password: "password",
+				password2: "password"
+			});
 			expect(axios.then).toHaveBeenCalledWith(success);
 			expect(axios.catch).toHaveBeenCalledWith(error);
 		});
