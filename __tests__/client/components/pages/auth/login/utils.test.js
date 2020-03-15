@@ -9,9 +9,6 @@ jest.mock("axios", () => ({
 	catch: jest.fn()
 }));
 
-global.process.env = {
-	BASE_URL: "foo"
-};
 const success = jest.fn();
 const error = jest.fn();
 
@@ -35,7 +32,6 @@ describe("Login utility methods", () => {
 				"/api/auth/login",
 				{ email: "hello@example.com", password: "password" },
 				{
-					baseURL: "foo",
 					withCredentials: true
 				}
 			);
@@ -51,7 +47,6 @@ describe("Login utility methods", () => {
 			expect(axios.get).toHaveBeenCalledWith(
 				"/api/auth/reset-password?email=hello@example.com",
 				{
-					baseURL: "foo",
 					withCredentials: true
 				}
 			);

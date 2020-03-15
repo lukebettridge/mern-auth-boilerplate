@@ -31,8 +31,7 @@ const oldDate = new Date(0);
 const newDate = new Date(1);
 
 global.process.env = {
-	APP_NAME: "app",
-	BASE_URL: "http://example.com"
+	APP_NAME: "app"
 };
 
 describe("routes reset password (get)", () => {
@@ -46,6 +45,7 @@ describe("routes reset password (get)", () => {
 		res.status.mockReturnValue(res);
 		baseUser.updateOne.mockReturnValue(baseUser);
 		baseUser.then.mockReturnValue(baseUser);
+		req.get.mockReturnValue("example.com");
 	});
 
 	it("request password reset successfully", () => {
@@ -123,7 +123,9 @@ The app Team`
 	const req = {
 		query: {
 			email: "hello@example.com"
-		}
+		},
+		protocol: "http",
+		get: jest.fn()
 	};
 });
 

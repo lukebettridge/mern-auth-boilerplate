@@ -6,11 +6,13 @@ const register = (
 	error
 ) => {
 	axios
-		.post(
-			"/api/auth/register",
-			{ forename, surname, email, password, password2 },
-			{ baseURL: process.env.BASE_URL }
-		)
+		.post("/api/auth/register", {
+			forename,
+			surname,
+			email,
+			password,
+			password2
+		})
 		.then(success)
 		.catch(error);
 };
