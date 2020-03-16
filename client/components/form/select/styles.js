@@ -43,9 +43,7 @@ const Container = styled.div`
 	}
 
 	${props =>
-		props.value &&
-		props.value.length > 0 &&
-		(!Array.isArray(props.value) || props.value.length > 0) &&
+		props.label &&
 		css`
 			margin-top: 30px;
 		`}
