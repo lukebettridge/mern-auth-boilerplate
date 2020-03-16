@@ -1,9 +1,18 @@
 {
   "name": "mern-auth-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A template project using the MERN stack",
   "main": "server/index.js",
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukebettridge/mern-auth-boilerplate.git"
+  },
+  "author": {
+    "name": "PADDL LTD",
+    "email": "info@paddl.co.uk",
+    "url": "https://paddl.co.uk"
+  },
+  "license": "UNLICENSED",
   "scripts": {
     "build": "rm -rf build && NODE_ENV=production webpack -p --progress",
     "client": "webpack-dev-server --port 3000",
