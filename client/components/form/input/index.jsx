@@ -12,7 +12,8 @@ import * as S from "./styles";
 const Input = forwardRef((props, ref) => {
 	const [state, setState] = useState({
 		error: props.error || "",
-		focused: false
+		focused: false,
+		value: props.value || ""
 	});
 
 	useEffect(() => {

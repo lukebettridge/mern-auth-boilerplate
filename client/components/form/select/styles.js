@@ -14,6 +14,7 @@ const selectStyles = props => `
 	font-size: 12pt;
 	font-weight: 300;
 	min-height: 42px;
+	margin-bottom: 8px;
 	outline: none;
 	width: 100%;
 
@@ -42,7 +43,9 @@ const Container = styled.div`
 	}
 
 	${props =>
-		props.label &&
+		props.value &&
+		props.value.length > 0 &&
+		(!Array.isArray(props.value) || props.value.length > 0) &&
 		css`
 			margin-top: 30px;
 		`}
