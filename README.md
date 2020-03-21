@@ -1,7 +1,6 @@
 # MERN Boilerplate with Authentication
 
 ![Node CI](https://github.com/lukebettridge/mern-auth-boilerplate/workflows/Node%20CI/badge.svg)
-![Cypress E2E](https://github.com/lukebettridge/mern-auth-boilerplate/workflows/Cypress%20E2E/badge.svg)
 
 A boilerplate template project using the MongoDB, Express, React and Node.js technology stack.
 
