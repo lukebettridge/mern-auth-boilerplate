@@ -21,7 +21,11 @@ const typeDefs = require("./src/types");
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
 const lightship = createLightship();
+lightship.registerShutdownHandler(() => {
+	server.close();
+});
 
 mongoose
 	.connect(db.url, db.options)
