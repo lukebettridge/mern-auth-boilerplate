@@ -15,6 +15,7 @@ module.exports = {
 		connectTimeoutMS: 10000,
 		reconnectTries: 10,
 		reconnectInterval: 500,
-		useNewUrlParser: true
+		useNewUrlParser: true,
+		useUnifiedTopology: true
 	}
 };
