@@ -101,29 +101,29 @@ spec:
                   name: mern-auth-boilerplate-config
           image: <IMAGE>
           imagePullPolicy: IfNotPresent
-          livenessProbe:
-            failureThreshold: 3
+          readinessProbe:
             httpGet:
-              path: /
-              port: http
-              scheme: HTTP
-            periodSeconds: 10
+              path: /ready
+              port: 9000
+            failureThreshold: 1
+            initialDelaySeconds: 5
+            periodSeconds: 5
             successThreshold: 1
-            timeoutSeconds: 1
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: 9000
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 5
           name: nodeapp
           ports:
             - containerPort: 5000
               name: http
               protocol: TCP
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /
-              port: http
-              scheme: HTTP
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
           resources: {}
           securityContext: {}
           terminationMessagePath: /dev/termination-log
