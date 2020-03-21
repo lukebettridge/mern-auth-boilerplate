@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const mongoose = require("mongoose");
+const { createLightship } = require("lightship");
 const { ApolloServer } = require("apollo-server-express");
 const router = express.Router();
 
@@ -19,12 +20,22 @@ const typeDefs = require("./src/types");
 
 const PORT = process.env.PORT || 5000;
 
+const app = express();
+const lightship = createLightship();
+
 mongoose
 	.connect(db.url, db.options)
-	.then(() => console.log("MongoDB successfully connected"))
-	.catch(err => console.log(err));
-
-const app = express();
+	.then(() => {
+		console.log("MongoDB successfully connected");
+		mongoose.connection.on("disconnected", () => {
+			lightship.signalNotReady();
+		});
+		lightship.signalReady();
+	})
+	.catch(err => {
+		console.log(err);
+		lightship.signalNotReady();
+	});
 
 process.env.NODE_ENV !== "production"
 	? require("./init.dev")(app)
