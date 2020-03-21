@@ -13,8 +13,6 @@ module.exports = {
 		"admin"}${MONGO_REPLICASET ? `&replicaSet=${MONGO_REPLICASET}` : ""}`,
 	options: {
 		connectTimeoutMS: 10000,
-		reconnectTries: 10,
-		reconnectInterval: 500,
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	}
