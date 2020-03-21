@@ -1,6 +1,6 @@
 {
   "name": "mern-auth-boilerplate",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A template project using the MERN stack",
   "main": "server/index.js",
   "repository": {
